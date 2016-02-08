@@ -1,0 +1,630 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0">
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Pages name="Страницы" id="107">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ExtendedTooltip name="СтраницыExtendedTooltip" id="146"/>
+			<ChildItems>
+				<Page name="СтраницаОбщиеНастройки" id="108">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Общие настройки</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница общие настройки</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаОбщиеНастройкиExtendedTooltip" id="147"/>
+					<ChildItems>
+						<CommandBar name="ГруппаДополнительныеНастройки" id="135">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа дополнительные настройки</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа дополнительные настройки</v8:content>
+								</v8:item>
+							</ToolTip>
+							<ExtendedTooltip name="ГруппаДополнительныеНастройкиExtendedTooltip" id="148"/>
+							<ChildItems>
+								<Button name="НастройкаКриптографии" id="5">
+									<Type>CommandBarButton</Type>
+									<OnlyInAllActions>false</OnlyInAllActions>
+									<CommandName>Form.Command.НастройкаКриптографии</CommandName>
+									<Parameter xsi:nil="true"/>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Расширенная настройка криптографии</v8:content>
+										</v8:item>
+									</Title>
+									<ExtendedTooltip name="НастройкаКриптографииExtendedTooltip" id="149"/>
+								</Button>
+								<Button name="ИзменитьФорму" id="137">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+									<Parameter xsi:nil="true"/>
+									<ExtendedTooltip name="ИзменитьФормуExtendedTooltip" id="150"/>
+								</Button>
+								<Button name="Справка" id="136">
+									<Type>CommandBarButton</Type>
+									<CommandName>Form.StandardCommand.Help</CommandName>
+									<Parameter xsi:nil="true"/>
+									<ExtendedTooltip name="СправкаExtendedTooltip" id="151"/>
+								</Button>
+							</ChildItems>
+						</CommandBar>
+						<InputField name="ПровайдерЭЦП" id="127">
+							<DataPath>ПровайдерЭЦП</DataPath>
+							<Width>50</Width>
+							<ClearButton>true</ClearButton>
+							<QuickChoice>true</QuickChoice>
+							<ChoiceListButton>true</ChoiceListButton>
+							<BackColor>style:ФонУправляющегоПоля</BackColor>
+							<ContextMenu name="ПровайдерЭЦПКонтекстноеМеню" id="128"/>
+							<ExtendedTooltip name="ПровайдерЭЦПExtendedTooltip" id="152"/>
+							<Events>
+								<Event name="OnChange">ПровайдерЭЦППриИзменении</Event>
+								<Event name="ChoiceProcessing">ПровайдерЭЦПОбработкаВыбора</Event>
+							</Events>
+						</InputField>
+						<InputField name="ТипПровайдераЭЦП" id="129">
+							<DataPath>ТипПровайдераЭЦП</DataPath>
+							<BackColor>style:ФонУправляющегоПоля</BackColor>
+							<ContextMenu name="ТипПровайдераЭЦПКонтекстноеМеню" id="130"/>
+							<ExtendedTooltip name="ТипПровайдераЭЦПExtendedTooltip" id="153"/>
+							<Events>
+								<Event name="OnChange">ТипПровайдераЭЦППриИзменении</Event>
+							</Events>
+						</InputField>
+						<InputField name="АлгоритмПодписи" id="131">
+							<DataPath>АлгоритмПодписи</DataPath>
+							<ClearButton>false</ClearButton>
+							<ListChoiceMode>true</ListChoiceMode>
+							<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<TextEdit>false</TextEdit>
+							<ContextMenu name="АлгоритмПодписиКонтекстноеМеню" id="132"/>
+							<ExtendedTooltip name="АлгоритмПодписиExtendedTooltip" id="154"/>
+							<Events>
+								<Event name="OnChange">АлгоритмПодписиПриИзменении</Event>
+								<Event name="Clearing">АлгоритмПодписиОчистка</Event>
+							</Events>
+						</InputField>
+						<InputField name="АлгоритмХеширования" id="140">
+							<DataPath>АлгоритмХеширования</DataPath>
+							<ClearButton>false</ClearButton>
+							<ListChoiceMode>true</ListChoiceMode>
+							<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<TextEdit>false</TextEdit>
+							<ContextMenu name="АлгоритмХешированияКонтекстноеМеню" id="141"/>
+							<ExtendedTooltip name="АлгоритмХешированияExtendedTooltip" id="155"/>
+							<Events>
+								<Event name="OnChange">АлгоритмХешированияПриИзменении</Event>
+								<Event name="Clearing">АлгоритмХешированияОчистка</Event>
+							</Events>
+						</InputField>
+						<InputField name="АлгоритмШифрования" id="133">
+							<DataPath>АлгоритмШифрования</DataPath>
+							<ClearButton>false</ClearButton>
+							<ListChoiceMode>true</ListChoiceMode>
+							<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<TextEdit>false</TextEdit>
+							<ContextMenu name="АлгоритмШифрованияКонтекстноеМеню" id="134"/>
+							<ExtendedTooltip name="АлгоритмШифрованияExtendedTooltip" id="156"/>
+							<Events>
+								<Event name="OnChange">АлгоритмШифрованияПриИзменении</Event>
+								<Event name="Clearing">АлгоритмШифрованияОчистка</Event>
+							</Events>
+						</InputField>
+						<UsualGroup name="ГруппаКонтекст" id="122">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа контекст</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа контекст</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаКонтекстExtendedTooltip" id="157"/>
+							<ChildItems>
+								<LabelDecoration name="Отступ1" id="144">
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<ContextMenu name="Отступ1КонтекстноеМеню" id="145"/>
+									<ExtendedTooltip name="Отступ1ExtendedTooltip" id="158"/>
+								</LabelDecoration>
+								<InputField name="КонтекстКриптографии" id="118">
+									<DataPath>НаборКонстант.КонтекстКриптографии</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Выполнять криптографические операции</v8:content>
+										</v8:item>
+									</Title>
+									<ClearButton>false</ClearButton>
+									<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="КонтекстКриптографииКонтекстноеМеню" id="119"/>
+									<ExtendedTooltip name="КонтекстКриптографииExtendedTooltip" id="159"/>
+									<Events>
+										<Event name="OnChange">КонтекстКриптографииПриИзменении</Event>
+										<Event name="Clearing">КонтекстКриптографииОчистка</Event>
+									</Events>
+								</InputField>
+								<LabelDecoration name="ПояснениеВыполнятьКриптографическиеОперации" id="123">
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Место создания и проверки электронных подписей, шифрования и расшифровки данных.</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ПояснениеВыполнятьКриптографическиеОперацииКонтекстноеМеню" id="124"/>
+									<ExtendedTooltip name="ПояснениеВыполнятьКриптографическиеОперацииExtendedTooltip" id="160"/>
+								</LabelDecoration>
+								<LabelDecoration name="Отступ2" id="142">
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<ContextMenu name="Отступ2КонтекстноеМеню" id="143"/>
+									<ExtendedTooltip name="Отступ2ExtendedTooltip" id="161"/>
+								</LabelDecoration>
+								<InputField name="КонтекстАвторизации" id="120">
+									<DataPath>НаборКонстант.КонтекстАвторизации</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Выполнять авторизацию</v8:content>
+										</v8:item>
+									</Title>
+									<ClearButton>false</ClearButton>
+									<AutoChoiceIncomplete>true</AutoChoiceIncomplete>
+									<TextEdit>false</TextEdit>
+									<ContextMenu name="КонтекстАвторизацииКонтекстноеМеню" id="121"/>
+									<ExtendedTooltip name="КонтекстАвторизацииExtendedTooltip" id="162"/>
+									<Events>
+										<Event name="OnChange">КонтекстАвторизацииПриИзменении</Event>
+										<Event name="Clearing">КонтекстАвторизацииОчистка</Event>
+									</Events>
+								</InputField>
+								<LabelDecoration name="ПояснениеВыполнятьАвторизацию" id="125">
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Место выполнения авторизации для обмена через оператора ЭДО.</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ПояснениеВыполнятьАвторизациюКонтекстноеМеню" id="126"/>
+									<ExtendedTooltip name="ПояснениеВыполнятьАвторизациюExtendedTooltip" id="163"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаСертификатыЭЦП" id="117">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сертификаты электронных подписей</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Страница сертификаты ЭЦП</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаСертификатыЭЦПExtendedTooltip" id="164"/>
+					<ChildItems>
+						<Table name="Список" id="70">
+							<UseAlternationRowColor>true</UseAlternationRowColor>
+							<EnableStartDrag>true</EnableStartDrag>
+							<DataPath>Список</DataPath>
+							<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+							<CommandSet>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>Create</ExcludedCommand>
+								<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+								<ExcludedCommand>Choose</ExcludedCommand>
+								<ExcludedCommand>Delete</ExcludedCommand>
+							</CommandSet>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<AutoRefresh>false</AutoRefresh>
+							<AutoRefreshPeriod>60</AutoRefreshPeriod>
+							<Period>
+								<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+								<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+								<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+							</Period>
+							<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+							<RestoreCurrentRow>false</RestoreCurrentRow>
+							<TopLevelParent xsi:nil="true"/>
+							<ShowRoot>true</ShowRoot>
+							<AllowRootChoice>false</AllowRootChoice>
+							<UpdateOnDataChange>Auto</UpdateOnDataChange>
+							<ContextMenu name="СписокКонтекстноеМеню" id="71"/>
+							<AutoCommandBar name="СписокКоманднаяПанель" id="72">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Popup name="СписокГруппаДобавить" id="104">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Добавить сертификат</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Добавить</v8:content>
+											</v8:item>
+										</ToolTip>
+										<Picture>
+											<xr:Ref>StdPicture.CreateListItem</xr:Ref>
+											<xr:LoadTransparent>true</xr:LoadTransparent>
+										</Picture>
+										<Representation>PictureAndText</Representation>
+										<ExtendedTooltip name="СписокГруппаДобавитьExtendedTooltip" id="165"/>
+										<ChildItems>
+											<Button name="СписокСправочникСертификатыЭЦПЗагрузитьСертификатИзФайла" id="78">
+												<Type>CommandBarButton</Type>
+												<CommandName>Catalog.СертификатыЭЦП.Command.ЗагрузитьСертификатИзФайла</CommandName>
+												<Parameter xsi:nil="true"/>
+												<ExtendedTooltip name="СписокСправочникСертификатыЭЦПЗагрузитьСертификатИзФайлаExtendedTooltip" id="166"/>
+											</Button>
+											<Button name="СписокСправочникСертификатыЭЦПЗагрузитьСертификатИзХранилищаСертификатов" id="79">
+												<Type>CommandBarButton</Type>
+												<CommandName>Catalog.СертификатыЭЦП.Command.ЗагрузитьСертификатИзХранилищаСертификатов</CommandName>
+												<Parameter xsi:nil="true"/>
+												<ExtendedTooltip name="СписокСправочникСертификатыЭЦПЗагрузитьСертификатИзХранилищаСертификатовExtendedTooltip" id="167"/>
+											</Button>
+										</ChildItems>
+									</Popup>
+									<Button name="ФормаСправка" id="106">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.StandardCommand.Help</CommandName>
+										<Parameter xsi:nil="true"/>
+										<ExtendedTooltip name="ФормаСправкаExtendedTooltip" id="168"/>
+									</Button>
+									<ButtonGroup name="СписокГруппаСтандартныеКоманды" id="105">
+										<CommandSource>Item.Список</CommandSource>
+										<ExtendedTooltip name="СписокГруппаСтандартныеКомандыExtendedTooltip" id="169"/>
+									</ButtonGroup>
+									<ButtonGroup name="ГруппаКомандСертификатов" id="82">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Группа команд сертификатов</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Группа команд сертификатов</v8:content>
+											</v8:item>
+										</ToolTip>
+										<ExtendedTooltip name="ГруппаКомандСертификатовExtendedTooltip" id="170"/>
+										<ChildItems>
+											<Button name="СправочникСертификатыЭЦПСохранитьСертификатВФайл" id="77">
+												<Type>CommandBarButton</Type>
+												<Representation>Picture</Representation>
+												<CommandName>Catalog.СертификатыЭЦП.Command.СохранитьСертификатВФайл</CommandName>
+												<Parameter xsi:nil="true"/>
+												<DataPath>Items.Список.CurrentData.Ref</DataPath>
+												<ExtendedTooltip name="СправочникСертификатыЭЦПСохранитьСертификатВФайлExtendedTooltip" id="171"/>
+											</Button>
+										</ChildItems>
+									</ButtonGroup>
+									<ButtonGroup name="ГруппаКомандыФормы" id="83">
+										<Title>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Группа команды формы</v8:content>
+											</v8:item>
+										</Title>
+										<ToolTip>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>Группа команды формы</v8:content>
+											</v8:item>
+										</ToolTip>
+										<CommandSource>Form</CommandSource>
+										<ExtendedTooltip name="ГруппаКомандыФормыExtendedTooltip" id="172"/>
+									</ButtonGroup>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СписокExtendedTooltip" id="173"/>
+							<SearchStringAddition name="СписокSearchString" id="174">
+								<Source>
+									<lf:elementId>70</lf:elementId>
+									<lf:additionId>0</lf:additionId>
+								</Source>
+								<ContextMenu name="СписокSearchStringContextMenu" id="175"/>
+								<ExtendedTooltip name="СписокSearchStringExtendedTooltip" id="176"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокViewStatus" id="177">
+								<Source>
+									<lf:elementId>70</lf:elementId>
+									<lf:additionId>1</lf:additionId>
+								</Source>
+								<ContextMenu name="СписокViewStatusContextMenu" id="178"/>
+								<ExtendedTooltip name="СписокViewStatusExtendedTooltip" id="179"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокSearchControl" id="180">
+								<Source>
+									<lf:elementId>70</lf:elementId>
+									<lf:additionId>2</lf:additionId>
+								</Source>
+								<ContextMenu name="СписокSearchControlContextMenu" id="181"/>
+								<ExtendedTooltip name="СписокSearchControlExtendedTooltip" id="182"/>
+							</SearchControlAddition>
+							<ChildItems>
+								<LabelField name="СписокСсылка" id="73">
+									<DataPath>Список.Ref</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сертификат</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="СписокСсылкаКонтекстноеМеню" id="74"/>
+									<ExtendedTooltip name="СписокСсылкаExtendedTooltip" id="183"/>
+								</LabelField>
+								<LabelField name="СписокОрганизация" id="75">
+									<DataPath>Список.Организация</DataPath>
+									<ContextMenu name="СписокОрганизацияКонтекстноеМеню" id="76"/>
+									<ExtendedTooltip name="СписокОрганизацияExtendedTooltip" id="184"/>
+								</LabelField>
+								<LabelField name="СписокПользователь" id="102">
+									<DataPath>Список.Пользователь</DataPath>
+									<ContextMenu name="СписокПользовательКонтекстноеМеню" id="103"/>
+									<ExtendedTooltip name="СписокПользовательExtendedTooltip" id="185"/>
+								</LabelField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.ИспользоватьЭлектронныеЦифровыеПодписи</Item>
+			</FunctionalOptions>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>true</ManualQuery>
+				<DynamicDataRead>false</DynamicDataRead>
+				<QueryText>ВЫБРАТЬ
+	СертификатыЭЦП.Ссылка,
+	СертификатыЭЦП.Организация,
+	СертификатыЭЦП.Пользователь
+ИЗ
+	Справочник.СертификатыЭЦП КАК СертификатыЭЦП</QueryText>
+				<MainTable>Catalog.СертификатыЭЦП</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection/>
+							<dcsset:filter>
+								<dcsset:item xsi:type="dcsset:FilterItemGroup">
+									<dcsset:groupType>OrGroup</dcsset:groupType>
+									<dcsset:item xsi:type="dcsset:FilterItemComparison">
+										<dcsset:left xsi:type="dcscor:Field">Ссылка.Отозван</dcsset:left>
+										<dcsset:comparisonType>Equal</dcsset:comparisonType>
+										<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:FilterItemComparison">
+										<dcsset:left xsi:type="dcscor:Field">Ссылка.ПометкаУдаления</dcsset:left>
+										<dcsset:comparisonType>Equal</dcsset:comparisonType>
+										<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+									</dcsset:item>
+								</dcsset:item>
+							</dcsset:filter>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>TextColor</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:Color">style:ФайлЗанятыйДругимПользователем</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+		<Attribute name="ПровайдерЭЦП" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Провайдер ЭП</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТипПровайдераЭЦП" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип провайдера ЭП</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="АлгоритмПодписи" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Алгоритм подписи</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="АлгоритмШифрования" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Алгоритм шифрования</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="НаборКонстант" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Набор констант</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:ConstantsSet</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="АлгоритмХеширования" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Алгоритм хеширования</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СпискиАлгоритмовУспешноЗаполнены" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Списки алгоритмов успешно заполнены</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ЭтоПодчиненныйУзел" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Это подчиненный узел</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<View>
+				<xr:Common>false</xr:Common>
+			</View>
+			<Edit>
+				<xr:Common>false</xr:Common>
+			</Edit>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="НастройкаКриптографии" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Общая настройка криптографии</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройка криптографии</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>НастройкиКриптографии</Action>
+			<FunctionalOptions>
+				<Item>FunctionalOption.ИспользоватьЭлектронныеЦифровыеПодписи</Item>
+			</FunctionalOptions>
+		</Command>
+	</Commands>
+</Form>

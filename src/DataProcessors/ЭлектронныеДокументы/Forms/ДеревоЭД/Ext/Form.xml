@@ -1,0 +1,743 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Электронные документы</v8:content>
+		</v8:item>
+	</Title>
+	<Width>100</Width>
+	<AutoSaveDataInSettings>Use</AutoSaveDataInSettings>
+	<AutoTitle>false</AutoTitle>
+	<CommandBarLocation>Top</CommandBarLocation>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="Обновить" id="10">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>Form.Command.Обновить</CommandName>
+				<Parameter xsi:nil="true"/>
+				<Picture>
+					<xr:Ref>StdPicture.Refresh</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<ExtendedTooltip name="ОбновитьExtendedTooltip" id="46"/>
+			</Button>
+			<Button name="ЖурналСобытий" id="41">
+				<Type>CommandBarButton</Type>
+				<OnlyInAllActions>false</OnlyInAllActions>
+				<CommandName>Form.Command.ЖурналСобытий</CommandName>
+				<Parameter xsi:nil="true"/>
+				<Picture>
+					<xr:Ref>StdPicture.EventLog</xr:Ref>
+					<xr:LoadTransparent>true</xr:LoadTransparent>
+				</Picture>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Журнал событий ЭД</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ЖурналСобытийExtendedTooltip" id="47"/>
+			</Button>
+			<Button name="ФормаОбработкаЭлектронныеДокументыОтправитьИПолучитьЭД" id="43">
+				<Type>CommandBarButton</Type>
+				<OnlyInAllActions>false</OnlyInAllActions>
+				<CommandName>DataProcessor.ЭлектронныеДокументы.Command.ОтправитьИПолучитьЭД</CommandName>
+				<Parameter xsi:nil="true"/>
+				<ExtendedTooltip name="ФормаОбработкаЭлектронныеДокументыОтправитьИПолучитьЭДExtendedTooltip" id="48"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<UsualGroup name="ГруппаОтчет" id="14">
+			<Group>Vertical</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаОтчетExtendedTooltip" id="49"/>
+			<ChildItems>
+				<Table name="ДеревоПодчиненныеЭД" id="19">
+					<Representation>Tree</Representation>
+					<ChangeRowSet>false</ChangeRowSet>
+					<ChangeRowOrder>false</ChangeRowOrder>
+					<DataPath>ДеревоПодчиненныеЭД</DataPath>
+					<RowsPicture>
+						<xr:Ref>CommonPicture.ЗнакСтоп</xr:Ref>
+						<xr:LoadTransparent>false</xr:LoadTransparent>
+					</RowsPicture>
+					<SearchStringLocation>None</SearchStringLocation>
+					<ViewStatusLocation>None</ViewStatusLocation>
+					<SearchControlLocation>None</SearchControlLocation>
+					<ContextMenu name="ДеревоПодчиненныеЭДКонтекстноеМеню" id="20"/>
+					<AutoCommandBar name="ДеревоПодчиненныеЭДКоманднаяПанель" id="21">
+						<Autofill>false</Autofill>
+					</AutoCommandBar>
+					<ExtendedTooltip name="ДеревоПодчиненныеЭДExtendedTooltip" id="50"/>
+					<SearchStringAddition name="ДеревоПодчиненныеЭДSearchString" id="51">
+						<Source>
+							<lf:elementId>19</lf:elementId>
+							<lf:additionId>0</lf:additionId>
+						</Source>
+						<ContextMenu name="ДеревоПодчиненныеЭДSearchStringContextMenu" id="52"/>
+						<ExtendedTooltip name="ДеревоПодчиненныеЭДSearchStringExtendedTooltip" id="53"/>
+					</SearchStringAddition>
+					<ViewStatusAddition name="ДеревоПодчиненныеЭДViewStatus" id="54">
+						<Source>
+							<lf:elementId>19</lf:elementId>
+							<lf:additionId>1</lf:additionId>
+						</Source>
+						<ContextMenu name="ДеревоПодчиненныеЭДViewStatusContextMenu" id="55"/>
+						<ExtendedTooltip name="ДеревоПодчиненныеЭДViewStatusExtendedTooltip" id="56"/>
+					</ViewStatusAddition>
+					<SearchControlAddition name="ДеревоПодчиненныеЭДSearchControl" id="57">
+						<Source>
+							<lf:elementId>19</lf:elementId>
+							<lf:additionId>2</lf:additionId>
+						</Source>
+						<ContextMenu name="ДеревоПодчиненныеЭДSearchControlContextMenu" id="58"/>
+						<ExtendedTooltip name="ДеревоПодчиненныеЭДSearchControlExtendedTooltip" id="59"/>
+					</SearchControlAddition>
+					<Events>
+						<Event name="Selection">ДеревоПодчиненныеЭДВыбор</Event>
+						<Event name="BeforeRowChange">ДеревоПодчиненныеЭДПередНачаломИзменения</Event>
+					</Events>
+					<ChildItems>
+						<InputField name="ДеревоПодчиненныеЭДПредставление" id="22">
+							<DataPath>ДеревоПодчиненныеЭД.Представление</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Электронный документ</v8:content>
+								</v8:item>
+							</Title>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДеревоПодчиненныеЭДПредставлениеКонтекстноеМеню" id="23"/>
+							<ExtendedTooltip name="ДеревоПодчиненныеЭДПредставлениеExtendedTooltip" id="60"/>
+						</InputField>
+						<InputField name="ДеревоПодчиненныеЭДВерсия" id="44">
+							<DataPath>ДеревоПодчиненныеЭД.Версия</DataPath>
+							<EditMode>EnterOnInput</EditMode>
+							<ContextMenu name="ДеревоПодчиненныеЭДВерсияКонтекстноеМеню" id="45"/>
+							<ExtendedTooltip name="ДеревоПодчиненныеЭДВерсияExtendedTooltip" id="61"/>
+						</InputField>
+						<ColumnGroup name="ГруппаСтатус" id="38">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа статус</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа статус</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>InCell</Group>
+							<ExtendedTooltip name="ГруппаСтатусExtendedTooltip" id="62"/>
+							<ChildItems>
+								<InputField name="ДеревоПодчиненныеЭДСтатусЭД" id="36">
+									<DataPath>ДеревоПодчиненныеЭД.СтатусЭД</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Статус электронного документа</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДеревоПодчиненныеЭДСтатусЭДКонтекстноеМеню" id="37"/>
+									<ExtendedTooltip name="ДеревоПодчиненныеЭДСтатусЭДExtendedTooltip" id="63"/>
+								</InputField>
+								<InputField name="ДеревоПодчиненныеЭДДатаИзмененияСтатусаЭД" id="39">
+									<DataPath>ДеревоПодчиненныеЭД.ДатаИзмененияСтатусаЭД</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>дата изменения</v8:content>
+										</v8:item>
+									</Title>
+									<TitleLocation>None</TitleLocation>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="ДеревоПодчиненныеЭДДатаИзмененияСтатусаЭДКонтекстноеМеню" id="40"/>
+									<ExtendedTooltip name="ДеревоПодчиненныеЭДДатаИзмененияСтатусаЭДExtendedTooltip" id="64"/>
+								</InputField>
+							</ChildItems>
+						</ColumnGroup>
+						<ColumnGroup name="Действия" id="42">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Действия</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Действия</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<HeaderHorizontalAlign>Center</HeaderHorizontalAlign>
+							<ExtendedTooltip name="ДействияExtendedTooltip" id="65"/>
+							<ChildItems>
+								<LabelField name="ДеревоПодчиненныеЭДОжидаемоеДействие" id="32">
+									<DataPath>ДеревоПодчиненныеЭД.ОжидаемоеДействие</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Действия с нашей стороны</v8:content>
+										</v8:item>
+									</Title>
+									<EditMode>Directly</EditMode>
+									<CellHyperlink>true</CellHyperlink>
+									<Width>25</Width>
+									<Hiperlink>true</Hiperlink>
+									<ContextMenu name="ДеревоПодчиненныеЭДОжидаемоеДействиеКонтекстноеМеню" id="33"/>
+									<ExtendedTooltip name="ДеревоПодчиненныеЭДОжидаемоеДействиеExtendedTooltip" id="66"/>
+								</LabelField>
+								<InputField name="ДеревоПодчиненныеЭДОжидаемоеДействиеКонтрагента" id="34">
+									<DataPath>ДеревоПодчиненныеЭД.ОжидаемоеДействиеКонтрагента</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Ожидаем от других участников</v8:content>
+										</v8:item>
+									</Title>
+									<TitleHeight>2</TitleHeight>
+									<EditMode>EnterOnInput</EditMode>
+									<Width>30</Width>
+									<ContextMenu name="ДеревоПодчиненныеЭДОжидаемоеДействиеКонтрагентаКонтекстноеМеню" id="35"/>
+									<ExtendedTooltip name="ДеревоПодчиненныеЭДОжидаемоеДействиеКонтрагентаExtendedTooltip" id="67"/>
+								</InputField>
+							</ChildItems>
+						</ColumnGroup>
+					</ChildItems>
+				</Table>
+			</ChildItems>
+		</UsualGroup>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ДеревоПодчиненныеЭД" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дерево подчиненные ЭД</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTree</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Представление" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Представление</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Ссылка" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ссылка</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:TypeSet>cfg:AnyRef</v8:TypeSet>
+					</Type>
+				</Column>
+				<Column name="ПометкаУдаления" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Пометка удаления</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="СтатусЭД" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статус ЭД</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.СтатусыЭД</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ДатаИзмененияСтатусаЭД" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата изменения статуса ЭД</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="НаправлениеЭД" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Направление ЭД</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.НаправленияЭД</v8:Type>
+					</Type>
+				</Column>
+				<Column name="СостояниеЭД" id="8">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Состояние ЭД</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="СледующееСостояниеЭД" id="9">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Следующее состояние ЭД</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="ТипЭД" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Тип ЭД</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.ТипыЭлементовВерсииЭД</v8:Type>
+					</Type>
+				</Column>
+				<Column name="СтрокаДоступна" id="11">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Строка доступна</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ОжидаемоеДействие" id="12">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ожидаемое действие</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.ОжидаемоеДействиеЭД</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ВидЭД" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид ЭД</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.ВидыЭД</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ОжидаемоеДействиеКонтрагента" id="13">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ожидаемое действие контрагента</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<Column name="Версия" id="14">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Версия</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="АктуальныйЭД" id="15">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Актуальный ЭД</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ДатаЭДБольшеАктуального" id="16">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата ЭД больше актуального</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="ОбъектСсылка" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объект ссылка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:TypeSet>cfg:AnyRef</v8:TypeSet>
+			</Type>
+		</Attribute>
+		<Attribute name="Объект" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объект</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.ЭлектронныеДокументы</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="НастройкиОбмена" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки обмена</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+		<Attribute name="ДатаАктуальногоЭД" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата актуального ЭД</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СписокИдентификаторов" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список идентификаторов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueListType</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИндексИД" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Индекс ИД</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИсходныйДокумент" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Исходный документ</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ЭДПрисоединенныеФайлы</v8:Type>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ДеревоПодчиненныеЭД</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>AndGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ДеревоПодчиненныеЭД.Ссылка</dcsset:left>
+							<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemComparison">
+							<dcsset:left xsi:type="dcscor:Field">ДеревоПодчиненныеЭД.СтрокаДоступна</dcsset:left>
+							<dcsset:comparisonType>Equal</dcsset:comparisonType>
+							<dcsset:right xsi:type="xs:boolean">false</dcsset:right>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>BackColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">style:ФайлЗанятыйДругимПользователем</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#808080</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:use>false</dcscor:use>
+						<dcscor:parameter>Text</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string">&lt;Не сформирован&gt;</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ДеревоПодчиненныеЭДСтатусЭД</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemGroup">
+						<dcsset:groupType>OrGroup</dcsset:groupType>
+						<dcsset:item xsi:type="dcsset:FilterItemGroup">
+							<dcsset:groupType>AndGroup</dcsset:groupType>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">ДеревоПодчиненныеЭД.ТипЭД</dcsset:left>
+								<dcsset:comparisonType>NotInList</dcsset:comparisonType>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ТипыЭлементовВерсииЭД.ЭСФ</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">ДеревоПодчиненныеЭД.СтатусЭД</dcsset:left>
+								<dcsset:comparisonType>InList</dcsset:comparisonType>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СтатусыЭД.Получен</dcsset:right>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СтатусыЭД.ПереданОператору</dcsset:right>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СтатусыЭД.Отправлен</dcsset:right>
+							</dcsset:item>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemGroup">
+							<dcsset:groupType>AndGroup</dcsset:groupType>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">ДеревоПодчиненныеЭД.ТипЭД</dcsset:left>
+								<dcsset:comparisonType>InList</dcsset:comparisonType>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ТипыЭлементовВерсииЭД.ЭСФ</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">ДеревоПодчиненныеЭД.СтатусЭД</dcsset:left>
+								<dcsset:comparisonType>InList</dcsset:comparisonType>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СтатусыЭД.ДоставленПолучателю</dcsset:right>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СтатусыЭД.Утвержден</dcsset:right>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СтатусыЭД.Доставлен</dcsset:right>
+							</dcsset:item>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemGroup">
+							<dcsset:groupType>AndGroup</dcsset:groupType>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">ДеревоПодчиненныеЭД.ВидЭД</dcsset:left>
+								<dcsset:comparisonType>InList</dcsset:comparisonType>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ВидыЭД.ТОРГ12Покупатель</dcsset:right>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ВидыЭД.АктЗаказчик</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">ДеревоПодчиненныеЭД.СтатусЭД</dcsset:left>
+								<dcsset:comparisonType>InList</dcsset:comparisonType>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СтатусыЭД.Получен</dcsset:right>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СтатусыЭД.ДоставленПолучателю</dcsset:right>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СтатусыЭД.Доставлен</dcsset:right>
+							</dcsset:item>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:FilterItemGroup">
+							<dcsset:groupType>AndGroup</dcsset:groupType>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">ДеревоПодчиненныеЭД.ВидЭД</dcsset:left>
+								<dcsset:comparisonType>InList</dcsset:comparisonType>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ВидыЭД.ТОРГ12Продавец</dcsset:right>
+								<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.ВидыЭД.АктИсполнитель</dcsset:right>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:FilterItemGroup">
+								<dcsset:groupType>OrGroup</dcsset:groupType>
+								<dcsset:item xsi:type="dcsset:FilterItemGroup">
+									<dcsset:groupType>AndGroup</dcsset:groupType>
+									<dcsset:item xsi:type="dcsset:FilterItemComparison">
+										<dcsset:left xsi:type="dcscor:Field">ДеревоПодчиненныеЭД.НаправлениеЭД</dcsset:left>
+										<dcsset:comparisonType>Equal</dcsset:comparisonType>
+										<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.НаправленияЭД.Входящий</dcsset:right>
+									</dcsset:item>
+									<dcsset:item xsi:type="dcsset:FilterItemComparison">
+										<dcsset:left xsi:type="dcscor:Field">ДеревоПодчиненныеЭД.СтатусЭД</dcsset:left>
+										<dcsset:comparisonType>Equal</dcsset:comparisonType>
+										<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СтатусыЭД.Утвержден</dcsset:right>
+									</dcsset:item>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:FilterItemComparison">
+									<dcsset:left xsi:type="dcscor:Field">ДеревоПодчиненныеЭД.СтатусЭД</dcsset:left>
+									<dcsset:comparisonType>InList</dcsset:comparisonType>
+									<dcsset:right xsi:type="dcscor:DesignTimeValue">Перечисление.СтатусыЭД.ПолученоПодтверждение</dcsset:right>
+								</dcsset:item>
+							</dcsset:item>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">web:Green</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ДеревоПодчиненныеЭДПредставление</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ДеревоПодчиненныеЭДВерсия</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ДеревоПодчиненныеЭДСтатусЭД</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ДеревоПодчиненныеЭД.АктуальныйЭД</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Font</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>ДеревоПодчиненныеЭДВерсия</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ДеревоПодчиненныеЭД.ДатаЭДБольшеАктуального</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:boolean">true</dcsset:right>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>TextColor</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Color">#FF0000</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="Обновить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Shortcut>F5</Shortcut>
+			<Action>Обновить</Action>
+		</Command>
+		<Command name="ЖурналСобытий" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Журнал событий ЭД</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Журнал событий электронных документов</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Use>
+				<xr:Common>false</xr:Common>
+				<xr:Value name="Role.ПолныеПрава">true</xr:Value>
+			</Use>
+			<Picture>
+				<xr:Ref>StdPicture.EventLog</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ЖурналСобытий</Action>
+		</Command>
+	</Commands>
+</Form>

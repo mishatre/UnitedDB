@@ -1,0 +1,443 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0">
+	<DocumentJournal uuid="57f87918-a121-4db5-94cc-d6aeaa723f42">
+		<InternalInfo>
+			<xr:GeneratedType name="DocumentJournalSelection.РасчетныеДокументыБанк" category="Selection">
+				<xr:TypeId>be7394e0-5e94-4d16-a5bb-ac185d8c9618</xr:TypeId>
+				<xr:ValueId>bac8b1f2-cffa-40f2-baa1-92f834b5fca0</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="DocumentJournalList.РасчетныеДокументыБанк" category="List">
+				<xr:TypeId>873b54e3-9091-4c56-b24d-241fa85c00c3</xr:TypeId>
+				<xr:ValueId>d7bbd518-e0e1-4f61-8d44-2d14ae53a83a</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="DocumentJournalManager.РасчетныеДокументыБанк" category="Manager">
+				<xr:TypeId>8ab11a2a-812e-453d-ae4a-f497747b9c6e</xr:TypeId>
+				<xr:ValueId>8862910e-4035-404d-8c13-b3e3da7f2ed3</xr:ValueId>
+			</xr:GeneratedType>
+		</InternalInfo>
+		<Properties>
+			<Name>РасчетныеДокументыБанк</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Банковские расчетные документы</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment/>
+			<DefaultForm>DocumentJournal.РасчетныеДокументыБанк.Form.ФормаСписка</DefaultForm>
+			<AuxiliaryForm/>
+			<UseStandardCommands>false</UseStandardCommands>
+			<RegisteredDocuments>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ДенежныйЧек</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеВходящее</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеИсходящее</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеТребованиеВыставленное</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеТребованиеПолученное</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежныйОрдерПоступлениеДенежныхСредств</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежныйОрдерСписаниеДенежныхСредств</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ОбъявлениеНаВзносНаличными</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.АккредитивПереданный</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.АккредитивПолученный</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ИнкассовоеПоручениеПереданное</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ИнкассовоеПоручениеПолученное</xr:Item>
+			</RegisteredDocuments>
+			<IncludeHelpInContents>true</IncludeHelpInContents>
+			<ListPresentation/>
+			<ExtendedListPresentation/>
+			<Explanation/>
+		</Properties>
+		<ChildObjects>
+			<Column uuid="12f313c0-0c7f-4b7a-bfb3-ce4a2c2bbe8a">
+				<Properties>
+					<Name>Организация</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>(общ)</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ОбъявлениеНаВзносНаличными.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеИсходящее.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеВходящее.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежныйОрдерСписаниеДенежныхСредств.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ДенежныйЧек.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеТребованиеПолученное.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеТребованиеВыставленное.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежныйОрдерПоступлениеДенежныхСредств.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.АккредитивПереданный.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИнкассовоеПоручениеПолученное.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.АккредитивПолученный.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИнкассовоеПоручениеПереданное.Attribute.Организация</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="9cb324a4-0909-420b-b7e7-467122fea9f4">
+				<Properties>
+					<Name>СчетОрганизации</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Счет организации</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>(общ)</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ОбъявлениеНаВзносНаличными.Attribute.СчетОрганизации</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеИсходящее.Attribute.СчетОрганизации</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеВходящее.Attribute.СчетОрганизации</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежныйОрдерСписаниеДенежныхСредств.Attribute.СчетОрганизации</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ДенежныйЧек.Attribute.СчетОрганизации</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеТребованиеПолученное.Attribute.СчетОрганизации</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеТребованиеВыставленное.Attribute.СчетОрганизации</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежныйОрдерПоступлениеДенежныхСредств.Attribute.СчетОрганизации</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.АккредитивПереданный.Attribute.СчетОрганизации</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИнкассовоеПоручениеПолученное.Attribute.СчетОрганизации</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.АккредитивПолученный.Attribute.СчетОрганизации</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИнкассовоеПоручениеПереданное.Attribute.СчетОрганизации</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="038b290e-6b0e-4add-a99e-f2976d0fdb57">
+				<Properties>
+					<Name>ВидОперации</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид операции</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеИсходящее.Attribute.ВидОперации</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеВходящее.Attribute.ВидОперации</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="de7561c8-d66e-47de-9651-322ac2514241">
+				<Properties>
+					<Name>Информация</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Информация</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеИсходящее.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеВходящее.Attribute.Контрагент</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="e09ed02a-9c02-4c57-b0c4-a0c9286eaa83">
+				<Properties>
+					<Name>СуммаДокумента</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сумма документа</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>(общ)</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ОбъявлениеНаВзносНаличными.Attribute.СуммаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеИсходящее.Attribute.СуммаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеВходящее.Attribute.СуммаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежныйОрдерСписаниеДенежныхСредств.Attribute.СуммаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ДенежныйЧек.Attribute.СуммаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеТребованиеПолученное.Attribute.СуммаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеТребованиеВыставленное.Attribute.СуммаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежныйОрдерПоступлениеДенежныхСредств.Attribute.СуммаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.АккредитивПереданный.Attribute.СуммаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИнкассовоеПоручениеПолученное.Attribute.СуммаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.АккредитивПолученный.Attribute.СуммаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИнкассовоеПоручениеПереданное.Attribute.СуммаДокумента</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="f5991b8e-fbfc-427f-9b58-0c84f6c67574">
+				<Properties>
+					<Name>Оплачено</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Оплачено</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ОбъявлениеНаВзносНаличными.Attribute.Оплачено</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеИсходящее.Attribute.Оплачено</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеВходящее.Attribute.Оплачено</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежныйОрдерСписаниеДенежныхСредств.Attribute.Оплачено</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ДенежныйЧек.Attribute.Оплачено</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеТребованиеПолученное.Attribute.Оплачено</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеТребованиеВыставленное.Attribute.Оплачено</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежныйОрдерПоступлениеДенежныхСредств.Attribute.Оплачено</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.АккредитивПереданный.Attribute.Оплачено</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИнкассовоеПоручениеПолученное.Attribute.Оплачено</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.АккредитивПолученный.Attribute.Оплачено</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИнкассовоеПоручениеПереданное.Attribute.Оплачено</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="2963400a-6ee8-4e61-9eab-3e0fcea997cc">
+				<Properties>
+					<Name>ДатаОплаты</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата оплаты</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ОбъявлениеНаВзносНаличными.Attribute.ДатаОплаты</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеИсходящее.Attribute.ДатаОплаты</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеВходящее.Attribute.ДатаОплаты</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежныйОрдерСписаниеДенежныхСредств.Attribute.ДатаОплаты</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ДенежныйЧек.Attribute.ДатаОплаты</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеТребованиеПолученное.Attribute.ДатаОплаты</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеТребованиеВыставленное.Attribute.ДатаОплаты</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежныйОрдерПоступлениеДенежныхСредств.Attribute.ДатаОплаты</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.АккредитивПереданный.Attribute.ДатаОплаты</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИнкассовоеПоручениеПолученное.Attribute.ДатаОплаты</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.АккредитивПолученный.Attribute.ДатаОплаты</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИнкассовоеПоручениеПереданное.Attribute.ДатаОплаты</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="96bf9a73-6265-42eb-a086-590bb6ce6938">
+				<Properties>
+					<Name>Контрагент</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Контрагент</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>(общ)</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеИсходящее.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеВходящее.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежныйОрдерСписаниеДенежныхСредств.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеТребованиеПолученное.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеТребованиеВыставленное.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежныйОрдерПоступлениеДенежныхСредств.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.АккредитивПереданный.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИнкассовоеПоручениеПолученное.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.АккредитивПолученный.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИнкассовоеПоручениеПереданное.Attribute.Контрагент</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="49c959d7-7314-4afe-a27d-12188ce4d1b3">
+				<Properties>
+					<Name>СтатьяДвиженияДенежныхСредств</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статья движения денежных средств</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеВходящее.Attribute.СтатьяДвиженияДенежныхСредств</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеИсходящее.Attribute.СтатьяДвиженияДенежныхСредств</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="efa3f5c4-712e-4bf0-8201-01598f73c1b0">
+				<Properties>
+					<Name>ЧастичнаяОплата</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Частичная оплата</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>(общ)</Comment>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеИсходящее.Attribute.ЧастичнаяОплата</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеВходящее.Attribute.ЧастичнаяОплата</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.АккредитивПереданный.Attribute.ЧастичнаяОплата</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИнкассовоеПоручениеПолученное.Attribute.ЧастичнаяОплата</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.АккредитивПолученный.Attribute.ЧастичнаяОплата</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеТребованиеПолученное.Attribute.ЧастичнаяОплата</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеТребованиеВыставленное.Attribute.ЧастичнаяОплата</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИнкассовоеПоручениеПереданное.Attribute.ЧастичнаяОплата</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="bca5a5d0-cb9c-4b4f-ae3e-d6cc8a21bbca">
+				<Properties>
+					<Name>Валюта</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Валюта</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ОбъявлениеНаВзносНаличными.Attribute.ВалютаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.АккредитивПереданный.Attribute.ВалютаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеИсходящее.Attribute.ВалютаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИнкассовоеПоручениеПолученное.Attribute.ВалютаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеВходящее.Attribute.ВалютаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.АккредитивПолученный.Attribute.ВалютаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежныйОрдерСписаниеДенежныхСредств.Attribute.ВалютаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ДенежныйЧек.Attribute.ВалютаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеТребованиеПолученное.Attribute.ВалютаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеТребованиеВыставленное.Attribute.ВалютаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежныйОрдерПоступлениеДенежныхСредств.Attribute.ВалютаДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИнкассовоеПоручениеПереданное.Attribute.ВалютаДокумента</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="045ebe80-1066-4d1d-81f0-faa490aa0021">
+				<Properties>
+					<Name>ОтражатьВБухгалтерскомУчете</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отражать в бухгалтерском учете</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.АккредитивПереданный.Attribute.ОтражатьВБухгалтерскомУчете</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеИсходящее.Attribute.ОтражатьВБухгалтерскомУчете</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИнкассовоеПоручениеПолученное.Attribute.ОтражатьВБухгалтерскомУчете</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеВходящее.Attribute.ОтражатьВБухгалтерскомУчете</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.АккредитивПолученный.Attribute.ОтражатьВБухгалтерскомУчете</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежныйОрдерСписаниеДенежныхСредств.Attribute.ОтражатьВБухгалтерскомУчете</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеТребованиеПолученное.Attribute.ОтражатьВБухгалтерскомУчете</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеТребованиеВыставленное.Attribute.ОтражатьВБухгалтерскомУчете</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежныйОрдерПоступлениеДенежныхСредств.Attribute.ОтражатьВБухгалтерскомУчете</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИнкассовоеПоручениеПереданное.Attribute.ОтражатьВБухгалтерскомУчете</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="4602f318-fc0c-4a7e-a329-f0722a4188ac">
+				<Properties>
+					<Name>ОтражатьВНалоговомУчете</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отражать в налоговом учете</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.АккредитивПереданный.Attribute.ОтражатьВНалоговомУчете</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеИсходящее.Attribute.ОтражатьВНалоговомУчете</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИнкассовоеПоручениеПолученное.Attribute.ОтражатьВНалоговомУчете</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеВходящее.Attribute.ОтражатьВНалоговомУчете</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.АккредитивПолученный.Attribute.ОтражатьВНалоговомУчете</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежныйОрдерСписаниеДенежныхСредств.Attribute.ОтражатьВНалоговомУчете</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеТребованиеПолученное.Attribute.ОтражатьВНалоговомУчете</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеТребованиеВыставленное.Attribute.ОтражатьВНалоговомУчете</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежныйОрдерПоступлениеДенежныхСредств.Attribute.ОтражатьВНалоговомУчете</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИнкассовоеПоручениеПереданное.Attribute.ОтражатьВНалоговомУчете</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="51775ffd-3163-4bf8-9f77-29f8b000e703">
+				<Properties>
+					<Name>Ответственный</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Ответственный</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ОбъявлениеНаВзносНаличными.Attribute.Ответственный</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.АккредитивПереданный.Attribute.Ответственный</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеИсходящее.Attribute.Ответственный</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИнкассовоеПоручениеПолученное.Attribute.Ответственный</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеВходящее.Attribute.Ответственный</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.АккредитивПолученный.Attribute.Ответственный</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежныйОрдерСписаниеДенежныхСредств.Attribute.Ответственный</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ДенежныйЧек.Attribute.Ответственный</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеТребованиеПолученное.Attribute.Ответственный</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеТребованиеВыставленное.Attribute.Ответственный</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежныйОрдерПоступлениеДенежныхСредств.Attribute.Ответственный</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИнкассовоеПоручениеПереданное.Attribute.Ответственный</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="b8e5fa35-4892-4ff5-96c5-ce6fa342ea73">
+				<Properties>
+					<Name>Комментарий</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Комментарий</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.АккредитивПереданный.Attribute.Комментарий</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеИсходящее.Attribute.Комментарий</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИнкассовоеПоручениеПолученное.Attribute.Комментарий</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеВходящее.Attribute.Комментарий</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.АккредитивПолученный.Attribute.Комментарий</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежныйОрдерСписаниеДенежныхСредств.Attribute.Комментарий</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеТребованиеПолученное.Attribute.Комментарий</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеТребованиеВыставленное.Attribute.Комментарий</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежныйОрдерПоступлениеДенежныхСредств.Attribute.Комментарий</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИнкассовоеПоручениеПереданное.Attribute.Комментарий</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ДенежныйЧек.Attribute.Комментарий</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ОбъявлениеНаВзносНаличными.Attribute.Комментарий</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="7d0038ad-dbb7-4d60-af7e-ce01fbda9b7a">
+				<Properties>
+					<Name>ОтражатьВОперУчете</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отражать в опер учете</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.АккредитивПолученный.Attribute.ОтраженоВОперУчете</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеВходящее.Attribute.ОтраженоВОперУчете</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеТребованиеВыставленное.Attribute.ОтраженоВОперУчете</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеПоручениеИсходящее.Attribute.ОтраженоВОперУчете</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежныйОрдерСписаниеДенежныхСредств.Attribute.ОтраженоВОперУчете</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИнкассовоеПоручениеПереданное.Attribute.ОтраженоВОперУчете</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежныйОрдерПоступлениеДенежныхСредств.Attribute.ОтраженоВОперУчете</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.АккредитивПереданный.Attribute.ОтраженоВОперУчете</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИнкассовоеПоручениеПолученное.Attribute.ОтраженоВОперУчете</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ПлатежноеТребованиеПолученное.Attribute.ОтраженоВОперУчете</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Form>ФормаСписка</Form>
+		</ChildObjects>
+	</DocumentJournal>
+</MetaDataObject>

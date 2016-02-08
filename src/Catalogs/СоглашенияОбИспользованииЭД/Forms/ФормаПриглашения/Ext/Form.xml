@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Отправитель" id="52">
+			<DataPath>Отправитель</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<Font ref="sys:DefaultGUIFont" kind="WindowsFont"/>
+			<ContextMenu name="ОтправительКонтекстноеМеню" id="53"/>
+			<ExtendedTooltip name="ОтправительExtendedTooltip" id="57"/>
+		</InputField>
+		<InputField name="Идентификатор" id="48">
+			<DataPath>ИдентификаторКонтрагента</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Идентификатор</v8:content>
+				</v8:item>
+			</Title>
+			<BorderColor>style:FormBackColor</BorderColor>
+			<ContextMenu name="ИдентификаторКонтекстноеМеню" id="49"/>
+			<ExtendedTooltip name="ИдентификаторExtendedTooltip" id="58"/>
+		</InputField>
+		<InputField name="Получатель" id="50">
+			<DataPath>Получатель</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<ContextMenu name="ПолучательКонтекстноеМеню" id="51"/>
+			<ExtendedTooltip name="ПолучательExtendedTooltip" id="59"/>
+		</InputField>
+		<InputField name="ЭлектроннаяПочта" id="5">
+			<DataPath>ЭлектроннаяПочта</DataPath>
+			<ContextMenu name="ЭлектроннаяПочтаКонтекстноеМеню" id="6"/>
+			<ExtendedTooltip name="ЭлектроннаяПочтаExtendedTooltip" id="60"/>
+		</InputField>
+		<InputField name="ТекстПриглашения" id="7">
+			<DataPath>ТекстПриглашения</DataPath>
+			<TitleLocation>Left</TitleLocation>
+			<Width>44</Width>
+			<Height>3</Height>
+			<MultiLine>true</MultiLine>
+			<ChoiceButton>false</ChoiceButton>
+			<ContextMenu name="ТекстПриглашенияКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ТекстПриглашенияExtendedTooltip" id="61"/>
+		</InputField>
+		<LabelDecoration name="ДекорацияНастройкаЭДО" id="21">
+			<Hyperlink>true</Hyperlink>
+			<ContextMenu name="ДекорацияНастройкаЭДОКонтекстноеМеню" id="22"/>
+			<ExtendedTooltip name="ДекорацияНастройкаЭДОExtendedTooltip" id="62"/>
+			<Events>
+				<Event name="Click">ДекорацияНастройкаЭДОНажатие</Event>
+			</Events>
+		</LabelDecoration>
+		<CommandBar name="ГруппаКнопокКоманднойПанели" id="55">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа кнопок командной панели</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа кнопок командной панели</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalLocation>Right</HorizontalLocation>
+			<ExtendedTooltip name="ГруппаКнопокКоманднойПанелиExtendedTooltip" id="63"/>
+			<ChildItems>
+				<ButtonGroup name="ГруппаКнопокТребуетсяПригласить" id="36">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа кнопок требуется пригласить</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа кнопок требуется пригласить</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаКнопокТребуетсяПригласитьExtendedTooltip" id="64"/>
+					<ChildItems>
+						<Button name="КнопкаОтправить" id="13">
+							<Type>CommandBarButton</Type>
+							<DefaultButton>true</DefaultButton>
+							<CommandName>Form.Command.ОтправитьПриглашение</CommandName>
+							<Parameter xsi:nil="true"/>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отправить</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="КнопкаОтправитьExtendedTooltip" id="65"/>
+						</Button>
+					</ChildItems>
+				</ButtonGroup>
+				<ButtonGroup name="ГруппаКнопокТребуетсяСогласие" id="56">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа кнопок требуется согласие</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа кнопок требуется согласие</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаКнопокТребуетсяСогласиеExtendedTooltip" id="66"/>
+					<ChildItems>
+						<Button name="КнопкаПринять" id="29">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Command.ПринятьПриглашение</CommandName>
+							<Parameter xsi:nil="true"/>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Принять</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="КнопкаПринятьExtendedTooltip" id="67"/>
+						</Button>
+						<Button name="КнопкаОтклонить" id="30">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Command.ОтклонитьПриглашение</CommandName>
+							<Parameter xsi:nil="true"/>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отклонить</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="КнопкаОтклонитьExtendedTooltip" id="68"/>
+						</Button>
+					</ChildItems>
+				</ButtonGroup>
+				<ButtonGroup name="ГруппаКнопокОтмена" id="54">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа кнопок отмена</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Группа кнопок отмена</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ГруппаКнопокОтменаExtendedTooltip" id="69"/>
+					<ChildItems>
+						<Button name="КнопкаОтмена" id="14">
+							<Type>CommandBarButton</Type>
+							<CommandName>Form.Command.Отмена</CommandName>
+							<Parameter xsi:nil="true"/>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Отмена</v8:content>
+								</v8:item>
+							</Title>
+							<ExtendedTooltip name="КнопкаОтменаExtendedTooltip" id="70"/>
+						</Button>
+					</ChildItems>
+				</ButtonGroup>
+			</ChildItems>
+		</CommandBar>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ЭлектроннаяПочта" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Электронная почта</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="ТекстПриглашения" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текст приглашения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>255</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Отправитель" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправитель</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+				<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НастройкаЭДО" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройка ЭДО</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.СоглашенияОбИспользованииЭД</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Получатель" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Получатель</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+				<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПрофильНастроекЭДО" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Профиль настроек ЭДО</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ПрофилиНастроекЭДО</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СтатусПодключения" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статус подключения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.СтатусыУчастниковОбменаЭД</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ФормаОткрытаИзНастройкиЭДО" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Форма открыта из настройки ЭДО</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИдентификаторКонтрагента" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Идентификатор контрагента</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Принять" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Принять</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Отклонить" id="11">
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="СостояниеСоглашения" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Состояние соглашения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.СостоянияСоглашенийЭД</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ОтправитьПриглашение" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправить приглашение</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отправить приглашение</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОтправитьПриглашение</Action>
+		</Command>
+		<Command name="Отмена" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Отмена</Action>
+		</Command>
+		<Command name="ПринятьПриглашение" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Принять приглашение</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Принять приглашение</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ПринятьПриглашение</Action>
+		</Command>
+		<Command name="ОтклонитьПриглашение" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отклонить приглашение</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отклонить приглашение</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОтклонитьПриглашение</Action>
+		</Command>
+	</Commands>
+</Form>

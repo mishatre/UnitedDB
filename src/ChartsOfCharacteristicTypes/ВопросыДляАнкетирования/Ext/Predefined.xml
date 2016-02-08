@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<PredefinedData xmlns="http://v8.1c.ru/8.3/xcf/predef" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="PlanOfCharacteristicKindPredefinedItems" version="2.0">
+	<Item id="185c1600-9e11-4145-b8d5-4c6dc9d14ce5">
+		<Name>КонтактноеЛицо</Name>
+		<Code>000000001</Code>
+		<Description>Контактное лицо</Description>
+		<Type/>
+		<IsFolder>true</IsFolder>
+		<ChildItems>
+			<Item id="12cf422c-4848-4166-9af7-1c526cc96348">
+				<Name>Должность</Name>
+				<Code>000000003</Code>
+				<Description>Должность контактного лица</Description>
+				<Type>
+					<v8:Type>xs:string</v8:Type>
+					<v8:StringQualifiers>
+						<v8:Length>200</v8:Length>
+						<v8:AllowedLength>Variable</v8:AllowedLength>
+					</v8:StringQualifiers>
+				</Type>
+				<IsFolder>false</IsFolder>
+			</Item>
+			<Item id="c0cb2ffd-7a09-427d-87b1-b5932f459b55">
+				<Name>Роль</Name>
+				<Code>000000007</Code>
+				<Description>Роль контактного лица</Description>
+				<Type>
+					<v8:Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.РолиКонтактныхЛиц</v8:Type>
+				</Type>
+				<IsFolder>false</IsFolder>
+			</Item>
+		</ChildItems>
+	</Item>
+	<Item id="685b2bf2-4e78-4474-bac9-7abdce5d3dd5">
+		<Name>Контрагент</Name>
+		<Code>000000008</Code>
+		<Description>Контрагент</Description>
+		<Type/>
+		<IsFolder>true</IsFolder>
+		<ChildItems>
+			<Item id="499f33c8-ce13-46ed-9168-01a1a931cf1a">
+				<Name>ВидыДеятельностиКонтрагента</Name>
+				<Code>000000066</Code>
+				<Description>Виды деятельности контрагента</Description>
+				<Type/>
+				<IsFolder>true</IsFolder>
+				<ChildItems>
+					<Item id="29532bf3-0ada-4a30-8e9a-60354a5d5998">
+						<Name>ВидДеятельностиКонтрагента</Name>
+						<Code>000000067</Code>
+						<Description>Вид деятельности контрагента</Description>
+						<Type>
+							<v8:Type xmlns:d8p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d8p1:CatalogRef.ВидыДеятельностиКонтрагентов</v8:Type>
+						</Type>
+						<IsFolder>false</IsFolder>
+					</Item>
+				</ChildItems>
+			</Item>
+			<Item id="051a5545-0a40-4f86-af17-39be54101e43">
+				<Name>ТабличныеВопросы</Name>
+				<Code>000000065</Code>
+				<Description>Табличные вопросы</Description>
+				<Type/>
+				<IsFolder>true</IsFolder>
+				<ChildItems>
+					<Item id="d09705c5-84ef-453a-bba2-60126fa4952e">
+						<Name>ТВидыДеятельностиКонтрагента</Name>
+						<Code>000000009</Code>
+						<Description>Виды деятельности контрагента</Description>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>200</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+						<IsFolder>false</IsFolder>
+					</Item>
+				</ChildItems>
+			</Item>
+			<Item id="76648b0a-fc1c-4df0-867a-f7e57ca3ae80">
+				<Name>ИННГоловногоКонтрагента</Name>
+				<Code>000000010</Code>
+				<Description>ИНН головного контрагента</Description>
+				<Type>
+					<v8:Type>xs:string</v8:Type>
+					<v8:StringQualifiers>
+						<v8:Length>200</v8:Length>
+						<v8:AllowedLength>Variable</v8:AllowedLength>
+					</v8:StringQualifiers>
+				</Type>
+				<IsFolder>false</IsFolder>
+			</Item>
+			<Item id="1d083b65-bec3-49e8-9a36-c449880c6c2b">
+				<Name>НаименованиеКонтрагента</Name>
+				<Code>000000012</Code>
+				<Description>Наименование контрагента</Description>
+				<Type>
+					<v8:Type>xs:string</v8:Type>
+					<v8:StringQualifiers>
+						<v8:Length>200</v8:Length>
+						<v8:AllowedLength>Variable</v8:AllowedLength>
+					</v8:StringQualifiers>
+				</Type>
+				<IsFolder>false</IsFolder>
+			</Item>
+			<Item id="621d8606-0a80-4e0b-a232-bc7a3981e89f">
+				<Name>ТипКонтрагента</Name>
+				<Code>000000013</Code>
+				<Description>Тип контрагента</Description>
+				<Type>
+					<v8:Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:EnumRef.ЮрФизЛицо</v8:Type>
+				</Type>
+				<IsFolder>false</IsFolder>
+			</Item>
+		</ChildItems>
+	</Item>
+	<Item id="bfc13dff-0e26-447b-a662-58dd236d6c2b">
+		<Name>ОбщиеВопросы</Name>
+		<Code>000000064</Code>
+		<Description>Общие вопросы</Description>
+		<Type/>
+		<IsFolder>true</IsFolder>
+		<ChildItems>
+			<Item id="ba0cb6f1-fddd-4b97-b6d5-8a710fc68c6f">
+				<Name>ДатаРождения</Name>
+				<Code>000000024</Code>
+				<Description>Дата рождения</Description>
+				<Type>
+					<v8:Type>xs:dateTime</v8:Type>
+					<v8:DateQualifiers>
+						<v8:DateFractions>Date</v8:DateFractions>
+					</v8:DateQualifiers>
+				</Type>
+				<IsFolder>false</IsFolder>
+			</Item>
+			<Item id="7a31b893-da54-417f-a33c-bcae611fc0ca">
+				<Name>Имя</Name>
+				<Code>000000035</Code>
+				<Description>Имя</Description>
+				<Type>
+					<v8:Type>xs:string</v8:Type>
+					<v8:StringQualifiers>
+						<v8:Length>10</v8:Length>
+						<v8:AllowedLength>Variable</v8:AllowedLength>
+					</v8:StringQualifiers>
+				</Type>
+				<IsFolder>false</IsFolder>
+			</Item>
+			<Item id="6e9e2ebc-239c-4036-8f82-4c3d6b6ccb7b">
+				<Name>ИНН</Name>
+				<Code>000000036</Code>
+				<Description>ИНН</Description>
+				<Type>
+					<v8:Type>xs:string</v8:Type>
+					<v8:StringQualifiers>
+						<v8:Length>20</v8:Length>
+						<v8:AllowedLength>Variable</v8:AllowedLength>
+					</v8:StringQualifiers>
+				</Type>
+				<IsFolder>false</IsFolder>
+			</Item>
+			<Item id="a6eba641-faa2-452b-8658-f02912bd75ba">
+				<Name>Отчество</Name>
+				<Code>000000043</Code>
+				<Description>Отчество</Description>
+				<Type>
+					<v8:Type>xs:string</v8:Type>
+					<v8:StringQualifiers>
+						<v8:Length>10</v8:Length>
+						<v8:AllowedLength>Variable</v8:AllowedLength>
+					</v8:StringQualifiers>
+				</Type>
+				<IsFolder>false</IsFolder>
+			</Item>
+			<Item id="45fd0f8d-518b-491e-8e27-53563c7f9f42">
+				<Name>Фамилия</Name>
+				<Code>000000055</Code>
+				<Description>Фамилия</Description>
+				<Type>
+					<v8:Type>xs:string</v8:Type>
+					<v8:StringQualifiers>
+						<v8:Length>10</v8:Length>
+						<v8:AllowedLength>Variable</v8:AllowedLength>
+					</v8:StringQualifiers>
+				</Type>
+				<IsFolder>false</IsFolder>
+			</Item>
+		</ChildItems>
+	</Item>
+</PredefinedData>

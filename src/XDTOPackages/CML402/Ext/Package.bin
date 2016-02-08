@@ -1,0 +1,1154 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://v8.1c.ru/edi/edi_stnd">
+	<property xmlns:d2p1="http://v8.1c.ru/edi/edi_stnd" name="АктОПриемке" type="d2p1:АктОПриемке"/>
+	<property xmlns:d2p1="http://v8.1c.ru/edi/edi_stnd" name="ЗаказКлиента" type="d2p1:ЗаказКлиента"/>
+	<property xmlns:d2p1="http://v8.1c.ru/edi/edi_stnd" name="Каталог" type="d2p1:Каталог"/>
+	<property xmlns:d2p1="http://v8.1c.ru/edi/edi_stnd" name="ОтчетОПродажахКомиссионногоТовара" type="d2p1:ОтчетОПродажахКомиссионногоТовара"/>
+	<property xmlns:d2p1="http://v8.1c.ru/edi/edi_stnd" name="ОтчетОСписанииКомиссионногоТовара" type="d2p1:ОтчетОСписанииКомиссионногоТовара"/>
+	<property xmlns:d2p1="http://v8.1c.ru/edi/edi_stnd" name="ПрайсЛист" type="d2p1:ПрайсЛист"/>
+	<property name="СчетНаОплату"/>
+	<property xmlns:d2p1="http://v8.1c.ru/edi/edi_stnd" name="ТОРГ12" type="d2p1:ТОРГ12"/>
+	<valueType xmlns:d2p1="http://v8.1c.ru/edi/edi_stnd" name="GLN" base="d2p1:ЗначениеИдентификатора" variety="Atomic">
+		<pattern>\d{13}</pattern>
+	</valueType>
+	<valueType xmlns:d2p1="http://v8.1c.ru/edi/edi_stnd" name="GTIN" base="d2p1:ЗначениеИдентификатора" variety="Atomic">
+		<pattern>\d{14}</pattern>
+		<pattern>\d{13}</pattern>
+	</valueType>
+	<valueType name="АдресТип" base="xs:string" variety="Atomic" maxLength="255">
+		<enumeration>Почтовый индекс</enumeration>
+		<enumeration>Страна</enumeration>
+		<enumeration>Регион</enumeration>
+		<enumeration>Район</enumeration>
+		<enumeration>Населенный пункт</enumeration>
+		<enumeration>Город</enumeration>
+		<enumeration>Улица</enumeration>
+		<enumeration>Дом</enumeration>
+		<enumeration>Корпус</enumeration>
+		<enumeration>Квартира</enumeration>
+	</valueType>
+	<valueType name="ЗначениеИдентификатора" base="xs:normalizedString" variety="Atomic" maxLength="255"/>
+	<valueType name="ИдентификаторГлобальныйТип" base="xs:normalizedString" variety="Atomic" maxLength="110"/>
+	<valueType name="КоличествоТип" base="xs:decimal" variety="Atomic" fractionDigits="4"/>
+	<valueType name="КонтактТип" base="xs:string" variety="Atomic" maxLength="255">
+		<enumeration>Телефон внутренний</enumeration>
+		<enumeration>Телефон рабочий</enumeration>
+		<enumeration>Телефон мобильный</enumeration>
+		<enumeration>Телефон домашний</enumeration>
+		<enumeration>Пейджер</enumeration>
+		<enumeration>Факс</enumeration>
+		<enumeration>Почта</enumeration>
+		<enumeration>ICQ</enumeration>
+		<enumeration>ВебСайт</enumeration>
+	</valueType>
+	<valueType xmlns:d2p1="http://v8.1c.ru/edi/edi_stnd" name="КонтрагентИД" base="d2p1:ЗначениеИдентификатора" variety="Atomic">
+		<pattern>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}</pattern>
+	</valueType>
+	<valueType xmlns:d2p1="http://v8.1c.ru/edi/edi_stnd" name="ОКЕИ" base="d2p1:ЗначениеИдентификатора" variety="Atomic">
+		<pattern>[0-9]{3,4}</pattern>
+	</valueType>
+	<valueType name="РольТип" base="xs:string" variety="Atomic">
+		<enumeration>Продавец</enumeration>
+		<enumeration>Покупатель</enumeration>
+		<enumeration>Плательщик</enumeration>
+		<enumeration>Получатель</enumeration>
+		<enumeration>Комитент</enumeration>
+		<enumeration>Комиссионер</enumeration>
+		<enumeration>Торговая точка</enumeration>
+	</valueType>
+	<valueType name="СтатусТип" base="xs:string" variety="Atomic">
+		<enumeration>Новый</enumeration>
+		<enumeration>Изменен</enumeration>
+		<enumeration>Удален</enumeration>
+	</valueType>
+	<valueType name="СуммаТип" base="xs:decimal" variety="Atomic" totalDigits="18" fractionDigits="2"/>
+	<valueType name="ТипЗначенийТип" base="xs:string" variety="Atomic">
+		<enumeration>Строка</enumeration>
+		<enumeration>Число</enumeration>
+		<enumeration>Время</enumeration>
+		<enumeration>Справочник</enumeration>
+	</valueType>
+	<valueType xmlns:d2p1="http://v8.1c.ru/edi/edi_stnd" name="ТоварИД" base="d2p1:ЗначениеИдентификатора" variety="Atomic">
+		<pattern>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}</pattern>
+	</valueType>
+	<valueType name="ХозОперацияТип" base="xs:string" variety="Atomic">
+		<enumeration>Акт об оказании услуг</enumeration>
+		<enumeration>Возврат безналичных денег</enumeration>
+		<enumeration>Возврат комиссионного товара</enumeration>
+		<enumeration>Возврат товара</enumeration>
+		<enumeration>Возврат наличных денег</enumeration>
+		<enumeration>Выплата наличных денег</enumeration>
+		<enumeration>Выплата безналичных денег</enumeration>
+		<enumeration>Заказ товара</enumeration>
+		<enumeration>Ответ на заказ</enumeration>
+		<enumeration>Отпуск товара</enumeration>
+		<enumeration>Отчет о продажах комиссионного товара</enumeration>
+		<enumeration>Отчет о списании комиссионного товара</enumeration>
+		<enumeration>Передача товара на комиссию</enumeration>
+		<enumeration>Переоценка товаров</enumeration>
+		<enumeration>Счет на оплату</enumeration>
+		<enumeration>Счет-фактура</enumeration>
+		<enumeration>Прочие</enumeration>
+		<enumeration/>
+	</valueType>
+	<objectType name="Адрес">
+		<property name="Представление">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3000" whiteSpace="preserve"/>
+		</property>
+		<property name="Комментарий" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3000" whiteSpace="preserve"/>
+		</property>
+		<property name="АдресноеПоле" lowerBound="0" upperBound="-1">
+			<typeDef xsi:type="ObjectType">
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd" name="Тип" type="d5p1:АдресТип"/>
+				<property name="Значение">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+				</property>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType xmlns:d2p1="http://v8.1c.ru/edi/edi_stnd" name="АктОПриемке" base="d2p1:КоммерческаяИнформация">
+		<property name="Ид" type="d2p1:ИдентификаторГлобальныйТип"/>
+		<property name="Номер">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="collapse"/>
+		</property>
+		<property name="Дата" type="xs:dateTime"/>
+		<property name="ТекстДокумента">
+			<typeDef xsi:type="ObjectType">
+				<property name="Заголовок">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3000" whiteSpace="preserve"/>
+				</property>
+				<property name="ОписаниеВыполненныхРабот" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="5000" whiteSpace="preserve"/>
+				</property>
+				<property name="Претензии">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3000" whiteSpace="preserve"/>
+				</property>
+			</typeDef>
+		</property>
+		<property name="Товары">
+			<typeDef xsi:type="ObjectType">
+				<property name="Товар" upperBound="-1">
+					<typeDef xsi:type="ObjectType" base="d2p1:Товар">
+						<property name="ЕдиницаИзмерения" type="d2p1:ЕдиницаИзмерения" lowerBound="0"/>
+						<property name="Количество" type="d2p1:КоличествоТип"/>
+						<property name="Цена" type="d2p1:СуммаТип"/>
+						<property name="СуммыПоТовару" type="d2p1:Стоимость"/>
+						<property name="Скидки" lowerBound="0">
+							<typeDef xsi:type="ObjectType">
+								<property name="Скидка" type="d2p1:Скидка" upperBound="-1"/>
+								<property name="СуммаСкидок" type="d2p1:СуммаТип" lowerBound="0"/>
+								<property name="СуммаБезСкидок" type="d2p1:СуммаТип" lowerBound="0"/>
+							</typeDef>
+						</property>
+						<property name="ДокументОснования" type="d2p1:ДокументОснования" lowerBound="0" upperBound="-1"/>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+		<property name="ИтогоПоДокументу">
+			<typeDef xsi:type="ObjectType">
+				<property name="СуммаОбщая" type="d2p1:СуммаТип"/>
+				<property name="СуммаБезНалога" type="d2p1:СуммаТип"/>
+				<property name="ЦенаВключаетНалог" type="xs:boolean" lowerBound="0"/>
+				<property name="СуммаНалога" type="d2p1:СуммаТип" lowerBound="0"/>
+				<property name="Количество" type="d2p1:КоличествоТип" lowerBound="0"/>
+				<property name="СуммаСкидки" type="d2p1:СуммаТип" lowerBound="0"/>
+			</typeDef>
+		</property>
+		<property name="ИтогиПрописью">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="5000" whiteSpace="preserve"/>
+		</property>
+		<property name="Исполнитель" type="d2p1:Контрагент"/>
+		<property name="Заказчик" type="d2p1:Контрагент"/>
+		<property name="Валюта" type="d2p1:Валюта" lowerBound="0"/>
+		<property name="Сдал" lowerBound="0">
+			<typeDef xsi:type="ObjectType" base="d2p1:РеквизитыФизЛица">
+				<property name="Доверенность" type="d2p1:Доверенность" lowerBound="0"/>
+			</typeDef>
+		</property>
+		<property name="Принял" lowerBound="0">
+			<typeDef xsi:type="ObjectType" base="d2p1:РеквизитыФизЛица">
+				<property name="Доверенность" type="d2p1:Доверенность" lowerBound="0"/>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="БазоваяЕдиница">
+		<property name="Код">
+			<typeDef xmlns:d4p1="http://v8.1c.ru/edi/edi_stnd" xsi:type="ValueType" base="d4p1:ОКЕИ" variety="Atomic" maxLength="4"/>
+		</property>
+		<property name="Наименование" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255"/>
+		</property>
+		<property name="НаименованиеПолное" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+		</property>
+		<property name="МеждународноеСокращение" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255"/>
+		</property>
+	</objectType>
+	<objectType name="Банк">
+		<property name="БИК">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="9"/>
+		</property>
+		<property name="SWIFT" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+		</property>
+		<property name="СчетКорреспондентский" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="20"/>
+		</property>
+		<property name="Наименование" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+		</property>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="Адрес" type="d3p1:Адрес" lowerBound="0"/>
+		<property name="Контакты" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd" name="Контакт" type="d5p1:КонтактнаяИнформация" upperBound="-1"/>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="Валюта">
+		<property name="КодОКВ">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="3"/>
+		</property>
+		<property name="НаименованиеСокращенноеОКВ" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+		</property>
+		<property name="НаименованиеПолноеОКВ" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+		</property>
+		<property name="КодМКВ" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="3"/>
+		</property>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="Курс" type="d3p1:КоличествоТип" lowerBound="0"/>
+	</objectType>
+	<objectType name="ГрафикОплаты">
+		<property name="ДатаПлатежа" type="xs:date"/>
+		<property name="ПроцентПлатежа">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="10" fractionDigits="2"/>
+		</property>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="СуммаПлатежа" type="d3p1:СуммаТип"/>
+		<property name="ВидОплаты" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve">
+				<enumeration>Аванс</enumeration>
+				<enumeration>Предоплата</enumeration>
+				<enumeration>Кредит</enumeration>
+			</typeDef>
+		</property>
+		<property name="Налоги" lowerBound="0" upperBound="-1">
+			<typeDef xmlns:d4p1="http://v8.1c.ru/edi/edi_stnd" xsi:type="ObjectType" base="d4p1:Налог"/>
+		</property>
+	</objectType>
+	<objectType name="Группа">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="Ид" type="d3p1:ИдентификаторГлобальныйТип"/>
+		<property name="Наименование">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+		</property>
+		<property name="Описание" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3000" whiteSpace="preserve"/>
+		</property>
+		<property name="Свойства" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd" name="Свойство" type="d5p1:Свойство" upperBound="-1"/>
+			</typeDef>
+		</property>
+		<property name="Группы" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd" name="Группа" type="d5p1:Группа" upperBound="-1"/>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="Доверенность">
+		<property name="Номер">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+		</property>
+		<property name="Дата" type="xs:date"/>
+		<property name="Выдана">
+			<typeDef xsi:type="ObjectType">
+				<property name="Кем">
+					<typeDef xsi:type="ObjectType">
+						<property xmlns:d7p1="http://v8.1c.ru/edi/edi_stnd" name="Организация" type="d7p1:Контрагент"/>
+						<property name="Должность">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+						</property>
+						<property name="ФИО">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+						</property>
+					</typeDef>
+				</property>
+				<property name="Кому">
+					<typeDef xsi:type="ObjectType">
+						<property xmlns:d7p1="http://v8.1c.ru/edi/edi_stnd" name="Организация" type="d7p1:Контрагент"/>
+						<property name="Должность">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+						</property>
+						<property name="ФИО">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+						</property>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="ДокументОснования">
+		<property name="НомерДокументаОснования">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+		</property>
+		<property name="ДатаДокументаОснования" type="xs:dateTime"/>
+		<property name="НаименованиеДокументаОснования">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+		</property>
+		<property name="Комментарий" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+		</property>
+	</objectType>
+	<objectType name="ДопРасход">
+		<property name="Наименование">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+		</property>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="Сумма" type="d3p1:СуммаТип"/>
+		<property name="Процент" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="5" fractionDigits="2"/>
+		</property>
+		<property name="УчтеноВСумме" type="xs:boolean" lowerBound="0"/>
+		<property name="Комментарий" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3000" whiteSpace="preserve"/>
+		</property>
+	</objectType>
+	<objectType name="ЕдиницаИзмерения">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="Код" type="d3p1:ОКЕИ"/>
+		<property name="Коэффициент" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" fractionDigits="4"/>
+		</property>
+		<property name="Наименование" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+		</property>
+		<property name="ДополнительныеДанные" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd" name="ЗначениеРеквизита" type="d5p1:ЗначениеРеквизита" upperBound="-1"/>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType xmlns:d2p1="http://v8.1c.ru/edi/edi_stnd" name="ЗаказКлиента" base="d2p1:КоммерческаяИнформация">
+		<property name="Ид" type="d2p1:ИдентификаторГлобальныйТип"/>
+		<property name="Номер">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="collapse"/>
+		</property>
+		<property name="Дата" type="xs:date"/>
+		<property name="Роль" type="d2p1:РольТип"/>
+		<property name="Исполнитель">
+			<typeDef xsi:type="ObjectType" base="d2p1:Контрагент"/>
+		</property>
+		<property name="Заказчик" type="d2p1:Контрагент"/>
+		<property name="Товары">
+			<typeDef xsi:type="ObjectType">
+				<property name="Товар" upperBound="-1">
+					<typeDef xsi:type="ObjectType" base="d2p1:Товар">
+						<property name="Количество" type="d2p1:КоличествоТип"/>
+						<property name="ЕдиницаИзмерения" type="d2p1:ЕдиницаИзмерения"/>
+						<property name="Цена" type="d2p1:СуммаТип"/>
+						<property name="СуммыПоТовару" type="d2p1:Стоимость"/>
+						<property name="Скидки" lowerBound="0">
+							<typeDef xsi:type="ObjectType">
+								<property name="Скидка" type="d2p1:Скидка" upperBound="-1"/>
+								<property name="СуммаСкидок" type="d2p1:СуммаТип" lowerBound="0"/>
+								<property name="СуммаБезСкидок" type="d2p1:СуммаТип" lowerBound="0"/>
+							</typeDef>
+						</property>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+		<property name="ИтогоПоДокументу">
+			<typeDef xsi:type="ObjectType">
+				<property name="СуммаИтог" type="d2p1:СуммаТип"/>
+				<property name="СуммаНалогаИтог" type="d2p1:СуммаТип" lowerBound="0"/>
+				<property name="ЦенаВключаетНалог" type="xs:boolean" lowerBound="0"/>
+				<property name="СуммаБезСкидкиИтог" type="d2p1:СуммаТип" lowerBound="0"/>
+				<property name="СуммаСкидкиИтог" type="d2p1:СуммаТип" lowerBound="0"/>
+			</typeDef>
+		</property>
+		<property name="ИтогиПрописью">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3000" whiteSpace="preserve"/>
+		</property>
+		<property name="ДокументОснования" type="d2p1:ДокументОснования" lowerBound="0" upperBound="-1"/>
+		<property name="Валюта" type="d2p1:Валюта" lowerBound="0"/>
+		<property name="Грузополучатель" type="d2p1:Контрагент" lowerBound="0"/>
+		<property name="АдресДоставкиСклад" type="d2p1:Склад" lowerBound="0"/>
+		<property name="ЭтапОплаты" type="d2p1:ГрафикОплаты" lowerBound="0" upperBound="-1"/>
+		<property name="Комментарий" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3000" whiteSpace="preserve"/>
+		</property>
+		<property name="Менеджер" type="d2p1:РеквизитыФизЛица" lowerBound="0"/>
+	</objectType>
+	<objectType name="ЗначениеРеквизита">
+		<property name="Наименование">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+		</property>
+		<property name="Значение" upperBound="-1">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+		</property>
+	</objectType>
+	<objectType name="ЗначенияСвойства">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="Ид" type="d3p1:ИдентификаторГлобальныйТип"/>
+		<property name="Наименование" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+		</property>
+		<property name="Значения" lowerBound="0" upperBound="-1">
+			<typeDef xsi:type="ObjectType">
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd" name="ИдЗначения" type="d5p1:ИдентификаторГлобальныйТип"/>
+				<property name="Значение">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+				</property>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType xmlns:d2p1="http://v8.1c.ru/edi/edi_stnd" name="Каталог" base="d2p1:КоммерческаяИнформация" open="true" sequenced="true">
+		<property name="Ид" type="d2p1:ИдентификаторГлобальныйТип"/>
+		<property name="ИдКлассификатора" type="d2p1:ИдентификаторГлобальныйТип" lowerBound="0"/>
+		<property name="Наименование" type="xs:string" lowerBound="0"/>
+		<property name="Владелец" type="d2p1:Контрагент"/>
+		<property name="Товары">
+			<typeDef xsi:type="ObjectType">
+				<property name="Товар" upperBound="-1">
+					<typeDef xsi:type="ObjectType" base="d2p1:Товар">
+						<property name="Статус" type="d2p1:СтатусТип" lowerBound="0" form="Attribute"/>
+						<property name="ИдТовараУКонтрагента" type="d2p1:ИдентификаторГлобальныйТип" lowerBound="0"/>
+						<property name="Группы" lowerBound="0">
+							<typeDef xsi:type="ObjectType">
+								<property name="Ид" type="d2p1:ИдентификаторГлобальныйТип" upperBound="-1"/>
+							</typeDef>
+						</property>
+						<property name="Картинка" lowerBound="0" upperBound="-1">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="100"/>
+						</property>
+						<property name="Страна" type="xs:anyType" lowerBound="0"/>
+						<property name="ТорговаяМарка" type="xs:anyType" lowerBound="0"/>
+						<property name="ВладелецТорговойМарки" type="d2p1:Контрагент" lowerBound="0"/>
+						<property name="Изготовитель" type="d2p1:Контрагент" lowerBound="0"/>
+						<property name="ЗначенияСвойств" lowerBound="0">
+							<typeDef xsi:type="ObjectType">
+								<property name="ЗначенияСвойства" type="d2p1:ЗначенияСвойства" upperBound="-1"/>
+							</typeDef>
+						</property>
+						<property name="СтавкиНалогов" lowerBound="0">
+							<typeDef xsi:type="ObjectType">
+								<property name="СтавкаНалога" upperBound="-1">
+									<typeDef xsi:type="ObjectType" base="d2p1:Налог">
+										<property name="Ставка">
+											<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="5" fractionDigits="2"/>
+										</property>
+									</typeDef>
+								</property>
+							</typeDef>
+						</property>
+						<property name="Акцизы" lowerBound="0">
+							<typeDef xsi:type="ObjectType">
+								<property name="Акциз" upperBound="-1">
+									<typeDef xsi:type="ObjectType">
+										<property name="Наименование">
+											<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255"/>
+										</property>
+										<property name="СуммаЗаЕдиницу" type="d2p1:СуммаТип"/>
+										<property name="Валюта">
+											<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="3"/>
+										</property>
+									</typeDef>
+								</property>
+							</typeDef>
+						</property>
+						<property name="Комплектующие" lowerBound="0">
+							<typeDef xsi:type="ObjectType">
+								<property name="Комплектующее" type="d2p1:Товар" upperBound="-1"/>
+							</typeDef>
+						</property>
+						<property name="Аналоги" lowerBound="0">
+							<typeDef xsi:type="ObjectType">
+								<property name="Аналог" type="d2p1:Товар" upperBound="-1"/>
+							</typeDef>
+						</property>
+						<property name="ХарактеристикиТовара" lowerBound="0">
+							<typeDef xsi:type="ObjectType">
+								<property name="ХарактеристикаТовара" type="d2p1:ХарактеристикаТовара" upperBound="-1"/>
+							</typeDef>
+						</property>
+						<property name="ЗначенияРеквизитов" lowerBound="0">
+							<typeDef xsi:type="ObjectType">
+								<property name="ЗначениеРеквизита" type="d2p1:ЗначениеРеквизита" upperBound="-1"/>
+							</typeDef>
+						</property>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+		<property name="Описание" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3000"/>
+		</property>
+	</objectType>
+	<objectType name="КоммерческаяИнформация" abstract="true">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="ИдИсполнителя" type="d3p1:ИдентификаторГлобальныйТип"/>
+		<property name="ДатаФормирования" type="xs:dateTime"/>
+		<property name="ВерсияСхемы">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+		</property>
+	</objectType>
+	<objectType name="КонтактнаяИнформация">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="Тип" type="d3p1:КонтактТип"/>
+		<property name="Значение">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+		</property>
+		<property name="Комментарий" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3000" whiteSpace="preserve"/>
+		</property>
+	</objectType>
+	<objectType name="Контрагент">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="Ид" type="d3p1:ИдентификаторГлобальныйТип"/>
+		<property name="Наименование" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+		</property>
+		<property name="Комментарий" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3000" whiteSpace="preserve"/>
+		</property>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="ЮрЛицо" type="d3p1:РеквизитыЮрЛица" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="ФизЛицо" type="d3p1:РеквизитыФизЛица" lowerBound="0"/>
+		<property name="РасчетныеСчета" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd" name="РасчетныйСчет" type="d5p1:РасчетныйСчет" upperBound="-1"/>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="Адрес" type="d3p1:Адрес" lowerBound="0"/>
+		<property name="Контакты" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd" name="Контакт" type="d5p1:КонтактнаяИнформация" upperBound="-1"/>
+			</typeDef>
+		</property>
+		<property name="Представители" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd" name="Представитель" type="d5p1:Контрагент" upperBound="-1"/>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="Налог">
+		<property name="ТипНалога">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+		</property>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="ВеличинаСтавкиНалога" type="d3p1:КоличествоТип" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="Сумма" type="d3p1:СуммаТип" lowerBound="0"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://v8.1c.ru/edi/edi_stnd" name="ОтчетОПродажахКомиссионногоТовара" base="d2p1:КоммерческаяИнформация">
+		<property name="Ид" type="d2p1:ИдентификаторГлобальныйТип"/>
+		<property name="Номер">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="collapse"/>
+		</property>
+		<property name="Дата" type="xs:date"/>
+		<property name="Комитент" type="d2p1:Контрагент"/>
+		<property name="Комиссионер" type="d2p1:Контрагент"/>
+		<property name="Товары">
+			<typeDef xsi:type="ObjectType">
+				<property name="Товар" upperBound="-1">
+					<typeDef xsi:type="ObjectType" base="d2p1:Товар">
+						<property name="Количество" type="d2p1:КоличествоТип"/>
+						<property name="ЕдиницаИзмерения" type="d2p1:ЕдиницаИзмерения"/>
+						<property name="Цена" type="d2p1:СуммаТип"/>
+						<property name="СуммыПоТовару" type="d2p1:Стоимость"/>
+						<property name="ЦенаКомитента" type="d2p1:СуммаТип"/>
+						<property name="СуммаКомитента" type="d2p1:СуммаТип"/>
+						<property name="СуммаВознаграждения" type="d2p1:СуммаТип" lowerBound="0"/>
+						<property name="Скидки" lowerBound="0">
+							<typeDef xsi:type="ObjectType">
+								<property name="Скидка" type="d2p1:Скидка" upperBound="-1"/>
+							</typeDef>
+						</property>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+		<property name="ИтогоПоДокументу">
+			<typeDef xsi:type="ObjectType">
+				<property name="СуммаКомитентаИтог" type="d2p1:СуммаТип"/>
+				<property name="СуммаПродажиИтог" type="d2p1:СуммаТип"/>
+				<property name="СуммаВознагражденияИтог" type="d2p1:СуммаТип" lowerBound="0"/>
+				<property name="Процент" type="d2p1:СуммаТип" lowerBound="0"/>
+			</typeDef>
+		</property>
+		<property name="ИтогиПрописью">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3000" whiteSpace="preserve"/>
+		</property>
+		<property name="Услуга" lowerBound="0">
+			<typeDef xsi:type="ObjectType" base="d2p1:Товар">
+				<property name="Налог" type="d2p1:Налог" lowerBound="0"/>
+			</typeDef>
+		</property>
+		<property name="ДатаНачала" type="xs:dateTime" lowerBound="0"/>
+		<property name="ДатаКонца" type="xs:dateTime" lowerBound="0"/>
+		<property name="Валюта" type="d2p1:Валюта" lowerBound="0"/>
+		<property name="ФормаОплаты" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+				<enumeration>Безналичная</enumeration>
+				<enumeration>Наличная</enumeration>
+			</typeDef>
+		</property>
+		<property name="ЭтапОплаты" type="d2p1:ГрафикОплаты" lowerBound="0" upperBound="-1"/>
+		<property name="СпособРасчета" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+				<enumeration>От суммы</enumeration>
+				<enumeration>От разницы</enumeration>
+			</typeDef>
+		</property>
+		<property name="ДатаОплаты" type="xs:dateTime" lowerBound="0"/>
+		<property name="ОтКомитента" type="d2p1:РеквизитыФизЛица" lowerBound="0"/>
+		<property name="ОтКомиссионера" type="d2p1:РеквизитыФизЛица" lowerBound="0"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://v8.1c.ru/edi/edi_stnd" name="ОтчетОСписанииКомиссионногоТовара" base="d2p1:КоммерческаяИнформация">
+		<property name="Ид" type="d2p1:ИдентификаторГлобальныйТип"/>
+		<property name="Номер">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="collapse"/>
+		</property>
+		<property name="Дата" type="xs:date"/>
+		<property name="Комитент" type="d2p1:Контрагент"/>
+		<property name="Комиссионер" type="d2p1:Контрагент"/>
+		<property name="Товары">
+			<typeDef xsi:type="ObjectType">
+				<property name="Товар" upperBound="-1">
+					<typeDef xsi:type="ObjectType" base="d2p1:Товар">
+						<property name="Количество" type="d2p1:КоличествоТип"/>
+						<property name="ЕдиницаИзмерения" type="d2p1:ЕдиницаИзмерения"/>
+						<property name="Цена" type="d2p1:СуммаТип"/>
+						<property name="Сумма" type="d2p1:СуммаТип"/>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+		<property name="ИтогоПоДокументу" type="d2p1:СуммаТип"/>
+		<property name="ИтогиПрописью">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3000" whiteSpace="preserve"/>
+		</property>
+		<property name="ДатаНачала" type="xs:dateTime" lowerBound="0"/>
+		<property name="ДатаКонца" type="xs:dateTime" lowerBound="0"/>
+		<property name="Валюта" type="d2p1:Валюта" lowerBound="0"/>
+		<property name="ОтКомитента" type="d2p1:РеквизитыФизЛица" lowerBound="0"/>
+		<property name="ОтКомиссионера" type="d2p1:РеквизитыФизЛица" lowerBound="0"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://v8.1c.ru/edi/edi_stnd" name="ПрайсЛист" base="d2p1:КоммерческаяИнформация" open="true" sequenced="true">
+		<property name="Ид" type="d2p1:ИдентификаторГлобальныйТип"/>
+		<property name="Владелец" type="d2p1:Контрагент"/>
+		<property name="Предложения">
+			<typeDef xsi:type="ObjectType">
+				<property name="Предложение" upperBound="-1">
+					<typeDef xsi:type="ObjectType" base="d2p1:Товар">
+						<property name="Цены">
+							<typeDef xsi:type="ObjectType">
+								<property name="Цена" type="d2p1:ЦенаТовара" upperBound="-1"/>
+							</typeDef>
+						</property>
+						<property name="Количество" type="d2p1:КоличествоТип" lowerBound="0"/>
+						<property name="КоличествоПоСкладам" lowerBound="0">
+							<typeDef xsi:type="ObjectType">
+								<property name="КоличествоНаСкладе" upperBound="-1">
+									<typeDef xsi:type="ObjectType">
+										<property name="Склад" type="d2p1:Склад"/>
+										<property name="Количество" type="d2p1:КоличествоТип" lowerBound="0"/>
+									</typeDef>
+								</property>
+							</typeDef>
+						</property>
+						<property name="ИдТовараУКонтрагента" type="d2p1:ИдентификаторГлобальныйТип" lowerBound="0"/>
+						<property name="Группы" lowerBound="0">
+							<typeDef xsi:type="ObjectType">
+								<property name="Ид" type="d2p1:ИдентификаторГлобальныйТип" upperBound="-1"/>
+							</typeDef>
+						</property>
+						<property name="Картинка" lowerBound="0" upperBound="-1">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="100"/>
+						</property>
+						<property name="Страна" lowerBound="0">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+						</property>
+						<property name="ТорговаяМарка" lowerBound="0">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3000" whiteSpace="preserve"/>
+						</property>
+						<property name="ВладелецТорговойМарки" type="d2p1:Контрагент" lowerBound="0"/>
+						<property name="Изготовитель" type="d2p1:Контрагент" lowerBound="0"/>
+						<property name="ЗначенияСвойств" lowerBound="0">
+							<typeDef xsi:type="ObjectType">
+								<property name="ЗначенияСвойства" type="d2p1:ЗначенияСвойства" upperBound="-1"/>
+							</typeDef>
+						</property>
+						<property name="СтавкиНалогов" lowerBound="0">
+							<typeDef xsi:type="ObjectType">
+								<property name="СтавкаНалога" upperBound="-1">
+									<typeDef xsi:type="ObjectType">
+										<property name="ТипНалога" type="xs:anyType"/>
+										<property name="Ставка">
+											<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="5" fractionDigits="2"/>
+										</property>
+									</typeDef>
+								</property>
+							</typeDef>
+						</property>
+						<property name="Акцизы" lowerBound="0">
+							<typeDef xsi:type="ObjectType">
+								<property name="Акциз" upperBound="-1">
+									<typeDef xsi:type="ObjectType">
+										<property name="Наименование">
+											<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255"/>
+										</property>
+										<property name="СуммаЗаЕдиницу" type="d2p1:СуммаТип"/>
+										<property name="Валюта">
+											<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="3"/>
+										</property>
+									</typeDef>
+								</property>
+							</typeDef>
+						</property>
+						<property name="Комплектующие" lowerBound="0">
+							<typeDef xsi:type="ObjectType">
+								<property name="Комплектующее" type="d2p1:Товар" upperBound="-1"/>
+							</typeDef>
+						</property>
+						<property name="Аналоги" lowerBound="0">
+							<typeDef xsi:type="ObjectType">
+								<property name="Аналог" type="d2p1:Товар" upperBound="-1"/>
+							</typeDef>
+						</property>
+						<property name="ХарактеристикиТовара" lowerBound="0">
+							<typeDef xsi:type="ObjectType">
+								<property name="ХарактеристикаТовара" type="d2p1:ХарактеристикаТовара" upperBound="-1"/>
+							</typeDef>
+						</property>
+						<property name="ЗначенияРеквизитов" lowerBound="0">
+							<typeDef xsi:type="ObjectType">
+								<property name="ЗначениеРеквизита" type="d2p1:ЗначениеРеквизита" upperBound="-1"/>
+							</typeDef>
+						</property>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+		<property name="Наименование" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="collapse"/>
+		</property>
+		<property name="ИдКаталога" type="d2p1:ИдентификаторГлобальныйТип" lowerBound="0"/>
+		<property name="ИдКлассификатора" type="d2p1:ИдентификаторГлобальныйТип" lowerBound="0"/>
+		<property name="ДействительноС" type="xs:dateTime" lowerBound="0"/>
+		<property name="ДействительноДо" type="xs:dateTime" lowerBound="0"/>
+		<property name="Описание" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3000" whiteSpace="collapse"/>
+		</property>
+		<property name="ТипыЦен" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property name="ИдКлассификатора" type="d2p1:ИдентификаторГлобальныйТип" lowerBound="0"/>
+				<property name="ТипЦены" type="d2p1:ТипЦены" upperBound="-1"/>
+			</typeDef>
+		</property>
+		<property name="ЗначенияСвойств" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property name="ЗначенияСвойства" type="d2p1:ЗначенияСвойства" upperBound="-1"/>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="РасчетныйСчет">
+		<property name="НомерСчета">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="20"/>
+		</property>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="Банк" type="d3p1:Банк"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="БанкКорреспондент" type="d3p1:Банк" lowerBound="0"/>
+		<property name="Комментарий" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3000" whiteSpace="preserve"/>
+		</property>
+	</objectType>
+	<objectType name="РеквизитыФизЛица">
+		<property name="ПолноеНаименование">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3000" whiteSpace="preserve"/>
+		</property>
+		<property name="Обращение" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="100" whiteSpace="preserve"/>
+		</property>
+		<property name="Фамилия" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+		</property>
+		<property name="Имя" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+		</property>
+		<property name="Отчество" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+		</property>
+		<property name="ДатаРождения" type="xs:date" lowerBound="0"/>
+		<property name="МестоРождения" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+		</property>
+		<property name="Пол" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="1">
+				<pattern>М</pattern>
+				<pattern>Ж</pattern>
+			</typeDef>
+		</property>
+		<property name="ИНН" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="10" maxLength="12"/>
+		</property>
+		<property name="УдостоверениеЛичности" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property name="ВидДокумента">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+				</property>
+				<property name="Серия" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+				</property>
+				<property name="Номер">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+				</property>
+				<property name="ДатаВыдачи" type="xs:date"/>
+				<property name="КемВыдан">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+				</property>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="АдресРегистрации" type="d3p1:Адрес" lowerBound="0"/>
+		<property name="ОКПО" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve">
+				<pattern>[0-9]{10}</pattern>
+				<pattern>[0-9]{8}</pattern>
+			</typeDef>
+		</property>
+		<property name="Свидетельство" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property name="Номер">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255"/>
+				</property>
+				<property name="ДатаВыдачи" type="xs:date"/>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="Организация" type="d3p1:Контрагент" lowerBound="0"/>
+		<property name="Должность" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+		</property>
+	</objectType>
+	<objectType name="РеквизитыЮрЛица">
+		<property name="ОфициальноеНаименование">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3000" whiteSpace="preserve"/>
+		</property>
+		<property name="ИНН" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="10" maxLength="12"/>
+		</property>
+		<property name="КПП" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="9"/>
+		</property>
+		<property name="ОсновнойВидДеятельности" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3000" whiteSpace="preserve"/>
+		</property>
+		<property name="ЕГРПО" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+		</property>
+		<property name="ОКВЭД" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve">
+				<pattern>[0-9]{2}.[0-9]{2}.[0-9]{2}</pattern>
+			</typeDef>
+		</property>
+		<property name="ОКДП" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="7" whiteSpace="preserve">
+				<pattern>[0-9]{7}</pattern>
+			</typeDef>
+		</property>
+		<property name="ОКОПФ" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve">
+				<pattern>[0-9]{2}-[0-9A-Z]</pattern>
+			</typeDef>
+		</property>
+		<property name="ОКФС" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve">
+				<pattern>[0-9]{2}</pattern>
+			</typeDef>
+		</property>
+		<property name="ОКПО" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve">
+				<pattern>[0-9]{10}</pattern>
+				<pattern>[0-9]{8}</pattern>
+			</typeDef>
+		</property>
+		<property name="ДатаРегистрации" type="xs:date" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="ЮридическийАдрес" type="d3p1:Адрес" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="Руководитель" type="d3p1:Контрагент" lowerBound="0"/>
+	</objectType>
+	<objectType name="Свойство">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="Ид" type="d3p1:ИдентификаторГлобальныйТип"/>
+		<property name="Наименование">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+		</property>
+		<property name="Описание" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3000" whiteSpace="preserve"/>
+		</property>
+		<property name="Обязательное" type="xs:boolean" lowerBound="0"/>
+		<property name="Множественное" type="xs:boolean" lowerBound="0"/>
+		<property name="ТипЗначений" lowerBound="0" upperBound="-1">
+			<typeDef xsi:type="ObjectType">
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd" name="Тип" type="d5p1:ТипЗначенийТип"/>
+				<property name="Описание" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3000" whiteSpace="preserve"/>
+				</property>
+				<property name="ВариантыЗначений" lowerBound="0" upperBound="-1">
+					<typeDef xsi:type="ObjectType">
+						<property xmlns:d7p1="http://v8.1c.ru/edi/edi_stnd" name="ИдЗначения" type="d7p1:ИдентификаторГлобальныйТип"/>
+						<property name="Значение">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+						</property>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+		<property name="ДляТоваров" type="xs:boolean" lowerBound="0"/>
+		<property name="ДляПредложений" type="xs:boolean" lowerBound="0"/>
+		<property name="ДляДокументов" type="xs:boolean" lowerBound="0"/>
+	</objectType>
+	<objectType name="Скидка">
+		<property name="Наименование">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+		</property>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="Сумма" type="d3p1:СуммаТип"/>
+		<property name="Процент" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="5" fractionDigits="2"/>
+		</property>
+		<property name="УчтеноВСумме" type="xs:boolean" lowerBound="0"/>
+		<property name="Комментарий" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3000" whiteSpace="preserve"/>
+		</property>
+	</objectType>
+	<objectType name="Склад">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="Ид" type="d3p1:ИдентификаторГлобальныйТип"/>
+		<property name="Наименование">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+		</property>
+		<property name="Комментарий" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3000" whiteSpace="preserve"/>
+		</property>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="Адрес" type="d3p1:Адрес" lowerBound="0"/>
+		<property name="Контакты" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd" name="Контакт" type="d5p1:КонтактнаяИнформация" upperBound="-1"/>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="Стоимость">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="СуммаОбщая" type="d3p1:СуммаТип"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="Налог" type="d3p1:Налог" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="СуммаНалога" type="d3p1:СуммаТип" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="СуммаБезНалога" type="d3p1:СуммаТип" lowerBound="0"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://v8.1c.ru/edi/edi_stnd" name="СчетНаОплату" base="d2p1:КоммерческаяИнформация">
+		<property name="Ид" type="d2p1:ИдентификаторГлобальныйТип"/>
+		<property name="Номер">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="collapse"/>
+		</property>
+		<property name="Дата" type="xs:date"/>
+		<property name="РеквизитыПолучателя" type="d2p1:РасчетныйСчет"/>
+		<property name="НазначениеПлатежа">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3000" whiteSpace="preserve"/>
+		</property>
+		<property name="ДатаОкончанияДействияСчета" type="xs:date"/>
+		<property name="Поставщик">
+			<typeDef xsi:type="ObjectType" base="d2p1:Контрагент"/>
+		</property>
+		<property name="Покупатель" type="d2p1:Контрагент"/>
+		<property name="ИтогоПоДокументу">
+			<typeDef xsi:type="ObjectType">
+				<property name="СуммаИтог" type="d2p1:СуммаТип"/>
+				<property name="СуммаНалогаИтог" type="d2p1:СуммаТип" lowerBound="0"/>
+				<property name="ЦенаВключаетНалог" type="xs:boolean" lowerBound="0"/>
+				<property name="СуммаБезСкидкиИтог" type="d2p1:СуммаТип" lowerBound="0"/>
+				<property name="СуммаСкидкиИтог" type="d2p1:СуммаТип" lowerBound="0"/>
+			</typeDef>
+		</property>
+		<property name="ИтогиПрописью">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3000" whiteSpace="preserve"/>
+		</property>
+		<property name="Руководитель" type="d2p1:РеквизитыФизЛица" lowerBound="0"/>
+		<property name="Бухгалтер" type="d2p1:РеквизитыФизЛица" lowerBound="0"/>
+		<property name="ДокументОснования" type="d2p1:ДокументОснования" lowerBound="0" upperBound="-1"/>
+		<property name="Валюта" type="d2p1:Валюта" lowerBound="0"/>
+		<property name="Товары" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property name="Товар" upperBound="-1">
+					<typeDef xsi:type="ObjectType" base="d2p1:Товар">
+						<property name="Количество" type="d2p1:КоличествоТип"/>
+						<property name="ЕдиницаИзмерения" type="d2p1:ЕдиницаИзмерения"/>
+						<property name="Цена" type="d2p1:СуммаТип"/>
+						<property name="СуммыПоТовару" type="d2p1:Стоимость"/>
+						<property name="Скидки" lowerBound="0">
+							<typeDef xsi:type="ObjectType">
+								<property name="Скидка" type="d2p1:Скидка" upperBound="-1"/>
+								<property name="СуммаСкидок" type="d2p1:СуммаТип" lowerBound="0"/>
+								<property name="СуммаБезСкидок" type="d2p1:СуммаТип" lowerBound="0"/>
+							</typeDef>
+						</property>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+		<property name="ЭтапОплаты" type="d2p1:ГрафикОплаты" lowerBound="0" upperBound="-1"/>
+		<property name="Ответственный" type="d2p1:РеквизитыФизЛица" lowerBound="0"/>
+		<property name="Комментарий" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3000" whiteSpace="preserve"/>
+		</property>
+	</objectType>
+	<objectType xmlns:d2p1="http://v8.1c.ru/edi/edi_stnd" name="ТОРГ12" base="d2p1:КоммерческаяИнформация">
+		<property name="Ид" type="d2p1:ИдентификаторГлобальныйТип"/>
+		<property name="Номер">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="collapse"/>
+		</property>
+		<property name="Дата" type="xs:dateTime"/>
+		<property name="ОКУД">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+				<enumeration>0330212</enumeration>
+			</typeDef>
+		</property>
+		<property name="Грузоотправитель">
+			<typeDef xsi:type="ObjectType" base="d2p1:Контрагент">
+				<property name="СтруктурноеПодразделение" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255"/>
+				</property>
+			</typeDef>
+		</property>
+		<property name="Грузополучатель" type="d2p1:Контрагент"/>
+		<property name="АдресДоставки" type="d2p1:Адрес" lowerBound="0"/>
+		<property name="Поставщик" type="d2p1:Контрагент"/>
+		<property name="Плательщик" type="d2p1:Контрагент"/>
+		<property name="Основание" type="d2p1:ДокументОснования" lowerBound="0"/>
+		<property name="ТранспортнаяНакладная" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property name="Номер">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="collapse"/>
+				</property>
+				<property name="Дата" type="xs:date"/>
+			</typeDef>
+		</property>
+		<property name="ВидОперации" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255"/>
+		</property>
+		<property name="Товары">
+			<typeDef xsi:type="ObjectType">
+				<property name="Товар" upperBound="-1">
+					<typeDef xsi:type="ObjectType" base="d2p1:Товар" open="true" sequenced="true">
+						<property name="НомерПП" type="xs:integer"/>
+						<property name="ЕдиницаИзмерения" type="d2p1:ЕдиницаИзмерения"/>
+						<property name="Количество" type="d2p1:КоличествоТип"/>
+						<property name="Цена" type="d2p1:СуммаТип"/>
+						<property name="СуммаБезНДС" type="d2p1:СуммаТип"/>
+						<property name="СуммаСУчетомНДС" type="d2p1:СуммаТип"/>
+						<property name="ВидУпаковки" lowerBound="0">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="collapse"/>
+						</property>
+						<property name="МассаБрутто" type="d2p1:КоличествоТип" lowerBound="0"/>
+						<property name="МассаНетто" type="d2p1:КоличествоТип" lowerBound="0"/>
+						<property name="Налог" type="d2p1:Налог" lowerBound="0"/>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+		<property name="Валюта" type="d2p1:Валюта" lowerBound="0"/>
+		<property name="ИтогоПоДокументу">
+			<typeDef xsi:type="ObjectType">
+				<property name="КоличествоЗаписей">
+					<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" minInclusive="1"/>
+				</property>
+				<property name="КоличествоМест" type="d2p1:КоличествоТип"/>
+				<property name="СуммаСУчетомНДС" type="d2p1:СуммаТип"/>
+				<property name="СуммаБезНДС" type="d2p1:СуммаТип"/>
+				<property name="СуммаНДС" type="d2p1:СуммаТип" lowerBound="0"/>
+				<property name="МассаНетто" type="d2p1:КоличествоТип" lowerBound="0"/>
+				<property name="МассаБрутто" type="d2p1:КоличествоТип" lowerBound="0"/>
+			</typeDef>
+		</property>
+		<property name="ИтогиПрописью">
+			<typeDef xsi:type="ObjectType">
+				<property name="КоличествоЗаписейПрописью">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255"/>
+				</property>
+				<property name="КоличествоМестПрописью">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255"/>
+				</property>
+				<property name="СуммаВсегоПрописью">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255"/>
+				</property>
+				<property name="МассаНеттоПрописью" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255"/>
+				</property>
+				<property name="МассаБруттоПрописью" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255"/>
+				</property>
+				<property name="Приложение" lowerBound="0">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3000" whiteSpace="preserve"/>
+				</property>
+			</typeDef>
+		</property>
+		<property name="ОтпускРазрешил" type="d2p1:РеквизитыФизЛица" lowerBound="0"/>
+		<property name="ГлавныйБухгалтер" type="d2p1:РеквизитыФизЛица" lowerBound="0"/>
+		<property name="ОтпускПроизвел" lowerBound="0">
+			<typeDef xsi:type="ObjectType" base="d2p1:РеквизитыФизЛица">
+				<property name="Доверенность" type="d2p1:Доверенность" lowerBound="0"/>
+			</typeDef>
+		</property>
+		<property name="ДатаОтгрузки" type="xs:dateTime" lowerBound="0"/>
+		<property name="ГрузПринял" lowerBound="0">
+			<typeDef xsi:type="ObjectType" base="d2p1:РеквизитыФизЛица">
+				<property name="Доверенность" type="d2p1:Доверенность" lowerBound="0"/>
+			</typeDef>
+		</property>
+		<property name="ГрузПолучил" lowerBound="0">
+			<typeDef xsi:type="ObjectType" base="d2p1:РеквизитыФизЛица">
+				<property name="Доверенность" type="d2p1:Доверенность" lowerBound="0"/>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="ТипЦены">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="Ид" type="d3p1:ИдентификаторГлобальныйТип"/>
+		<property name="Наименование" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+		</property>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="Валюта" type="d3p1:Валюта" lowerBound="0"/>
+		<property name="Описание" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3000" whiteSpace="preserve"/>
+		</property>
+	</objectType>
+	<objectType name="Товар">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="Ид" type="d3p1:ИдентификаторГлобальныйТип"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="Штрихкод" type="d3p1:GTIN" lowerBound="0"/>
+		<property name="Артикул" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+		</property>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="ИдТовара" type="d3p1:ТоварИД" lowerBound="0"/>
+		<property name="Наименование">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255" whiteSpace="preserve"/>
+		</property>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="БазоваяЕдиница" type="d3p1:БазоваяЕдиница"/>
+		<property name="Описание" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3000" whiteSpace="preserve"/>
+		</property>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="ДополнительныеРеквизиты" type="d3p1:ЗначениеРеквизита" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ХарактеристикаТовара">
+		<property name="Наименование">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+		</property>
+		<property name="Значение">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="255" whiteSpace="preserve"/>
+		</property>
+	</objectType>
+	<objectType name="ЦенаТовара">
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="ИдТипаЦены" type="d3p1:ИдентификаторГлобальныйТип"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="ЕдиницаИзмерения" type="d3p1:ЕдиницаИзмерения"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="Цена" type="d3p1:СуммаТип"/>
+		<property xmlns:d3p1="http://v8.1c.ru/edi/edi_stnd" name="Валюта" type="d3p1:Валюта" lowerBound="0"/>
+		<property name="МинКоличество" lowerBound="0">
+			<typeDef xmlns:d4p1="http://v8.1c.ru/edi/edi_stnd" xsi:type="ValueType" base="d4p1:КоличествоТип" variety="Atomic" fractionDigits="3"/>
+		</property>
+		<property name="Налоги" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property name="Налог" upperBound="-1">
+					<typeDef xmlns:d6p1="http://v8.1c.ru/edi/edi_stnd" xsi:type="ObjectType" base="d6p1:Налог"/>
+				</property>
+				<property xmlns:d5p1="http://v8.1c.ru/edi/edi_stnd" name="СуммаНалогов" type="d5p1:СуммаТип" lowerBound="0"/>
+			</typeDef>
+		</property>
+		<property name="Представление" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3000" whiteSpace="preserve"/>
+		</property>
+	</objectType>
+</package>

@@ -1,0 +1,16 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="ДопФайлУниверсальный">
+	<property xmlns:d2p1="ДопФайлУниверсальный" name="ДопФайл" type="d2p1:ДопФайл"/>
+	<property xmlns:d2p1="ДопФайлУниверсальный" name="Реквизит" type="d2p1:Реквизит"/>
+	<objectType name="ДопФайл">
+		<property name="ИдФайла" type="xs:string" lowerBound="1" form="Attribute"/>
+		<property name="ИдДопФайла" type="xs:string" lowerBound="1" form="Attribute"/>
+		<property name="ВерсияФормата" type="xs:string" lowerBound="1" form="Attribute"/>
+		<property name="ДатаФормирования" type="xs:dateTime" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="ДопФайлУниверсальный" name="Данные" type="d3p1:Реквизит" lowerBound="0"/>
+	</objectType>
+	<objectType name="Реквизит" ordered="false" sequenced="true">
+		<property name="Имя" type="xs:string" lowerBound="0" form="Attribute"/>
+		<property name="Значение" type="xs:string" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="ДопФайлУниверсальный" ref="d3p1:Реквизит" lowerBound="0" upperBound="-1"/>
+	</objectType>
+</package>

@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0">
+	<DocumentJournal uuid="f98177b2-08d0-4654-bfec-21649c944fea">
+		<InternalInfo>
+			<xr:GeneratedType name="DocumentJournalSelection.ЭлектронныеДокументыСчетаФактурыВходящие" category="Selection">
+				<xr:TypeId>7b774865-d32c-4a41-9847-e67b5eb08d53</xr:TypeId>
+				<xr:ValueId>fab1bce1-b9db-4ff5-aef4-648bd46d0b47</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="DocumentJournalList.ЭлектронныеДокументыСчетаФактурыВходящие" category="List">
+				<xr:TypeId>b9aff6c9-00a6-4d7b-bcec-a7ad00fcc4e9</xr:TypeId>
+				<xr:ValueId>a1f2a141-2486-4797-b433-767302eac5ba</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="DocumentJournalManager.ЭлектронныеДокументыСчетаФактурыВходящие" category="Manager">
+				<xr:TypeId>ed6b11b0-c834-4eaf-9c79-7c08844f4788</xr:TypeId>
+				<xr:ValueId>94bd8ff1-aa82-4d2a-b241-124f380acfad</xr:ValueId>
+			</xr:GeneratedType>
+		</InternalInfo>
+		<Properties>
+			<Name>ЭлектронныеДокументыСчетаФактурыВходящие</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Электронные документы счета-фактуры входящие</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment/>
+			<DefaultForm/>
+			<AuxiliaryForm/>
+			<UseStandardCommands>false</UseStandardCommands>
+			<RegisteredDocuments>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийАкцептСчетаФактуры</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийРеджектСчетаФактуры</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийСчетФактура</xr:Item>
+			</RegisteredDocuments>
+			<IncludeHelpInContents>false</IncludeHelpInContents>
+			<ListPresentation/>
+			<ExtendedListPresentation/>
+			<Explanation/>
+		</Properties>
+		<ChildObjects>
+			<Column uuid="3c4a4033-7825-431c-a4a9-dca9b7c314fc">
+				<Properties>
+					<Name>ДатаОтправки</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата отправки</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийРеджектСчетаФактуры.Attribute.ДатаВходящегоДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийСчетФактура.Attribute.ДатаВходящегоДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийАкцептСчетаФактуры.Attribute.ДатаВходящегоДокумента</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="8d264d67-170d-43a4-970d-bb9c1e3f3b20">
+				<Properties>
+					<Name>ОбработанОтправлен</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Обработан/отправлен</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийРеджектСчетаФактуры.Attribute.Обработан</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийСчетФактура.Attribute.Обработан</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийАкцептСчетаФактуры.Attribute.Обработан</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="df015a30-6079-4c10-9b65-83a3617fe5ad">
+				<Properties>
+					<Name>Организация</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийРеджектСчетаФактуры.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийСчетФактура.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийАкцептСчетаФактуры.Attribute.Организация</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="de4242c8-6a28-40ef-82fb-1a646115935c">
+				<Properties>
+					<Name>Контрагент</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Контрагент</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийРеджектСчетаФактуры.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийСчетФактура.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийАкцептСчетаФактуры.Attribute.Контрагент</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+		</ChildObjects>
+	</DocumentJournal>
+</MetaDataObject>

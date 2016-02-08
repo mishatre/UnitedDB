@@ -1,0 +1,1655 @@
+﻿#Область ДоКнопок
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:js="javascript">
+<msxsl:script implements-prefix="js" language="javascript">
+<![CDATA[var QuNumber=0;
+// возвращает Ид группы, если это, действительно, группа, и пустую строку в противном случае
+function GetGroupID(Имя, Ид)
+{
+	return (Имя	== 'Группа') ? Ид : "";
+}
+
+function getNumber()
+{
+	return QuNumber++;
+}
+
+function GetCurrentNumber()
+{
+		return QuNumber;
+}]]>
+</msxsl:script>
+	<xsl:output method="html" version="4.0" encoding="UTF-8" media-type="text/html; charset=UTF-8"/>
+	<xsl:template match="Заголовок">
+		<html>
+			<head>
+				<xsl:value-of select="Заголовок/Анкета/@Наименование"/>
+				<style>				
+				body
+				{
+					border: 0px;
+					font-size: x-small;
+					margin: 0px;
+					cursor: default;
+					font-family: Verdana, Arial, Serif;
+					background-color: #FFFBF0;
+					overflow: auto;
+					scrollbar-3dlight-color: #FFFBF0;
+					scrollbar-arrow-color: #000000;
+					scrollbar-darkshadow-color: #FFFBF0;
+					scrollbar-face-color: #EAE5D8;
+					scrollbar-highlight-color: #898477;
+					scrollbar-shadow-color: #898477;
+					scrollbar-base-color: #000000;
+					scrollbar-track-color: #F2ECE0;
+					margin:40px;
+				}
+				TD,TH,INPUT
+				{
+					font-size: x-small;
+					font-family: Verdana, Arial, Serif;
+				}
+				.textbox 
+				{
+					border: #898477 1px solid;
+				}
+				.editor 
+				{
+					BORDER: #898477 1px solid; 
+					HEIGHT: 22px;
+				}				
+				.wrongFilledEditor 
+				{
+					BORDER: red 1px solid; 
+					HEIGHT: 22px;
+				}
+				.text 
+				{
+					BORDER: #898477 1px solid; 
+				}
+				.wrongFilledText 
+				{
+					BORDER: red 1px solid; 
+				}
+				.requiredQuestionAlert 
+				{
+					FONT-SIZE: 8pt; 
+					COLOR: red; 
+				}
+				.sectionCaption 
+				{
+					FONT-SIZE: 14pt; 
+					FONT-FAMILY: arial;
+				}	
+				.complexQuestionCell
+				{
+					font-size:xx-small;
+				}			
+				</style>
+			</head>
+			<script language="javascript">
+			<![CDATA[
+var	xmldoc = new ActiveXObject("msxml2.DOMDocument.4.0");
+var	tempXML = new ActiveXObject("msxml2.DOMDocument.4.0");
+	LoadPath = document.location.pathname.substr(1).replace(new RegExp('%20', 'gi'),' ');
+	//comment11;
+	xmldoc.load(LoadPath);
+
+if (document.all("InputFilePath") != null)
+{
+	try
+	{
+		var FSO		=	new ActiveXObject("Scripting.FileSystemObject"); 
+	}
+	catch(e)
+	{
+	}
+}
+
+function AnswerPhoneToXML(HTMObj, Table)
+{
+	if (Table)
+	{
+		QuID		= HTMObj.value_QuId;
+		ColQuID		= HTMObj.value_ColQuId;
+		AddStr_1	= "/КолонкаТаблицы[@Ид='" + ColQuID + "']";
+		row		= HTMObj.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.rowIndex
+		AddStr_2	= "/СтрокаТаблицы[@НомерСтроки='" + row + "']/Вопрос[@Ид='" + ColQuID + "']";
+	}
+	else
+	{
+		QuID	= HTMObj.value_QuId;
+		AddStr_1	= '';
+		AddStr_2	= '';
+	}
+	
+	ControlType 	= xmldoc.selectSingleNode("/Заголовок/Анкета/Группа/Вопрос[@Ид='"+QuID+"']" + AddStr_1 + "/@ТипЗначенийОтвета").text;
+	
+	if (ControlType == 'Таблица')
+	{
+		AnswerPhoneToXML(HTMObj, true);
+		return;
+	}
+	
+	Acollection	= HTMObj.parentElement.parentElement.parentElement.all;
+	ValueToXML = '';
+	i=0;
+	while (i <= Acollection.length-1)
+	{
+		CollectionObj = Acollection(i);
+		if (CollectionObj.tagName == 'INPUT')
+		{
+			ValueToXML = ValueToXML + '¤' + CollectionObj.value
+		}
+		i++;
+	}
+	AnswerVal 		= xmldoc.selectSingleNode("/Заголовок/РезультатОпроса/Вопрос[@Ид='"+QuID+"']" + AddStr_2 + "/Значение");
+	AnswerVal.text = ValueToXML.substr(1);
+}
+
+function AnswerAddressToXML(HTMObj, Table)
+{
+	if (Table)
+	{
+		QuID		= HTMObj.value_QuId;
+		ColQuID		= HTMObj.value_ColQuId;
+		AddStr_1	= '/КолонкаТаблицы';
+		row		= HTMObj.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.rowIndex;
+		AddStr_2	= "/СтрокаТаблицы[@НомерСтроки='" + row + "']/Вопрос[@Ид='" + ColQuID + "']";
+	}
+	else
+	{
+		QuID	= HTMObj.value_QuId;
+		AddStr_1	= '';
+		AddStr_2	= '';
+	}
+	
+	ControlType 	= xmldoc.selectSingleNode("/Заголовок/Анкета/Группа/Вопрос[@Ид='"+QuID+"']" + AddStr_1 + "/@ТипЗначенийОтвета").text;
+	
+	if (ControlType == 'Таблица')
+	{
+		AnswerAddressToXML(HTMObj, true);
+		return;
+	}
+ 
+	Acollection	= HTMObj.parentElement.parentElement.parentElement.all;
+	ValueToXML = '';
+	i=0;
+	while (i <= Acollection.length-1)
+	{
+		CollectionObj = Acollection(i);
+		if (CollectionObj.tagName == 'INPUT')
+		{
+			ValueToXML = ValueToXML + '¤' + CollectionObj.value
+		}
+		i++;
+	}
+	AnswerVal 		= xmldoc.selectSingleNode("/Заголовок/РезультатОпроса/Вопрос[@Ид='"+QuID+"']" + AddStr_2 + "/Значение");
+	AnswerVal.text = ValueToXML.substr(1);
+}
+
+ function AnswerDateToXML(HTMObj, Table)
+{
+	if (Table)
+	{
+		QuID		= HTMObj.value_QuId;
+		ColQuID		= HTMObj.value_ColQuId;
+		AddStr_1	= '/КолонкаТаблицы';
+		row		= HTMObj.parentElement.parentElement.rowIndex;
+		AddStr_2	= "/СтрокаТаблицы[@НомерСтроки='" + row + "']/Вопрос[@Ид='" + ColQuID + "']";
+	}
+	else
+	{
+		QuID	= HTMObj.value_QuId;
+		AddStr_1	= '';
+		AddStr_2	= '';
+	}
+	
+	ControlType 	= xmldoc.selectSingleNode("/Заголовок/Анкета/Группа/Вопрос[@Ид='"+QuID+"']" + AddStr_1 + "/@ТипЗначенийОтвета").text;
+	
+	if (ControlType == 'Таблица')
+	{
+		AnswerDateToXML(HTMObj, true);
+		return;
+	}
+	
+	Day		= HTMObj.parentElement.children(0).value.replace(/ /gi, '');
+	Month	= HTMObj.parentElement.children(1).options.selectedIndex;
+	Year	= HTMObj.parentElement.children(2).value.replace(/ /gi, '');
+	
+	Day		=	Day		==	''	?	'0'	:	Day;
+	Year	=	Year	==	''	?	'0'	:	Year;
+	
+	DateObj		= new Date(parseInt(Year, 10), Month, parseInt(Day, 10));
+	DateToFile	= GetDateforXML(DateObj);
+	DateToFile	= DateToFile=='1899-12-31T00:00:00'	?	" ":DateToFile;
+	ValToXML		= HTMObj.value;
+	AnswerVal 		= xmldoc.selectSingleNode("/Заголовок/РезультатОпроса/Вопрос[@Ид='"+QuID+"']" + AddStr_2 + "/Значение");
+	AnswerVal.text = DateToFile;
+}
+
+function AnswerToXML(HTMObj, AnswerExtend, Table)
+{
+	tName 		= HTMObj.tagName;
+	
+	if (Table)
+	{
+		QuID		= HTMObj.value_QuId;
+		ColQuID		= HTMObj.value_ColQuId;
+		AddStr_1	= "/КолонкаТаблицы[@Ид='" + ColQuID + "']";
+		row		= HTMObj.parentElement.parentElement.rowIndex;
+		AddStr_2	= "/СтрокаТаблицы[@НомерСтроки='" + row + "']/Вопрос[@Ид='" + ColQuID + "']";
+	}
+	else
+	{
+		QuID		= HTMObj.value_QuId;
+		AddStr_1	= '';
+		AddStr_2	= '';
+	}
+	ControlType 	= xmldoc.selectSingleNode("/Заголовок/Анкета/Группа/Вопрос[@Ид='"+QuID+"']" + AddStr_1 + "/@ТипЗначенийОтвета").text;
+	AnswerMethod	= xmldoc.selectSingleNode("/Заголовок/Анкета/Группа/Вопрос[@Ид='"+QuID+"']" + AddStr_1 + "/@СпособОтвета").text;
+	
+	if (ControlType == 'Таблица')
+	{
+		AnswerToXML(HTMObj, false, true);
+		return;
+	}
+	
+	if (tName=='INPUT' && AnswerExtend && !Table) // в таблице развернутых ответов не бывает
+	{
+		ValToXML				= HTMObj.value;
+		AnswerID				= HTMObj.value_AnId;
+		AnswerValExtend 		= xmldoc.selectSingleNode("/Заголовок/РезультатОпроса/Вопрос[@Ид='"+QuID+"']/ВариантОтвета/@Ид[.='"+AnswerID+"']/../@РазвернутыйОтвет");
+		AnswerValExtend.text 	= ValToXML;
+	}
+//	else if ((tName=='INPUT' | tName == 'TEXTAREA') && AnswerMethod == 'ВСвободнойФорме' && (ControlType == 'Число' | ControlType == 'Строка' | ControlType == 'Текст'))
+	else if ((tName=='INPUT' | tName == 'TEXTAREA') && AnswerMethod == 'ВСвободнойФорме')
+	{
+		ValToXML		= HTMObj.value;
+		AnswerVal 		= xmldoc.selectSingleNode("/Заголовок/РезультатОпроса/Вопрос[@Ид='"+QuID+"']" + AddStr_2 + "/Значение");
+		AnswerVal.text = ValToXML;
+	}
+	else if (tName=='SELECT' && AnswerMethod == 'ВыборОдногоВарианта')
+	{
+		ValToXML			= HTMObj.children(HTMObj.selectedIndex).value_AnId;
+		AnswerVal 			= xmldoc.selectSingleNode("/Заголовок/РезультатОпроса/Вопрос[@Ид='"+QuID+"']" + AddStr_2 + "/ВариантОтвета/@Ид");
+		AnswerVal.text 	= ValToXML;
+	}
+	else if (tName=='INPUT' && AnswerMethod == 'ВыборОдногоВарианта')
+	{
+		ValToXML			= HTMObj.value_AnId;
+		AnswerVal 			= xmldoc.selectSingleNode("/Заголовок/РезультатОпроса/Вопрос[@Ид='"+QuID+"']/ВариантОтвета/@Ид");
+		AnswerVal.text 	= ValToXML;
+	}
+	else if (tName=='INPUT' && AnswerMethod == 'ВыборНесколькихВариантов')
+	{
+		ValToXML			= HTMObj.value_AnId;
+		if (HTMObj.checked == true)
+		{
+			AnswerVal 			= xmldoc.selectSingleNode("/Заголовок/РезультатОпроса/Вопрос[@Ид='"+QuID+"']/ВариантОтвета/@Ид[.='"+ValToXML+"']");
+			if (AnswerVal != null) 
+			{
+			// если найден такой ответ, тогда просто запишем его
+				AnswerVal.text 	= ValToXML;
+			}
+			else
+			{
+			// если не нашли такой ответ, тогда добавим его
+				AnswerNode	= xmldoc.selectSingleNode("/Заголовок/РезультатОпроса/Вопрос[@Ид='"+QuID+"']");
+				NewEl 			= xmldoc.createElement("ВариантОтвета");
+				NewID			= xmldoc.createAttribute("Ид");
+				NewID.value	= ValToXML;
+				NewEl.setAttributeNode(NewID);
+				NewExtend		= xmldoc.createAttribute("РазвернутыйОтвет");
+				NewExtend.value	= " ";
+				NewEl.setAttributeNode(NewExtend);
+				AnswerNode.appendChild(NewEl);
+			}
+		}
+		else
+		// если сняли отметку, то удалим узел
+		{
+			DeleteEl			= xmldoc.selectSingleNode("/Заголовок/РезультатОпроса/Вопрос[@Ид='"+QuID+"']/ВариантОтвета/@Ид[.='"+ValToXML+"']/..");
+			ParentElement	= DeleteEl.parentNode;
+			ParentElement.removeChild(DeleteEl);
+			AnswerElement	= xmldoc.selectSingleNode("/Заголовок/РезультатОпроса/Вопрос[@Ид='"+QuID+"']");
+			if (AnswerElement.childNodes.length == 0)
+			{
+				AnswerNode	= xmldoc.selectSingleNode("/Заголовок/РезультатОпроса/Вопрос[@Ид='"+QuID+"']");
+				NewEl 			= xmldoc.createElement("ВариантОтвета");
+				NewID			= xmldoc.createAttribute("Ид");
+				NewID.value	= '00000000-0000-0000-0000-000000000000';
+				NewEl.setAttributeNode(NewID);
+				NewExtend		= xmldoc.createAttribute("РазвернутыйОтвет");
+				NewExtend.value	= " ";
+				NewEl.setAttributeNode(NewExtend);
+				AnswerNode.appendChild(NewEl);
+			}
+		}
+		EmptyEl			= xmldoc.selectSingleNode("/Заголовок/РезультатОпроса/Вопрос[@Ид='"+QuID+"']/ВариантОтвета/@Ид[.='00000000-0000-0000-0000-000000000000']/..");
+		AnswerNode	= xmldoc.selectSingleNode("/Заголовок/РезультатОпроса/Вопрос[@Ид='"+QuID+"']");
+		ChildrenLength 	= AnswerNode.childNodes.length;
+		if (ChildrenLength >= 2 && EmptyEl != null)
+		{
+			ParentElement	= EmptyEl.parentNode; 
+			ParentElement.removeChild(EmptyEl); // удаляем вариант ответа
+		}
+		else if (ChildrenLength == 0) then
+		{
+		
+		// если нет ни одного ответа, тогда добавим пустой
+		
+			EmptyEl			= xmldoc.createElement("ВариантОтвета");
+			EmptyID			= xmldoc.createAttribute("Ид");
+			EmptyID.value	= "00000000-0000-0000-0000-000000000000";
+			EmptyEl.setAttributeNode(EmptyID);
+			//AnswerNode.appendChild(EmptyEl);
+		}
+		// удалим из узла Вопроса пустые ответы
+		AnswerStr = xmldoc.selectSingleNode("/Заголовок/РезультатОпроса/Вопрос[@Ид='"+QuID+"']").xml;
+		NewAnswerStr = AnswerStr.replace(new RegExp('<ВариантОтвета Ид=""/>', 'gi'), "");
+		tempXML.loadXML('<?xml version="1.0" encoding="UTF-8"?>'+NewAnswerStr);
+		NewAnswer = tempXML.selectSingleNode("/Вопрос");
+		ParentAnswer = AnswerNode.parentNode;
+		ParentAnswer.replaceChild(NewAnswer, AnswerNode);
+		
+	}
+}
+
+function SaveXMLFile(SaveToFile)
+{
+	if	(!CheckMandatoryQuestions())
+	{
+		alert("Не заполнены все обязательные для заполнения поля анкеты!");
+		return;
+	}
+
+	ДатаЗаполненияАнкеты = xmldoc.selectSingleNode("/Заголовок/РезультатОпроса/@ДатаЗаполненияАнкеты");
+	if (ДатаЗаполненияАнкеты.text == "")
+	{
+		ДатаЗаполненияАнкеты.text = GetDateforXML(new Date());
+	}
+	
+	FName	= document.all("InputFilePath").value;
+	FName	= FName.replace(new RegExp('%20', 'gi'),' ');
+	//comment22;
+		
+	if	(SaveToFile	==	2)
+	{
+		try
+		{
+			outPut  	= 	FSO.CreateTextFile(FName, true, true);
+		}
+		catch(e)
+		{
+			alert("Не удалось отправить анкету");
+			return;
+		}
+		outPut.WriteLine(xmldoc.xml);
+		
+		outPut.Close();
+		
+		FullFName	=	FSO.GetAbsolutePathName(FName);
+		
+		alert("Отправлена анкета");
+	}
+	else
+	{
+		try
+		{
+			outPut  	= 	FSO.CreateTextFile(FName, true, true);
+		}
+		catch(e)
+		{
+			alert("Не удалось создать файл: "+FName);
+			return;
+		}
+		outPut.WriteLine(xmldoc.xml);
+		
+		outPut.Close();
+		
+		FullFName	=	FSO.GetAbsolutePathName(FName);
+		
+		if	(SaveToFile	==	1)
+		{	
+			alert("Записан файл: " + FullFName)
+		}
+		else
+		{
+			SendResult(FullFName);
+		}
+	}
+}
+
+function CheckNumber(Obj)
+{
+	if (Obj.TypeOfValue == 'Число')
+	{
+		if (isNaN(Number(Obj.value)))
+		{
+			alert('Данный вопрос предполагает числовой ответ');
+			Obj.value = '';
+		}
+	}
+}
+
+function EmptyRadio(RadioCollection, ind)
+{
+	for (i=0; i < RadioCollection.length; i++)
+	{
+		radioControl = RadioCollection.item(i);
+		if	(radioControl.checked)
+		{
+			return false;
+		}
+	}
+	ind = ind+ RadioCollection.length - 1;
+	return true;
+}
+
+function	GetFName()
+{
+	return ".rps"; //+document.all("ResultOfExam").value_ExamId+".xml";
+}
+
+function	OnSelectFilePath(ObjFile)
+{
+	var FSO		=	new ActiveXObject("Scripting.FileSystemObject"); 
+	document.all("InputFilePath").value = 	FSO.GetParentFolderName(ObjFile.value)+GetFName();
+	return	FSO.GetParentFolderName(ObjFile.value);
+
+}
+
+
+function CheckMail()
+{ 
+	Send = document.all("buttonSend");
+	if (Send != null)
+	{
+		try
+		{
+		strOutlook		= "Outlook.Application";
+		message 		= new ActiveXObject(strOutlook);
+				document.all("buttonSend").disabled	=	'';
+				return true;
+		}
+		catch(e)
+		{
+			alert(e.description);
+			document.all("buttonSend").disabled	=	'disabled';
+			return false;
+		}
+	}
+}
+
+function	SendResult(AttachName)
+{
+	strOutlook		= "Outlook.Application";
+	message 		= new ActiveXObject(strOutlook);
+	message      	= message.CreateItem(0);
+	message.To 	= "###@###";
+	message.Body 	= "Результат опроса (см. attach file)";
+	message.Attachments.Add(AttachName);
+	message.Subject = "результат опроса";
+	message.Display();
+	message.Send();
+
+}
+
+function OnClickRadioButtonSetDisabled(collectionRadioControl)
+{
+	for (i=0; i < collectionRadioControl.length; i++)
+	{
+		radioControl = collectionRadioControl.item(i);
+		if	(radioControl.value_unwrapControl.indexOf("radiounwrap",0)	!=	-1 && radioControl.value_unwrap == 'true')
+		{
+			unWrapControl 				= document.all.item(""+radioControl.value_unwrapControl);
+			if	(unWrapControl	!=	null)
+			{unWrapControl.disabled 	= !radioControl.checked;}
+		}
+	}
+}
+
+function	GetDateforXML(simpDate)
+{
+	day		=	simpDate.getDate().toString();
+	day		=	day.length	==	1	?	("0"+day)	:	day;
+	month	=	(simpDate.getMonth()+1).toString();
+	month	=	month.length	==	1	?	"0"+month	:	month;
+	year		=	simpDate.getFullYear().toString();
+	hr			=	simpDate.getHours().toString();
+	hr			=	hr.length	==	1	?	"0"+hr	:	hr;
+	min		=	simpDate.getMinutes().toString();
+	min		=	min.length	==	1	?	"0"+min	:	min;
+	sec		=	simpDate.getSeconds().toString();
+	sec		=	sec.length	==	1	?	"0"+sec	:	sec;
+	
+	return ""+year+"-"+month+"-"+day+"T"+hr+":"+min+":"+sec;
+
+}
+
+function GetRequiredQuestionMessageRow(HTMObj)
+{
+	if (HTMObj != null)
+	{
+		var parent = HTMObj.parentNode;
+		while (parent != null)
+		{
+			if (parent.questionRow == "true")
+			{
+				table = parent.parentNode.parentNode;
+				if (table.rows.length > parent.rowIndex + 1)
+					return table.rows[parent.rowIndex + 1];
+				else
+					break;
+			}
+			parent = parent.parentNode;
+		}
+	}
+	return null;
+}
+
+function SwitchElementMark(HTMObj, mark)
+{
+	switch (HTMObj.tagName.toLowerCase())	
+	{
+		case "input":
+			switch (HTMObj.type.toLowerCase())
+			{
+				case "text":
+					HTMObj.className = mark ? "wrongFilledEditor" : "editor";
+					break;
+				case "checkbox":
+				case "radio":
+//					HTMObj.parentNode.parentNode.className = mark ? "wrongFilledEditor" : "";
+					break;
+			}
+			break;
+		case "textarea":
+			HTMObj.className = mark ? "wrongFilledText" : "text";
+			break;
+	}
+}
+
+function MarkRequiredQuestion(HTMObj)
+{
+	SwitchElementMark(HTMObj, true);
+	var requiredQuestionMessage = GetRequiredQuestionMessageRow(HTMObj);
+	if (requiredQuestionMessage != null)
+		requiredQuestionMessage.style.display = "";
+}
+
+function UnmarkRequiredQuestion(HTMObj)
+{
+	SwitchElementMark(HTMObj, false);
+	var requiredQuestionMessage = GetRequiredQuestionMessageRow(HTMObj);
+	if (requiredQuestionMessage != null)
+		requiredQuestionMessage.style.display = "none";
+}
+
+function QuestionOnBlur(HTMObj, mandatory)
+{
+	if (mandatory)
+		CheckMandatoryQuestion(HTMObj);
+}
+
+function CheckMandatoryQuestion(HTMObj)
+{
+	var tName = HTMObj.tagName;
+	var AnswerID = HTMObj.value_AnId;
+	var QuID = HTMObj.value_QuId;
+	var QuNum = HTMObj.QuNum;
+	var ColQuID = HTMObj.value_ColQuId;
+	var typeOfInput = HTMObj.type;
+	
+	if (ColQuID != null)
+	{
+		AddStr_1 = "/КолонкаТаблицы[@Ид='" + ColQuID + "']";
+		AnswerNode = xmldoc.selectSingleNode("/Заголовок/Анкета/Группа/Вопрос[@Ид='" + QuID + "']" + AddStr_1 + "/@ТипЗначенийОтвета");
+		if (AnswerNode != null)
+			AnswerType = AnswerNode.text;
+		if ((AnswerType.indexOf("Адрес¤", 0) != -1) | (AnswerType.indexOf("Телефон¤", 0) != -1))
+			row = HTMObj.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.rowIndex;
+		else
+			row = HTMObj.parentElement.parentElement.rowIndex;
+		
+		AddStr_2 = "/СтрокаТаблицы[@НомерСтроки='" + row + "']/Вопрос[@Ид='" + ColQuID + "']";
+		return; // для табличных вопросов пока не проверяем обязательность
+	}
+	else
+	{
+		AddStr_1 = "";
+		AddStr_2 = "";
+		AnswerNode = xmldoc.selectSingleNode("/Заголовок/Анкета/Группа/Вопрос[@Ид='" + QuID + "']" + AddStr_1 + "/@ТипЗначенийОтвета");
+		if (AnswerNode != null)
+			AnswerType	= AnswerNode.text;
+	}
+	
+	if (((tName == 'INPUT' && typeOfInput == 'text') || (tName == 'TEXTAREA')) && QuID != null)
+	{
+		AnswerExtend = xmldoc.selectSingleNode("/Заголовок/Анкета/Группа/Вопрос[@Ид='" + QuID + "']" + AddStr_1 + "/ВариантОтвета/@Ид[.='"+AnswerID+"']/../@ТребуетРазвернутыйОтвет");
+		if (AnswerExtend != null && AnswerExtend.text == 'true')
+		{
+			// это развернутый ответ
+		}
+		else
+		{
+			AnswerNode = xmldoc.selectSingleNode("/Заголовок/Анкета/Группа/Вопрос[@Ид='" + QuID + "']" + AddStr_1 + "/@ТипЗначенийОтвета");
+			if (AnswerNode != null)
+				AnswerType = AnswerNode.text;
+			if (AnswerType == 'Дата')
+			{
+				XMLValue = xmldoc.selectSingleNode("/Заголовок/РезультатОпроса/Вопрос[@Ид='" + QuID + "']" + AddStr_2 + "/Значение");
+				if (XMLValue != null)
+				{
+					if (XMLValue.text == '')
+					{
+						MarkRequiredQuestion(HTMObj);
+						return false;
+					}
+					else
+					{
+						UnmarkRequiredQuestion(HTMObj);
+					}
+				}
+				i = HTMObj.parentElement.children(2).sourceIndex;
+			}
+			else if ((AnswerType.indexOf("Адрес¤", 0) != -1) | (AnswerType.indexOf("Телефон¤", 0) != -1))
+			{
+				XMLValue = xmldoc.selectSingleNode("/Заголовок/РезультатОпроса/Вопрос[@Ид='" + QuID + "']" + AddStr_2 + "/Значение");
+				if (XMLValue != null)
+				{
+					AdrString = XMLValue.text.replace(/¤/gi, '');
+					AdrString = AdrString.replace(/ /gi, '');
+					if (AdrString == '')
+					{
+						MarkRequiredQuestion(HTMObj);
+						return false;
+					}
+					else
+					{
+						UnmarkRequiredQuestion(HTMObj);
+					}
+				}
+				i = CollectionObj.sourceIndex;
+			}
+			else
+			{
+				// это обычный INPUT
+				XMLValue = xmldoc.selectSingleNode("/Заголовок/РезультатОпроса/Вопрос[@Ид='" + QuID + "']" + AddStr_2 + "/Значение");
+				if (XMLValue != null)
+				{
+					if (XMLValue.text.replace(/ /gi, '') == '')
+					{
+						MarkRequiredQuestion(HTMObj);
+						return false;
+					}
+					else
+					{
+						UnmarkRequiredQuestion(HTMObj);
+					}
+				}
+			}
+		}
+	}
+	else if (tName == 'INPUT' && typeOfInput == 'radio' && AnswerID != null)
+	{
+		AnswerNode = xmldoc.selectSingleNode("/Заголовок/РезультатОпроса/Вопрос[@Ид='" + QuID + "']" + AddStr_2 + "/ВариантОтвета/@Ид");
+		if (AnswerNode != null)
+		{
+			ID = AnswerNode.text;
+			if (ID == '00000000-0000-0000-0000-000000000000')
+			{
+				MarkRequiredQuestion(HTMObj);
+						return false;
+			}
+			else
+			{
+				UnmarkRequiredQuestion(HTMObj);
+			}
+		}
+	}
+	else if (tName == 'INPUT' && typeOfInput == 'checkbox' && AnswerID != null)
+	{
+		AnswerNode = xmldoc.selectSingleNode("/Заголовок/РезультатОпроса/Вопрос[@Ид='" + QuID + "']" + AddStr_2 + "/ВариантОтвета/@Ид");
+		if (AnswerNode != null)
+		{
+			ID = AnswerNode.text;
+			if (ID == '00000000-0000-0000-0000-000000000000')
+			{
+				MarkRequiredQuestion(HTMObj);
+				return false;
+			}
+			else
+			{
+				UnmarkRequiredQuestion(HTMObj);
+			}
+		}
+	}
+	else if (tName=='SELECT' && typeOfInput == 'select-one')
+	{
+		AnswerNode = xmldoc.selectSingleNode("/Заголовок/РезультатОпроса/Вопрос[@Ид='" + QuID + "']" + AddStr_2 + "/ВариантОтвета/@Ид");
+		if (AnswerNode != null)
+		{	
+			if (HTMObj.selectedIndex == 0)
+			{
+				MarkRequiredQuestion(HTMObj);
+				return false;
+			}
+			else
+			{
+				UnmarkRequiredQuestion(HTMObj);
+			}
+		}
+	}
+	return true;
+}
+
+function CheckMandatoryQuestions()
+{
+	var result = true;
+	for (var i = 0; i < document.all.length; i ++)
+	{
+		var HTMObj;			
+		var QuID;
+		var ColQuID;
+		try
+		{
+			HTMObj = document.all(i);			
+			QuID = HTMObj.value_QuId;
+			ColQuID = HTMObj.value_ColQuId;
+		}
+		catch(e)
+		{
+			continue;
+		}
+		var AddStr_1 = ColQuID != null ? "/КолонкаТаблицы[@Ид='" + ColQuID + "']" : "";
+		mandatoryNode	= xmldoc.selectSingleNode("/Заголовок/Анкета/Группа/Вопрос[@Ид='"+QuID+"']" + AddStr_1 + "/@Обязательный");
+		if (mandatoryNode != null && mandatoryNode.text == 'true')
+		{
+			if (!CheckMandatoryQuestion(HTMObj))
+				result = false;
+		}
+	} 
+
+	return result;
+}
+
+function CheckYear(HTMYear)
+{
+	if  (HTMYear.value != '' && eval(HTMYear.value) < 1900)
+	{
+		alert("Неверно введено значение года");
+		HTMYear.value = '';
+	}
+}
+
+function CheckDay(HTMDay)
+{
+	if  (HTMDay.value != '' && (eval(HTMDay.value) < 1  | eval(HTMDay.value) > 31))
+	{
+		alert("Значение даты должно находиться в пределах от 1 до 31");
+		HTMDay.value = '';
+	}
+}
+]]>
+</script>
+			<body bgcolor="OLDLACE">
+			<table cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tr id="trDisclaimer"><td>
+			<p>
+			Для работы страницы необходимо, чтобы в веб-обозревателе было разрешено выполнение скриптов. В Internet Explorer 6.0. по умолчанию выключена опция, разрешающая выполнение скриптов в файлах, открываемых локально. Поэтому когда страница открывается, скрипты блокируются, а в самом верху страницы отображается информационная панель (Information Bar), сообщающая о том, что активная часть содержимого страницы заблокирована. Чтобы разрешить выполнение заблокированной части страницы, необходимо щелкнуть на этой панели левой кнопкой мыши и в выпавшем меню выбрать соответствующий пункт (Allow Blocked Content). Кроме того, можно отключить блокирование скриптов для всех страниц, открываемых локально, используя настройки Internet Explorer. Для этого в меню Tools необходимо выбрать пункт Internet Options и в открывшемся окне выбрать закладку Advanced. На этой закладке, в разделе Security необходимо установить флаг Allow active content to run in files on My Computer. 
+			</p></td></tr>
+			<tr id="trContents" style="display:none"><td align="center">
+				<table cellpadding="0" cellspacing="0" border="0" align="center" width="760" bgcolor="#FBF5E7" style="BORDER-STYLE:solid;BORDER-WIDTH:1px;BORDER-COLOR:ECDCC0;"><tr><td align="center">
+				<xsl:apply-templates select="node()">
+					<!--применяем шаблоны ко всем дочерним узлам Заголовка-->
+				</xsl:apply-templates>
+				<br/>
+#КонецОбласти
+#Область Кнопки
+				<table>
+					<tr>
+						<td>
+							<button name="buttonSend" type="button" onclick="SaveXMLFile(0)" style="width: 200; color:black; bgcolor: red;font-weight:bold; cursor:hand;">
+								<span style="width: 200; text-align:center;">Отправить на ###@###</span>
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button name="buttonSaveToFile" type="button" onclick="SaveXMLFile(1)" style="width: 200; color:black; bgcolor: red;font-weight:bold; cursor:hand;">
+								<span style="width: 200; text-align:center;">Записать в файл</span>
+							</button>
+						</td>
+						<td>
+							<input name="InputFilePath" size="60" style="left:0; position:relative; z-index:0"/>
+						</td>
+					</tr>
+				</table>
+#КонецОбласти
+#Область КнопкаОтправить
+				<table>
+					<tr>
+						<td>
+							<button name="buttonSend" type="button" onclick="SaveXMLFile(0)" style="width: 200; color:black; bgcolor: red;font-weight:bold; cursor:hand;">
+								<span style="width: 200; text-align:center;">Отправить на ###@###</span>
+							</button>
+						</td>
+					</tr>
+				</table>
+#КонецОбласти
+#Область КнопкаОтправить2
+				<table>
+					<tr>
+						<td>
+							<button name="buttonSen2" type="button" onclick="SaveXMLFile(2)" style="width: 200; color:black; bgcolor: red;font-weight:bold; cursor:hand;">
+								<span style="width: 200; text-align:center;">Отправить</span>
+							</button>
+						</td>
+						<td>
+							<input name="InputFilePath" size="60" type="hidden" style="left:0; position:relative; z-index:0"/>
+						</td>
+					</tr>
+				</table>
+#КонецОбласти
+#Область КнопкаСохранить
+				<table>
+					<tr>
+						<td>
+							<button name="buttonSaveToFile" type="button" onclick="SaveXMLFile(1)" style="width: 200; color:black; bgcolor: red;font-weight:bold; cursor:hand;">
+								<span style="width: 200; text-align:center;">Записать в файл</span>
+							</button>
+						</td>
+						<td>
+							<input name="InputFilePath" size="60" style="left:0; position:relative; z-index:0"/>
+						</td>
+					</tr>
+				</table>
+#КонецОбласти
+#Область ПослеКнопок
+				</td></tr></table>
+				<script language="javascript"><![CDATA[CheckMail()]]></script>
+			</td></tr></table>	
+			</body>
+			<script language="javascript">
+			document.getElementById("trDisclaimer").style.display = "none";
+			document.getElementById("trContents").style.display = "";
+			</script>
+			<script language="javascript"><![CDATA[
+FillDocument();
+
+function FillDocument()
+{
+	i=0;
+	while (i < document.all.length)
+	{
+		try
+		{
+			HTMObj		= document.all(i);
+			tName 		= document.all(i).tagName;
+			AnswerID	= document.all(i).value_AnId;
+			QuID		= document.all(i).value_QuId;
+			ColQuID		= document.all(i).value_ColQuId;
+			typeOfInput = document.all(i).type;
+		}
+		catch(e)
+		{
+			i++;
+			continue;
+		}
+		AddStr_1	= "";
+		AddStr_2	= "";
+		
+		if (ColQuID != null)
+		{
+			AddStr_1		= "/КолонкаТаблицы[@Ид='" + ColQuID + "']";
+			AnswerNode	= xmldoc.selectSingleNode("/Заголовок/Анкета/Группа/Вопрос[@Ид='"+QuID+"']" + AddStr_1 + "/@ТипЗначенийОтвета");
+			if (AnswerNode != null)
+			{
+				AnswerType	= AnswerNode.text;
+			}
+			if ((AnswerType.indexOf("Адрес¤",	0) != -1) | (AnswerType.indexOf("Телефон¤",	0) != -1))
+			{
+				row		= HTMObj.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.rowIndex
+			}
+			else
+			{
+				row		= HTMObj.parentElement.parentElement.rowIndex;
+			}
+			
+			AddStr_2	= "/СтрокаТаблицы[@НомерСтроки='" + row + "']/Вопрос[@Ид='" + ColQuID + "']";
+		}
+		
+		if (((tName == 'INPUT' && typeOfInput == 'text') | (tName == 'TEXTAREA')) && QuID != null)
+		{
+			AnswerExtend = xmldoc.selectSingleNode("/Заголовок/Анкета/Группа/Вопрос[@Ид='"+QuID+"']" + AddStr_1 + "/ВариантОтвета/@Ид[.='"+AnswerID+"']/../@ТребуетРазвернутыйОтвет");
+			if (AnswerExtend != null && AnswerExtend.text =='true')
+			{
+			// это развернутый ответ
+				AnswerExtend		= xmldoc.selectSingleNode("/Заголовок/РезультатОпроса/Вопрос[@Ид='"+QuID+"']" + AddStr_2 + "/ВариантОтвета/@Ид[.='"+AnswerID+"']/../@РазвернутыйОтвет");
+				if (AnswerExtend != null)
+				{
+					HTMObj.value 		= AnswerExtend.text;
+					HTMObj.disabled 	= false;
+				}
+			}
+			else
+			{
+				AnswerNode	= xmldoc.selectSingleNode("/Заголовок/Анкета/Группа/Вопрос[@Ид='"+QuID+"']" + AddStr_1 + "/@ТипЗначенийОтвета");
+				if (AnswerNode != null)
+				{
+					AnswerType	= AnswerNode.text;
+				}
+				if (AnswerType == 'Дата')
+				{
+					XMLValue		= xmldoc.selectSingleNode("/Заголовок/РезультатОпроса/Вопрос[@Ид='"+QuID+"']" + AddStr_2 + "/Значение");
+					HTMObj.parentElement.children(0).value = XMLValue.text.substr(8,2);
+					HTMObj.parentElement.children(1).options.selectedIndex = eval  (XMLValue.text.substr(5,2) ) - 1
+					HTMObj.parentElement.children(2).value = XMLValue.text.substr(0,4);
+					i = HTMObj.parentElement.children(2).sourceIndex;
+				}
+				else if ((AnswerType.indexOf("Адрес¤",	0) != -1) | (AnswerType.indexOf("Телефон¤",	0) != -1))
+				{
+					XMLValue		= xmldoc.selectSingleNode("/Заголовок/РезультатОпроса/Вопрос[@Ид='"+QuID+"']" + AddStr_2 + "/Значение");
+					if (XMLValue != null)
+					{
+						SplitString = XMLValue.text.split("¤")
+						Acollection	= HTMObj.parentElement.parentElement.parentElement.all;
+						j=0;
+						INPUTind = 0;
+						while (j <= Acollection.length-1)
+						{
+							CollectionObj = Acollection(j);
+							if (CollectionObj.tagName == 'INPUT')
+							{
+								if (SplitString[INPUTind] != null)
+								{
+									CollectionObj.value = SplitString[INPUTind];
+									INPUTind++;
+								}
+							}
+							j++;
+						}
+						i = CollectionObj.sourceIndex;
+					}
+				}
+				else if (AnswerType.indexOf("Телефон¤",	0) != -1)
+				{
+					
+				}
+				else
+				{
+				// это обычный INPUT
+					XMLValue		= xmldoc.selectSingleNode("/Заголовок/РезультатОпроса/Вопрос[@Ид='"+QuID+"']" + AddStr_2 + "/Значение");
+					if (XMLValue != null)
+					{
+						HTMObj.value	= XMLValue.text;
+					}
+				}
+			}
+		}
+		else if (tName == 'INPUT' && typeOfInput == 'radio' && AnswerID != null)
+		{
+			AnswerNode = xmldoc.selectSingleNode("/Заголовок/РезультатОпроса/Вопрос[@Ид='"+QuID+"']" + AddStr_2 + "/ВариантОтвета/@Ид[.='"+AnswerID+"']");
+			if (AnswerNode != null)
+			{
+				HTMObj.checked = true;
+			}
+		}
+		else if (tName == 'INPUT' && typeOfInput == 'checkbox' && AnswerID != null)
+		{
+			AnswerNode = xmldoc.selectSingleNode("/Заголовок/РезультатОпроса/Вопрос[@Ид='"+QuID+"']" + AddStr_2 + "/ВариантОтвета/@Ид[.='"+AnswerID+"']");
+			if (AnswerNode != null)
+			{
+				HTMObj.checked = true;
+			}
+		}
+		else if (tName=='SELECT' && typeOfInput == 'select-one')
+		{
+			AnswerNode = xmldoc.selectSingleNode("/Заголовок/РезультатОпроса/Вопрос[@Ид='"+QuID+"']" + AddStr_2 + "/ВариантОтвета/@Ид");
+			if (AnswerNode != null)
+			{	
+				options = HTMObj.options;
+				for (optInd=0; optInd < HTMObj.options.length; optInd++)
+				{
+					if (options(optInd).value_AnId == AnswerNode.text)
+					{
+						HTMObj.selectedIndex = optInd;
+					}
+				}
+			}
+		}
+		i++;
+	}
+	if (document.all("InputFilePath") != null)
+	{
+		document.all("InputFilePath").value = document.location.pathname.substr(1).replace(new RegExp('%20', 'gi'),' ');
+	}
+}
+]]></script>
+			<script language="javascript" window="onload"><![CDATA[var FSO;
+	if (document.all("InputFilePath") != null)
+	{
+		try
+		{
+			FSO	=	new ActiveXObject("Scripting.FileSystemObject"); 
+		}
+		catch(e)
+		{
+			while (document.body.children.length > 1)
+			{
+				document.body.removeChild(document.body.children(0));
+			}
+		document.write('<span style="color:red">Страница не может быть корректно отображена. </BR>Если Вы отвечали "Да/Yes", в появляющихся диалогах при загрузке страницы, то, возможно, требуется изменить настройки браузера для возможности создания ActiveX объектов.</span> ');
+
+		}
+	}
+]]></script>
+		</html>
+	</xsl:template>
+	<xsl:template match="/Заголовок/Анкета">
+		<input name="ResultOfExam" value_xml="ResultOfExam" value_ExamId="{@Ид}" value_ExamName="{@Наименование}" value_ExamIdMailing="{@ИдРассылки}" type="hidden"/>
+		<h1 style="FONT-WEIGHT: bold; FONT-SIZE: 24px; VERTICAL-ALIGN: middle; COLOR: maroon;" align="center">
+			<xsl:value-of select="@Наименование"/>
+		</h1>
+		<hr style="margin-left:20px;margin-right:20px"/>
+		<xsl:if test="@Комментарий != ''">
+			<div align="justify" style="font-weight:bold;FONT-SIZE: 14px;margin-left:20px;margin-right:20px">
+				<xsl:value-of select="@Комментарий"/>
+			</div>
+			<br/>	
+		</xsl:if>
+		<div align="justify" style="color:red;margin-left:20px;margin-right:20px">Вопросы, помеченные *, являются обязательными для заполнения</div>
+		<br/>
+		<xsl:apply-templates select="child::*"/>
+		<!--применяем шаблоны ко всем подчиненным узлам Анкеты-->
+	</xsl:template>
+	<xsl:template match="/Заголовок/РезультатОпроса"/>
+	<xsl:template match="/Заголовок/Анкета/Группа" name="ШаблонГруппы">
+		<table cellSpacing="0" cellPadding="6" border="0" style="BORDER-STYLE:solid;BORDER-WIDTH:1;BORDER-COLOR:ECDCC0;" width="720" BGCOLOR="#fffbf0"><tr><td colspan="2" bgcolor="#ffffff">
+			<span class="sectionCaption" align="left">
+				<xsl:value-of select="@Наименование"/>
+			</span>
+			<br/>
+			<xsl:if test="@Комментарий != ''">
+				<span><xsl:value-of select="@Комментарий"/></span>
+			</xsl:if>
+			</td></tr>
+			<xsl:apply-templates select="node()"/>
+		</table>
+	</xsl:template>
+	<xsl:template match="/Заголовок/Анкета/Вопрос/ВариантОтвета|/Заголовок/Анкета/Группа/Вопрос/ВариантОтвета" name="ШаблонСписокВыбораВариантыОтветов">
+		<xsl:param name="GroupID"/>
+		<option value_xml="{concat('option', ../@Ид)}" value_QuId="{../@Ид}" value_AnId="{@Ид}" name="{concat('option', ../@Ид)}" GroupID="{$GroupID}" onchange="AnswerToXML(this)">
+			<xsl:value-of select="@Наименование"/>
+		</option>
+	</xsl:template>
+	<xsl:template match="/Заголовок/Анкета/Вопрос/КолонкаТаблицы/ВариантОтвета|/Заголовок/Анкета/Группа/Вопрос/КолонкаТаблицы/ВариантОтвета" name="ШаблонСписокВыбораВариантыОтветовВТаблице">
+		<option value_xml="{concat('tableselect', @Ид)}" value_QuId="{../@Ид}" value_AnId="{@Ид}" name="{concat('tableselect', @Ид)}">
+			<xsl:value-of select="@Наименование"/>
+		</option>
+	</xsl:template>
+	<xsl:template name="RedStar" match="/Заголовок/Анкета/Вопрос|/Заголовок/Анкета/Группа/Вопрос|/Заголовок/Анкета/Вопрос/КолонкаТаблицы|/Заголовок/Анкета/Группа/Вопрос/КолонкаТаблицы">
+		<xsl:if test="@Обязательный = 'true'">
+			<span style="color:red">*</span>
+		</xsl:if>
+	</xsl:template>
+	<xsl:template name="QuestionRequiredText" match="/Заголовок/Анкета/Вопрос|/Заголовок/Анкета/Группа/Вопрос|/Заголовок/Анкета/Вопрос/КолонкаТаблицы|/Заголовок/Анкета/Группа/Вопрос/КолонкаТаблицы">
+		<xsl:if test="@Обязательный = 'true'">
+			<tr valign="top" style="display:none">
+				<td colspan="2" class="requiredQuestionAlert">Вопрос "<xsl:value-of select="@Наименование"/>" обязателен для заполнения
+				</td>
+			</tr>
+		</xsl:if>
+	</xsl:template>
+	<xsl:template match="/Заголовок/Анкета/Вопрос/ВариантОтвета|/Заголовок/Анкета/Группа/Вопрос/ВариантОтвета" name="ШаблонПереключательВариантыОтветов">
+		<xsl:param name="GroupID"/>
+		<xsl:variable name="ИмяПереключателя" select="concat('radiocontrol', ../@Ид)"/>
+		<xsl:variable name="ПредставлениеПереключателя" select="@Наименование"/>
+		<blockquote id="{concat('radioBQ', @Ид)}" value_xml="{concat('radioBQ', @Ид)}" value_unwrap="{@ТребуетРазвернутыйОтвет}" QuNum="{js:GetCurrentNumber()}" value_QuId="{../@Ид}" dir="ltr" style="MARGIN-RIGHT: 0px;MARGIN-TOP: 2px;MARGIN-BOTTOM: 2px;">
+			<input type="radio" value="{@Ид}" name="{$ИмяПереключателя}" id="{@Ид}" value_xml="{concat('radio', @Ид)}" value_QuId="{../@Ид}" value_AnId="{@Ид}" value_unwrap="{@ТребуетРазвернутыйОтвет}" value_unwrapControl="{concat('IDradiounwrap', ../@Ид, @Ид)}" mandatory="{../@Обязательный}" QuNum="{js:GetCurrentNumber()}" onclick='OnClickRadioButtonSetDisabled(document.all(""+this.name));' GroupID="{$GroupID}" onchange="AnswerToXML(this)" onblur="QuestionOnBlur(this, {../@Обязательный})"/>
+			<label for="{@Ид}">
+				<xsl:value-of select="$ПредставлениеПереключателя"/>
+			</label>			
+			<xsl:if test="@ТребуетРазвернутыйОтвет = 'true'">
+				<input id="{concat('IDradiounwrap', ../@Ид)}" name="{concat('IDradiounwrap', ../@Ид, @Ид)}" type="text" class="editor" disabled="disabled" style="MARGIN-LEFT: 10px;MARGIN-TOP: 2px;MARGIN-BOTTOM: 2px;" value_xml="{concat('IDradiounwrap', ../@Ид, @Ид)}" value_QuId="{../@Ид}" value_AnId="{@Ид}" onchange="AnswerToXML(this, true)" GroupID="{$GroupID}" onblur="QuestionOnBlur(this, {../@Обязательный})"/>
+			</xsl:if>
+		</blockquote>
+	</xsl:template>
+	<xsl:template match="/Заголовок/Анкета/Вопрос|/Заголовок/Анкета/Группа/Вопрос" name="ШаблонПолеВвода">
+		<xsl:param name="GroupID"/>
+		<tr valign="top" questionRow="true">
+			<td valign="top" style="border-top: 1px solid;"><b>№ <xsl:variable name="QuNum" select="js:getNumber()"/>
+				<xsl:number format="1.      " value="js:GetCurrentNumber()"/></b>
+				<xsl:call-template name="RedStar"/>
+				<!--ПолеВвода: -->
+				<xsl:value-of select="@Наименование"/>:
+			</td>
+			<td style="border-top: 1px solid;">
+				<!--здесь содержится путь для вывода результата опроса в узел результирующего XML файла ответов-->
+				<xsl:variable name="ПутьВыводаДляПоляВвода" select="concat('input', @Ид)"/>
+				<span style="MARGIN-LEFT: 5px;">
+					<xsl:choose>
+						<xsl:when test="@ТипЗначенийОтвета = 'Дата'">
+							<input type="text" size="2" maxlength="2" name="{$ПутьВыводаДляПоляВвода}" class="editor" value_xml="{concat($ПутьВыводаДляПоляВвода, 'date')}" value_QuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="CheckDay(this); AnswerDateToXML(this)" onblur="QuestionOnBlur(this, {@Обязательный})"/>
+							<xsl:text disable-output-escaping="yes"> </xsl:text>
+							<select type="text" style="border:solid 1px black" name="{$ПутьВыводаДляПоляВвода}" class="editor" value_xml="{$ПутьВыводаДляПоляВвода}" value_QuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerDateToXML(this)" onblur="QuestionOnBlur(this, {@Обязательный})">
+								<option value="Январь">Январь</option>
+								<option value="Февраль">Февраль</option>
+								<option value="Март">Март</option>
+								<option value="Апрель">Апрель</option>
+								<option value="Май">Май</option>
+								<option value="Июнь">Июнь</option>
+								<option value="Июль">Июль</option>
+								<option value="Август">Август</option>
+								<option value="Сентябрь">Сентябрь</option>
+								<option value="Октябрь">Октябрь</option>
+								<option value="Ноябрь">Ноябрь</option>
+								<option value="Декабрь">Декабрь</option>
+							</select>
+							<xsl:text disable-output-escaping="yes"> </xsl:text>
+							<input type="text" size="4" maxlength="4" name="{$ПутьВыводаДляПоляВвода}" class="editor" value_xml="{$ПутьВыводаДляПоляВвода}" value_QuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="CheckYear(this); AnswerDateToXML(this)" onblur="QuestionOnBlur(this, {@Обязательный})"/>
+						</xsl:when>
+						<xsl:when test="contains(@ТипЗначенийОтвета, 'Телефон¤') and not(contains(@ТипЗначенийОтвета,  'МестныйТелефон¤'))">
+							<table style="font-size:xx-small; MARGIN-LEFT: 5px;" border="0" cellpadding="0" cellspacing="0">
+								<tr style="valign=top">
+									<td class="complexQuestionCell" width="80px">код страны</td>
+									<td class="complexQuestionCell" width="80px">код города</td>
+									<td class="complexQuestionCell" width="80px">номер</td>
+									<td class="complexQuestionCell" width="80px">добавочн.</td>
+									<td class="complexQuestionCell" width="80px">комментарий</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="text" size="5" name="{$ПутьВыводаДляПоляВвода}" value_xml="{concat($ПутьВыводаДляПоляВвода, 'phone')}" value_QuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerPhoneToXML(this)" onblur="QuestionOnBlur(this, {@Обязательный})"/>
+									</td>
+									<td>
+										<input type="text" size="5" name="{$ПутьВыводаДляПоляВвода}" value_xml="{concat($ПутьВыводаДляПоляВвода, 'phone')}" value_QuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerPhoneToXML(this)" onblur="QuestionOnBlur(this, {@Обязательный})"/>
+									</td>
+									<td>
+										<input type="text" size="5" name="{$ПутьВыводаДляПоляВвода}" value_xml="{concat($ПутьВыводаДляПоляВвода, 'phone')}" value_QuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerPhoneToXML(this)" onblur="QuestionOnBlur(this, {@Обязательный})"/>
+									</td>
+									<td>
+										<input type="text" size="5" name="{$ПутьВыводаДляПоляВвода}" value_xml="{concat($ПутьВыводаДляПоляВвода, 'phone')}" value_QuId="{@Ид}" QuNum="{js:GetCurrentNumber()}" mandatory="{@Обязательный}" GroupID="{$GroupID}" onchange="AnswerPhoneToXML(this)" onblur="QuestionOnBlur(this, {@Обязательный})"/>
+									</td>
+									<td>
+										<input type="text" size="5" name="{$ПутьВыводаДляПоляВвода}" value_xml="{concat($ПутьВыводаДляПоляВвода, 'phone')}" value_QuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerPhoneToXML(this)" onblur="QuestionOnBlur(this, {@Обязательный})"/>
+									</td>
+								</tr>
+							</table>
+						</xsl:when>
+						<xsl:when test="contains(@ТипЗначенийОтвета, 'Адрес¤')">
+							<table style="font-size:xx-small; MARGIN-LEFT: 5px;" border="0" cellpadding="0" cellspacing="0">
+								<tr>
+									<td class="complexQuestionCell">индекс</td>
+									<td class="complexQuestionCell">регион</td>
+									<td class="complexQuestionCell">район</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="text" size="15" name="{$ПутьВыводаДляПоляВвода}" value_xml="{concat($ПутьВыводаДляПоляВвода, 'address')}" value_QuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerAddressToXML(this)" onblur="QuestionOnBlur(this, {@Обязательный})"/>
+									</td>
+									<td>
+										<input type="text" size="15" name="{$ПутьВыводаДляПоляВвода}" value_xml="{concat($ПутьВыводаДляПоляВвода, 'address')}" value_QuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerAddressToXML(this)" onblur="QuestionOnBlur(this, {@Обязательный})"/>
+									</td>
+									<td>
+										<input type="text" size="15" name="{$ПутьВыводаДляПоляВвода}" value_xml="{concat($ПутьВыводаДляПоляВвода, 'address')}" value_QuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerAddressToXML(this)" onblur="QuestionOnBlur(this, {@Обязательный})"/>
+									</td>
+								</tr>
+								<tr>
+									<td class="complexQuestionCell">город</td>
+									<td class="complexQuestionCell">нас. пункт</td>
+									<td class="complexQuestionCell">улица</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="text" size="15" name="{$ПутьВыводаДляПоляВвода}" value_xml="{concat($ПутьВыводаДляПоляВвода, 'address')}" value_QuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerAddressToXML(this)" onblur="QuestionOnBlur(this, {@Обязательный})"/>
+									</td>
+									<td>
+										<input type="text" size="15" name="{$ПутьВыводаДляПоляВвода}" value_xml="{concat($ПутьВыводаДляПоляВвода, 'address')}" value_QuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerAddressToXML(this)" onblur="QuestionOnBlur(this, {@Обязательный})"/>
+									</td>
+									<td>
+										<input type="text" size="15" name="{$ПутьВыводаДляПоляВвода}" value_xml="{concat($ПутьВыводаДляПоляВвода, 'address')}" value_QuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerAddressToXML(this)" onblur="QuestionOnBlur(this, {@Обязательный})"/>
+									</td>
+								</tr>
+								<tr>
+									<td class="complexQuestionCell">дом</td>
+									<td class="complexQuestionCell">корпус</td>
+									<td class="complexQuestionCell">квартира</td>
+								</tr>
+								<tr>
+									<td>
+										<input type="text" size="15" name="{$ПутьВыводаДляПоляВвода}" value_xml="{concat($ПутьВыводаДляПоляВвода, 'address')}" value_QuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerAddressToXML(this)" onblur="QuestionOnBlur(this, {@Обязательный})"/>
+									</td>
+									<td>
+										<input type="text" size="15" name="{$ПутьВыводаДляПоляВвода}" value_xml="{concat($ПутьВыводаДляПоляВвода, 'address')}" value_QuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerAddressToXML(this)" onblur="QuestionOnBlur(this, {@Обязательный})"/>
+									</td>
+									<td>
+										<input type="text" size="15" name="{$ПутьВыводаДляПоляВвода}" value_xml="{concat($ПутьВыводаДляПоляВвода, 'address')}" value_QuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerAddressToXML(this)" onblur="QuestionOnBlur(this, {@Обязательный})"/>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="3" class="complexQuestionCell">комментарий</td>
+								</tr>
+								<tr>
+									<td colspan="3">
+										<input type="text" name="{$ПутьВыводаДляПоляВвода}" size="57" value_xml="{concat($ПутьВыводаДляПоляВвода, 'address')}" value_QuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerAddressToXML(this)" onblur="QuestionOnBlur(this, {@Обязательный})"/>
+									</td>
+								</tr>
+							</table>
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:if test="@Длина &lt;= 60">
+								<input type="text" name="{$ПутьВыводаДляПоляВвода}" class="editor" size="{@Длина}" maxlength="{@Длина}" value_xml="{$ПутьВыводаДляПоляВвода}" value_QuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" TypeOfValue="{@ТипЗначенийОтвета}" onchange="CheckNumber(this); AnswerToXML(this)" onblur="QuestionOnBlur(this, {@Обязательный})"/>
+							</xsl:if>
+							<xsl:if test="@Длина > 60">
+								<input type="text" name="{$ПутьВыводаДляПоляВвода}" class="editor" size="60" maxlength="{@Длина}" value_xml="{$ПутьВыводаДляПоляВвода}" value_QuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" TypeOfValue="{@ТипЗначенийОтвета}" onchange="CheckNumber(this); AnswerToXML(this)" onblur="QuestionOnBlur(this, {@Обязательный})"/>
+							</xsl:if>
+						</xsl:otherwise>
+					</xsl:choose>
+				</span>
+			</td>
+		</tr>
+	</xsl:template>
+	<xsl:template match="/Заголовок/Анкета/Вопрос|/Заголовок/Анкета/Группа/Вопрос" name="ШаблонТекст">
+		<xsl:param name="GroupID"/>
+			<tr valign="top" questionRow="true">
+				<td valign="top" style="border-top: 1px solid;"><b>№ <xsl:variable name="QuNum" select="js:getNumber()"/>
+					<xsl:number format="1.      " value="js:GetCurrentNumber()"/></b>
+					<xsl:call-template name="RedStar"/>
+					<!--Текст: -->
+					<xsl:value-of select="@Наименование"/>:
+				</td>
+				<td style="border-top: 1px solid;">
+					<!--здесь содержится путь для вывода результата опроса в узел результирующего XML файла ответов-->
+					<xsl:variable name="ПутьВыводаДляТекста" select="concat('textarea', @Ид)"/>
+					<span style="MARGIN-LEFT: 5px;">
+						<textarea name="{$ПутьВыводаДляТекста}" rows="5" cols="47" value_xml="{$ПутьВыводаДляТекста}" value_QuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerToXML(this)" onblur="QuestionOnBlur(this, {@Обязательный})"/>
+					</span>
+				</td>
+			</tr>
+	</xsl:template>
+	<xsl:template match="/Заголовок/Анкета/Вопрос|/Заголовок/Анкета/Группа/Вопрос" name="ШаблонСписокВыбора">
+		<xsl:param name="GroupID"/>
+		<tr questionRow="true">
+			<td style="border-top: 1px solid;"><b>№ <xsl:variable name="QuNum" select="js:getNumber()"/>
+				<xsl:number format="1.      " value="js:GetCurrentNumber()"/></b>
+				<xsl:call-template name="RedStar"/>
+				<xsl:value-of select="@Наименование"/>:
+			</td>
+			<td style="border-top: 1px solid;">
+				<xsl:variable name="ПутьВыводаДляСпискаВыбора" select="concat('select', @Ид)"/>
+				<span style="MARGIN-LEFT: 5px;">
+					<select name="{$ПутьВыводаДляСпискаВыбора}" value_xml="{$ПутьВыводаДляСпискаВыбора}" size="0" value_QuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerToXML(this)" onblur="QuestionOnBlur(this, {@Обязательный})">
+						<xsl:for-each select="ВариантОтвета">
+							<xsl:call-template name="ШаблонСписокВыбораВариантыОтветов">
+								<xsl:with-param name="GroupID" select="$GroupID"/>
+							</xsl:call-template>
+						</xsl:for-each>
+					</select>
+				</span>
+			</td>
+		</tr>
+	</xsl:template>
+	<xsl:template match="/Заголовок/Анкета/Вопрос/ВариантОтвета|/Заголовок/Анкета/Группа/Вопрос/ВариантОтвета" name="ШаблонФлажокВариантыОтветов">
+		<xsl:param name="GroupID"/>
+		<xsl:variable name="ИмяПереключателя" select="../@Наименование"/>
+		<xsl:variable name="ПредставлениеПереключателя" select="@Наименование"/>
+		<blockquote dir="ltr" style="MARGIN-RIGHT: 0px;MARGIN-TOP: 2px;MARGIN-BOTTOM: 2px;" value_xml="{concat('checkbox', @Ид)}">
+			<xsl:choose>
+				<xsl:when test="@ТребуетРазвернутыйОтвет = 'true'">
+					<input type="checkbox" id="{@Ид}" name="{concat('checkbox', ../@Ид)}" value_xml="{concat('checkbox', @Ид)}" value_QuId="{../@Ид}" value_AnId="{@Ид}" value_unwrap="{@ТребуетРазвернутыйОтвет}" value_unwrapControl="{concat('checkboxunwrap', @Ид)}" mandatory="{../@Обязательный}" QuNum="{js:GetCurrentNumber()}" onclick='unWrapControl = document.all.item(""+this.value_unwrapControl); unWrapControl.disabled = !this.checked;' onchange="AnswerToXML(this)" GroupID="{$GroupID}"/>
+					<label for="{@Ид}">
+						<xsl:value-of select="$ПредставлениеПереключателя"/>
+					</label>
+				</xsl:when>
+				<xsl:otherwise>
+					<input type="checkbox" id="{@Ид}" name="{concat('checkbox', ../@Ид)}" value_xml="{concat('checkbox', @Ид)}" value_QuId="{../@Ид}" value_AnId="{@Ид}" value_unwrap="{@ТребуетРазвернутыйОтвет}" mandatory="{../@Обязательный}" QuNum="{js:GetCurrentNumber()}" onchange="AnswerToXML(this)" onblur="QuestionOnBlur(this, {../@Обязательный})"/>
+					<label for="{@Ид}">
+						<xsl:value-of select="$ПредставлениеПереключателя"/>
+					</label>
+				</xsl:otherwise>
+			</xsl:choose>
+			<xsl:if test="@ТребуетРазвернутыйОтвет = 'true'">
+				<input name="{concat('checkboxunwrap', @Ид)}" id="{concat('checkboxunwrap', ../@Ид)}" type="text" disabled="disabled" style="MARGIN-LEFT: 10px;MARGIN-TOP: 2px;MARGIN-BOTTOM: 2px;" value_xml="{concat('checkboxunwrap', @Ид)}" value_QuId="{../@Ид}" value_AnId="{@Ид}" GroupID="{$GroupID}" onchange="AnswerToXML(this, true)" onblur="QuestionOnBlur(this, {../@Обязательный})"/>
+			</xsl:if>
+		</blockquote>
+	</xsl:template>
+	<xsl:template match="/Заголовок/Анкета/Вопрос|/Заголовок/Анкета/Группа/Вопрос" name="ШаблонФлажок">
+		<xsl:param name="GroupID"/>
+		<tr><td colspan="2" bgcolor="#FBF5E7" style="border-top: 1px solid;"><b>№ <xsl:variable name="QuNum" select="js:getNumber()"/>
+			<xsl:number format="1.      " value="js:GetCurrentNumber()"/></b>
+			<xsl:call-template name="RedStar"/>
+			<xsl:apply-templates select="@Наименование"/>:
+		</td></tr>	
+		<tr questionRow="true"><td colspan="2">				
+			<xsl:for-each select="ВариантОтвета">
+				<xsl:call-template name="ШаблонФлажокВариантыОтветов">
+					<xsl:with-param name="GroupID" select="$GroupID"/>
+				</xsl:call-template>
+			</xsl:for-each>
+		</td></tr>	
+	</xsl:template>
+	<xsl:template match="/Заголовок/Анкета/Вопрос|/Заголовок/Анкета/Группа/Вопрос" name="ШаблонПереключатель">
+		<xsl:param name="GroupID"/>
+		<tr questionRow="true"><td colspan="2" bgcolor="#FBF5E7" style="border-top: 1px solid;"><b>№ <xsl:variable name="QuNum" select="js:getNumber()"/>
+			<xsl:number format="1.      " value="js:GetCurrentNumber()"/></b>
+			<xsl:call-template name="RedStar"/>
+			<xsl:apply-templates select="@Наименование"/>:
+		</td></tr>	
+		<tr questionRow="true"><td colspan="2">
+			<xsl:for-each select="ВариантОтвета">
+				<xsl:call-template name="ШаблонПереключательВариантыОтветов">
+					<xsl:with-param name="GroupID" select="$GroupID"/>
+				</xsl:call-template>
+			</xsl:for-each>
+		</td></tr>	
+	</xsl:template>
+	<xsl:template match="/Заголовок/Анкета/Вопрос/КолонкаТаблицы" name="ШаблонПолеВводаВТаблице">
+		<xsl:param name="GroupID"/>
+		<!--ПолеВвода в таблице-->
+		<!--здесь содержится путь для вывода результата опроса в узел результирующего XML файла ответов-->
+		<xsl:variable name="ПутьВыводаДляПоляВвода" select="concat('input', @Ид)"/>
+		<xsl:choose>
+			<xsl:when test="@ТипЗначенийОтвета = 'Дата'">
+				<input type="text" name="{concat('tableinputdate', @Ид)}" value_xml="{concat('tableinputdate', @Ид)}" size="2" value_QuId="{../@Ид}" value_ColQuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="CheckDay(this); AnswerDateToXML(this)"/>
+				<xsl:text disable-output-escaping="yes"> </xsl:text>
+				<select type="text" name="{concat('tableinput', @Ид)}" value_xml="{concat('tableinput', @Ид)}" value_QuId="{../@Ид}" value_ColQuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerDateToXML(this)">
+					<option value="Январь">Январь</option>
+					<option value="Февраль">Февраль</option>
+					<option value="Март">Март</option>
+					<option value="Апрель">Апрель</option>
+					<option value="Май">Май</option>
+					<option value="Июнь">Июнь</option>
+					<option value="Июль">Июль</option>
+					<option value="Август">Август</option>
+					<option value="Сентябрь">Сентябрь</option>
+					<option value="Октябрь">Октябрь</option>
+					<option value="Ноябрь">Ноябрь</option>
+					<option value="Декабрь">Декабрь</option>
+				</select>
+				<xsl:text disable-output-escaping="yes"> </xsl:text>
+				<input type="text" name="{concat('tableinput', @Ид)}" value_xml="{concat('tableinput', @Ид)}" size="4" value_QuId="{../@Ид}" value_ColQuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="CheckYear(this); AnswerDateToXML(this)"/>
+			</xsl:when>
+			<xsl:when test="contains(@ТипЗначенийОтвета, 'Телефон¤')">
+				<table value_xml="{concat('tableinputphone', @Ид)}" value_QuId="{../@Ид}" value_ColQuId="{@Ид}" style="font-size:xx-small; MARGIN-LEFT: 5px;" border="0" cellpadding="0" cellspacing="0">
+					<tbody>
+						<tr>
+							<td class="complexQuestionCell" width="80px">код страны</td>
+							<td class="complexQuestionCell" width="80px">код города</td>
+							<td class="complexQuestionCell" width="80px">номер</td>
+							<td class="complexQuestionCell" width="80px">добавочн.</td>
+							<td class="complexQuestionCell" width="80px">комментарий</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="text" size="5" name="{concat('tableinputphone', @Ид)}" value_xml="{concat('tableinputphone', @Ид)}" value_QuId="{../@Ид}" value_ColQuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerPhoneToXML(this)"/>
+							</td>
+							<td>
+								<input type="text" size="5" name="{concat('tableinputphone', @Ид)}" value_xml="{concat('tableinputphone', @Ид)}" value_QuId="{../@Ид}" value_ColQuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerPhoneToXML(this)"/>
+							</td>
+							<td>
+								<input type="text" size="5" name="{concat('tableinputphone', @Ид)}" value_xml="{concat('tableinputphone', @Ид)}" value_QuId="{../@Ид}" value_ColQuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerPhoneToXML(this)"/>
+							</td>
+							<td>
+								<input type="text" size="5" name="{concat('tableinputphone', @Ид)}" value_xml="{concat('tableinputphone', @Ид)}" value_QuId="{../@Ид}" value_ColQuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerPhoneToXML(this)"/>
+							</td>
+							<td>
+								<input type="text" size="5" name="{concat('tableinputphone', @Ид)}" value_xml="{concat('tableinputphone', @Ид)}" value_QuId="{../@Ид}" value_ColQuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerPhoneToXML(this)"/>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</xsl:when>
+			<xsl:when test="contains(@ТипЗначенийОтвета, 'Адрес¤')">
+				<table value_xml="{concat('tableinputaddress', @Ид)}" value_QuId="{../@Ид}" value_ColQuId="{@Ид}" style="font-size:xx-small; MARGIN-LEFT: 5px;" border="0" cellpadding="0" cellspacing="0">
+					<tbody>
+						<tr>
+							<tr>
+								<td class="complexQuestionCell">индекс</td>
+								<td class="complexQuestionCell">регион</td>
+								<td class="complexQuestionCell">район</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="text" size="15" name="{concat('tableinputaddress', @Ид)}" value_xml="{concat('tableinputaddress', @Ид)}" value_QuId="{../@Ид}" value_ColQuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerAddressToXML(this)"/>
+								</td>
+								<td>
+									<input type="text" size="15" name="{concat('tableinputaddress', @Ид)}" value_xml="{concat('tableinputaddress', @Ид)}" value_QuId="{../@Ид}" value_ColQuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerAddressToXML(this)"/>
+								</td>
+								<td>
+									<input type="text" size="15" name="{concat('tableinputaddress', @Ид)}" value_xml="{concat('tableinputaddress', @Ид)}" value_QuId="{../@Ид}" value_ColQuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerAddressToXML(this)"/>
+								</td>
+							</tr>
+							<tr>
+								<td class="complexQuestionCell">город</td>
+								<td class="complexQuestionCell">нас. пункт</td>
+								<td class="complexQuestionCell">улица</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="text" size="15" name="{concat('tableinputaddress', @Ид)}" value_xml="{concat('tableinputaddress', @Ид)}" value_QuId="{../@Ид}" value_ColQuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerAddressToXML(this)"/>
+								</td>
+								<td>
+									<input type="text" size="15" name="{concat('tableinputaddress', @Ид)}" value_xml="{concat('tableinputaddress', @Ид)}" value_QuId="{../@Ид}" value_ColQuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerAddressToXML(this)"/>
+								</td>
+								<td>
+									<input type="text" size="15" name="{concat('tableinputaddress', @Ид)}" value_xml="{concat('tableinputaddress', @Ид)}" value_QuId="{../@Ид}" value_ColQuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerAddressToXML(this)"/>
+								</td>
+							</tr>
+							<tr>
+								<td class="complexQuestionCell">дом</td>
+								<td class="complexQuestionCell">корпус</td>
+								<td class="complexQuestionCell">квартира</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="text" size="15" name="{concat('tableinputaddress', @Ид)}" value_xml="{concat('tableinputaddress', @Ид)}" value_QuId="{../@Ид}" value_ColQuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerAddressToXML(this)"/>
+								</td>
+								<td>
+									<input type="text" size="15" name="{concat('tableinputaddress', @Ид)}" value_xml="{concat('tableinputaddress', @Ид)}" value_QuId="{../@Ид}" value_ColQuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerAddressToXML(this)"/>
+								</td>
+								<td>
+									<input type="text" size="15" name="{concat('tableinputaddress', @Ид)}" value_xml="{concat('tableinputaddress', @Ид)}" value_QuId="{../@Ид}" value_ColQuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerAddressToXML(this)"/>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="3" class="complexQuestionCell">комментарий</td>
+							</tr>
+							<tr>
+								<td colspan="3">
+									<input type="text" size="57" name="{concat('tableinputaddress', @Ид)}" value_xml="{concat('tableinputaddress', @Ид)}" value_QuId="{../@Ид}" value_ColQuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerAddressToXML(this)"/>
+								</td>
+							</tr>
+						</tr>
+					</tbody>
+				</table>
+			</xsl:when>
+			<xsl:otherwise>
+				<input type="text" name="{concat('tableinput', @Ид)}" value_xml="{concat('tableinput', @Ид)}" value_QuId="{../@Ид}" value_ColQuId="{@Ид}" QuNum="{js:GetCurrentNumber()}" mandatory="{@Обязательный}" TypeOfValue="{@ТипЗначенийОтвета}" onchange="CheckNumber(this); AnswerToXML(this)"/>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
+	<xsl:template match="/Заголовок/Анкета/Вопрос/КолонкаТаблицы" name="ШаблонТекстВТаблице">
+		<xsl:param name="GroupID"/>
+		<textarea rows="5" cols="47" value_QuId="{../@Ид}" value_ColQuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}" onchange="AnswerToXML(this)"/>
+	</xsl:template>
+	<xsl:template match="/Заголовок/Анкета/Вопрос/КолонкаТаблицы" name="ШаблонСписокВыбораВТаблице">
+		<xsl:variable name="ПутьВыводаДляСпискаВыбора" select="concat('select', @Ид)"/>
+		<select name="{concat('table', $ПутьВыводаДляСпискаВыбора, @Ид)}" value_xml="{concat('table', $ПутьВыводаДляСпискаВыбора, @Ид)}" value_QuId="{../@Ид}" value_ColQuId="{@Ид}" size="0" onchange="AnswerToXML(this)">
+			<xsl:for-each select="ВариантОтвета">
+				<xsl:call-template name="ШаблонСписокВыбораВариантыОтветовВТаблице"/>
+			</xsl:for-each>
+		</select>
+	</xsl:template>
+	<xsl:template match="/Заголовок/Анкета/Вопрос|/Заголовок/Анкета/Группа/Вопрос" name="ШаблонПолеВводаВОднойСтроке">
+		<xsl:param name="GroupID"/>№ <xsl:variable name="QuNum" select="js:getNumber()"/>
+		<xsl:number format="1.      " value="js:GetCurrentNumber()"/>
+		<xsl:call-template name="RedStar"/>
+		<!--ПолеВвода: -->
+		<xsl:value-of select="@Наименование"/>
+		<!--здесь содержится путь для вывода результата опроса в узел результирующего XML файла ответов-->
+		<xsl:variable name="ПутьВыводаДляПоляВвода" select="concat('input', @Ид)"/>
+		<span style="MARGIN-LEFT: 5px;">
+			<xsl:choose>
+				<xsl:when test="@ТипЗначенийОтвета = 'Дата'">
+					<input type="text" size="2" name="{$ПутьВыводаДляПоляВвода}" value_xml="{concat($ПутьВыводаДляПоляВвода, 'date')}" value_QuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}"/>
+					<select type="text" name="{$ПутьВыводаДляПоляВвода}" value_xml="{$ПутьВыводаДляПоляВвода}" value_QuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}">
+						<option value="Январь">Январь</option>
+						<option value="Февраль">Февраль</option>
+						<option value="Март">Март</option>
+						<option value="Апрель">Апрель</option>
+						<option value="Май">Май</option>
+						<option value="Июнь">Июнь</option>
+						<option value="Июль">Июль</option>
+						<option value="Август">Август</option>
+						<option value="Сентябрь">Сентябрь</option>
+						<option value="Октябрь">Октябрь</option>
+						<option value="Ноябрь">Ноябрь</option>
+						<option value="Декабрь">Декабрь</option>
+					</select>
+					<input type="text" size="4" name="{$ПутьВыводаДляПоляВвода}" value_xml="{$ПутьВыводаДляПоляВвода}" value_QuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}"/>
+				</xsl:when>
+				<xsl:otherwise>
+					<input type="text" name="{$ПутьВыводаДляПоляВвода}" value_xml="{$ПутьВыводаДляПоляВвода}" value_QuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}"/>
+				</xsl:otherwise>
+			</xsl:choose>
+		</span>
+	</xsl:template>
+	<xsl:template match="/Заголовок/Анкета/Вопрос|/Заголовок/Анкета/Группа/Вопрос" name="ШаблонСписокВыбораВОднойСтроке">
+		<xsl:param name="GroupID"/>№ <xsl:variable name="QuNum" select="js:getNumber()"/>
+		<xsl:number format="1.      " value="js:GetCurrentNumber()"/>
+		<xsl:call-template name="RedStar"/>
+		<xsl:value-of select="@Наименование"/>
+		<xsl:variable name="ПутьВыводаДляСпискаВыбора" select="concat('select', @Ид)"/>
+		<span style="MARGIN-LEFT: 5px;">
+			<select name="{$ПутьВыводаДляСпискаВыбора}" value_xml="{$ПутьВыводаДляСпискаВыбора}" size="0" value_QuId="{@Ид}" mandatory="{@Обязательный}" QuNum="{js:GetCurrentNumber()}" GroupID="{$GroupID}">
+				<xsl:for-each select="ВариантОтвета">
+					<xsl:call-template name="ШаблонСписокВыбораВариантыОтветов">
+						<xsl:with-param name="GroupID" select="$GroupID"/>
+					</xsl:call-template>
+				</xsl:for-each>
+			</select>
+		</span>
+	</xsl:template>
+	<xsl:template match="/Заголовок/Анкета/Вопрос|/Заголовок/Анкета/Группа/Вопрос" name="ШаблонФлажокВТаблице">
+		<xsl:for-each select="ВариантОтвета">
+			<xsl:call-template name="ШаблонФлажокВариантыОтветов"/>
+		</xsl:for-each>
+	</xsl:template>
+	<xsl:template match="/Заголовок/Анкета/Вопрос|/Заголовок/Анкета/Группа/Вопрос" name="ШаблонПереключательВТаблице">
+		<xsl:for-each select="ВариантОтвета">
+			<xsl:call-template name="ШаблонПереключательВариантыОтветов"/>
+		</xsl:for-each>
+	</xsl:template>
+	<xsl:template match="/Заголовок/Анкета/Вопрос/КолонкаТаблицы|/Заголовок/Анкета/Группа/Вопрос/КолонкаТаблицы" name="ШаблонСтрокаТаблицы">
+		<xsl:param name="ind" select="0"/>
+		<xsl:param name="GroupID"/>
+		<xsl:if test="$ind &gt; 0">
+			<xsl:text disable-output-escaping="yes">			
+			&lt;tr valign="top" value_xml="{concat('table', @Ид)}"</xsl:text>
+			<xsl:if test="$ind mod 2 = 0">
+				<xsl:text disable-output-escaping="yes"> bgcolor="#FBF5E7"</xsl:text>
+			</xsl:if>
+			<xsl:text disable-output-escaping="yes">&gt;</xsl:text>
+				<xsl:for-each select="child::*">
+					<td valign="top" value_xml="{concat('table', @Ид)}">
+						<xsl:if test="@Представление= 'ПолеВвода'">
+							<xsl:call-template name="ШаблонПолеВводаВТаблице"/>
+						</xsl:if>
+						<xsl:if test="@Представление= 'Текст'">
+							<xsl:call-template name="ШаблонТекстВТаблице"/>
+						</xsl:if>
+						<xsl:if test="@Представление= 'СписокВыбора'">
+							<xsl:call-template name="ШаблонСписокВыбораВТаблице"/>
+						</xsl:if>
+						<xsl:if test="@Представление= 'Флажок'">
+							<xsl:call-template name="ШаблонФлажокВТаблице"/>
+						</xsl:if>
+						<xsl:if test="@Представление= 'Переключатель'">
+							<xsl:call-template name="ШаблонПереключательВТаблице"/>
+						</xsl:if>
+					</td>
+				</xsl:for-each>
+				<xsl:call-template name="ШаблонСтрокаТаблицы">
+					<xsl:with-param name="ind" select="$ind - 1"/>
+				</xsl:call-template>
+			<xsl:text disable-output-escaping="yes">&lt;/tr&gt;</xsl:text>				
+		</xsl:if>
+	</xsl:template>
+	<xsl:template match="/Заголовок/Анкета/Вопрос/КолонкаТаблицы|/Заголовок/Анкета/Группа/Вопрос/КолонкаТаблицы" name="ШаблонТаблица">
+		<xsl:param name="GroupID"/>		
+		<tr questionRow="true"><td colspan="2" bgcolor="#FBF5E7" style="border-top: 1px solid;"><b>№ <xsl:variable name="QuNum" select="js:getNumber()"/>
+			<xsl:number format="1.      " value="js:GetCurrentNumber()"/></b>
+			<xsl:call-template name="RedStar"/>
+			<xsl:apply-templates select="@Наименование"/>:
+		</td></tr>	
+		<tr questionRow="true"><td colspan="2">
+		<table value_QuId="{@Ид}" style="BORDER:#ecdcc0 1px solid;" cellSpacing="0" cellPadding="6" align="center" border="0">			
+			<thead>
+				<tr valign="top">
+					<xsl:for-each select="child::*">
+						<td>
+							<xsl:call-template name="RedStar"/>
+							<xsl:apply-templates select="@Наименование"/>
+						</td>
+					</xsl:for-each>
+				</tr>
+			</thead>
+			<tbody valign="top" value_xml="{concat('table', @Ид)}" value_QuId="{@Ид}" num_col="{count(./КолонкаТаблицы)}" num_row="{@КоличествоСтрокТаблицы}" GroupID="{$GroupID}">
+				<xsl:call-template name="ШаблонСтрокаТаблицы">
+					<xsl:with-param name="ind" select="@КоличествоСтрокТаблицы"/>
+					<xsl:with-param name="GroupID" select="$GroupID"/>
+				</xsl:call-template>
+			</tbody>
+		</table>
+		</td></tr>
+	</xsl:template>
+	<xsl:template match="/Заголовок/Анкета/Вопрос|/Заголовок/Анкета/Группа/Вопрос|/Заголовок/Анкета/Группа">
+		<xsl:variable name="GroupID" select="js:GetGroupID(name(..), ../@Ид)"/>
+		<xsl:variable name="previousPos" select="position() - 1"/>
+		<xsl:variable name="nextPos" select="position() + 1"/>
+		<xsl:variable name="previousNode" select="../child::*[position() = $previousPos]/@Представление"/>
+		<xsl:variable name="nextNode" select="../child::*[position() = $nextPos]/@Представление"/>
+		<xsl:if test="name() = 'Группа'">
+			<xsl:call-template name="ШаблонГруппы"/>
+		</xsl:if>		
+		<xsl:if test="@Представление= 'ПолеВвода'">
+			<xsl:call-template name="ШаблонПолеВвода">
+				<xsl:with-param name="GroupID" select="$GroupID"/>
+			</xsl:call-template>
+			<xsl:call-template name="QuestionRequiredText"></xsl:call-template>
+		</xsl:if>
+		<xsl:if test="@Представление= 'Текст'">
+			<xsl:call-template name="ШаблонТекст">
+				<xsl:with-param name="GroupID" select="$GroupID"/>
+			</xsl:call-template>
+			<xsl:call-template name="QuestionRequiredText"></xsl:call-template>
+		</xsl:if>
+		<xsl:if test="@Представление= 'СписокВыбора'">
+			<xsl:call-template name="ШаблонСписокВыбора">
+				<xsl:with-param name="GroupID" select="$GroupID"/>
+			</xsl:call-template>
+			<xsl:call-template name="QuestionRequiredText"></xsl:call-template>
+		</xsl:if>
+		<xsl:if test="@Представление= 'Переключатель'">
+			<xsl:call-template name="ШаблонПереключатель">
+				<xsl:with-param name="GroupID" select="$GroupID"/>
+			</xsl:call-template>
+			<xsl:call-template name="QuestionRequiredText"></xsl:call-template>
+		</xsl:if>
+		<xsl:if test="@Представление= 'Флажок'">
+			<xsl:call-template name="ШаблонФлажок">
+				<xsl:with-param name="GroupID" select="$GroupID"/>
+			</xsl:call-template>
+			<xsl:call-template name="QuestionRequiredText"></xsl:call-template>
+		</xsl:if>
+		<xsl:if test="@Представление= 'Таблица'">
+			<xsl:call-template name="ШаблонТаблица">
+				<xsl:with-param name="GroupID" select="$GroupID"/>
+			</xsl:call-template>
+		</xsl:if>		
+	</xsl:template>
+</xsl:stylesheet>
+#КонецОбласти

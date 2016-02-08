@@ -1,0 +1,4267 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Помощник подключения к ЭДО</v8:content>
+		</v8:item>
+	</Title>
+	<AutoTitle>false</AutoTitle>
+	<CommandBarLocation>Bottom</CommandBarLocation>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<HorizontalAlign>Right</HorizontalAlign>
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="Готово" id="137">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>Form.Command.Готово</CommandName>
+				<Parameter xsi:nil="true"/>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Готово</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ГотовоExtendedTooltip" id="681"/>
+			</Button>
+			<Button name="Отмена" id="138">
+				<Type>CommandBarButton</Type>
+				<SkipOnInput>false</SkipOnInput>
+				<CommandName>Form.Command.Отмена</CommandName>
+				<Parameter xsi:nil="true"/>
+				<ExtendedTooltip name="ОтменаExtendedTooltip" id="682"/>
+			</Button>
+			<Button name="Справка" id="139">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<Parameter xsi:nil="true"/>
+				<ExtendedTooltip name="СправкаExtendedTooltip" id="683"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="NotificationProcessing">ОбработкаОповещения</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="BeforeClose">ПередЗакрытием</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="OnClose">ПриЗакрытии</Event>
+	</Events>
+	<ChildItems>
+		<Pages name="СтраницыПомощника" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы помощника</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы помощника</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ExtendedTooltip name="СтраницыПомощникаExtendedTooltip" id="684"/>
+			<ChildItems>
+				<Page name="СтраницаПодключенияК1СЭДО" id="582">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Помощник подключения к сервису 1С-ЭДО</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Помощник подключения к сервису 1С-ЭДО</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаПодключенияК1СЭДОExtendedTooltip" id="685"/>
+					<ChildItems>
+						<InputField name="ОрганизацияПодключенияК1СЭДО" id="583">
+							<DataPath>Организация</DataPath>
+							<TitleLocation>Left</TitleLocation>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="ОрганизацияПодключенияК1СЭДОКонтекстноеМеню" id="584"/>
+							<ExtendedTooltip name="ОрганизацияПодключенияК1СЭДОExtendedTooltip" id="686"/>
+							<Events>
+								<Event name="OnChange">ОрганизацияПриИзменении</Event>
+							</Events>
+						</InputField>
+						<UsualGroup name="ГруппаЧерез1СХабИнформационнаяНадписьОрганизация1" id="585">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Уникальный код организации, как участника обмена электронными документами.</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа комментарий открыть настройки обмена электронными документами</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаЧерез1СХабИнформационнаяНадписьОрганизация1ExtendedTooltip" id="687"/>
+							<ChildItems>
+								<PictureDecoration name="Декорация54" id="586">
+									<Width>2</Width>
+									<Height>1</Height>
+									<Picture>
+										<xr:Ref>CommonPicture.Информация02</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</Picture>
+									<ContextMenu name="Декорация54КонтекстноеМеню" id="587"/>
+									<ExtendedTooltip name="Декорация54ExtendedTooltip" id="688"/>
+								</PictureDecoration>
+								<LabelDecoration name="ПояснениеОрганизация1" id="588">
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Организация - участник обмена электронными документами.</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ПояснениеОрганизация1КонтекстноеМеню" id="589"/>
+									<ExtendedTooltip name="ПояснениеОрганизация1ExtendedTooltip" id="689"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="ПровайдерЭПЧерез1СЭДО" id="590">
+							<DataPath>ПрограммаЗащитыИнформации</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Программа защиты информации</v8:content>
+								</v8:item>
+							</Title>
+							<Width>50</Width>
+							<ListChoiceMode>true</ListChoiceMode>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>VipNet CSP</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:string">1</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>CryptoPro CSP</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:string">2</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ПровайдерЭПЧерез1СЭДОКонтекстноеМеню" id="591"/>
+							<ExtendedTooltip name="ПровайдерЭПЧерез1СЭДОExtendedTooltip" id="690"/>
+							<Events>
+								<Event name="ChoiceProcessing">ПровайдерЭЦПОбработкаВыбора</Event>
+							</Events>
+						</InputField>
+						<UsualGroup name="ГруппаЧерезОператораИнформационнаяНадписьПрограммаЗащитыИнформации1" id="592">
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа комментарий открыть настройки обмена электронными документами</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаЧерезОператораИнформационнаяНадписьПрограммаЗащитыИнформации1ExtendedTooltip" id="691"/>
+							<ChildItems>
+								<PictureDecoration name="Декорация55" id="593">
+									<Width>2</Width>
+									<Height>1</Height>
+									<Picture>
+										<xr:Ref>CommonPicture.Информация02</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</Picture>
+									<ContextMenu name="Декорация55КонтекстноеМеню" id="594"/>
+									<ExtendedTooltip name="Декорация55ExtendedTooltip" id="692"/>
+								</PictureDecoration>
+								<UsualGroup name="Группа3" id="595">
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа3ExtendedTooltip" id="693"/>
+									<ChildItems>
+										<LabelDecoration name="ПояснениеПрограммызащитыИнформации4" id="596">
+											<TextColor>style:ПоясняющийТекст</TextColor>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Для работы обмена электронными документами необходимо выбрать программу для защиты информации:
+</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="ПояснениеПрограммызащитыИнформации4КонтекстноеМеню" id="597"/>
+											<ExtendedTooltip name="ПояснениеПрограммызащитыИнформации4ExtendedTooltip" id="694"/>
+										</LabelDecoration>
+										<UsualGroup name="Группа4" id="598">
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа4ExtendedTooltip" id="695"/>
+											<ChildItems>
+												<LabelDecoration name="ПояснениеVipNet4" id="599">
+													<TextColor>style:ПоясняющийТекст</TextColor>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>- VipNet CSP;</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="ПояснениеVipNet4КонтекстноеМеню" id="600"/>
+													<ExtendedTooltip name="ПояснениеVipNet4ExtendedTooltip" id="696"/>
+												</LabelDecoration>
+												<UsualGroup name="ГруппаПодсказкаНетCSP8" id="601">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа подсказка по VipNet</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа подсказка1 вариант</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Horizontal</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаПодсказкаНетCSP8ExtendedTooltip" id="697"/>
+													<ChildItems>
+														<LabelDecoration name="ПодсказкаНетCSP11" id="602">
+															<TextColor>style:ПоясняющийТекст</TextColor>
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>   Подробнее о программе - на сайте компании</v8:content>
+																</v8:item>
+															</Title>
+															<ContextMenu name="ПодсказкаНетCSP11КонтекстноеМеню" id="603"/>
+															<ExtendedTooltip name="ПодсказкаНетCSP11ExtendedTooltip" id="698"/>
+														</LabelDecoration>
+														<LabelDecoration name="ПерейтиНаСайтИнфотекс4" id="604">
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>ОАО «ИнфотеКС»</v8:content>
+																</v8:item>
+															</Title>
+															<Hyperlink>true</Hyperlink>
+															<ContextMenu name="ПерейтиНаСайтИнфотекс4КонтекстноеМеню" id="605"/>
+															<ExtendedTooltip name="ПерейтиНаСайтИнфотекс4ExtendedTooltip" id="699"/>
+															<Events>
+																<Event name="Click">ПерейтиНаСайтИнфотексНажатие</Event>
+															</Events>
+														</LabelDecoration>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаCryptoPro1" id="606">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа crypto pro</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа crypto pro</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаCryptoPro1ExtendedTooltip" id="700"/>
+											<ChildItems>
+												<LabelDecoration name="ПояснениеОрганизация8" id="607">
+													<TextColor>style:ПоясняющийТекст</TextColor>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>- CryptoPro CSP;</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="ПояснениеОрганизация8КонтекстноеМеню" id="608"/>
+													<ExtendedTooltip name="ПояснениеОрганизация8ExtendedTooltip" id="701"/>
+												</LabelDecoration>
+												<UsualGroup name="ГруппаПодсказкаНетCSP9" id="609">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа подсказка по VipNet</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа подсказка по vip net</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Horizontal</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаПодсказкаНетCSP9ExtendedTooltip" id="702"/>
+													<ChildItems>
+														<LabelDecoration name="ПодсказкаНетCSP12" id="610">
+															<TextColor>style:ПоясняющийТекст</TextColor>
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Подробнее о программе и условиях ее приобритения - на сайте компании</v8:content>
+																</v8:item>
+															</Title>
+															<ContextMenu name="ПодсказкаНетCSP12КонтекстноеМеню" id="611"/>
+															<ExtendedTooltip name="ПодсказкаНетCSP12ExtendedTooltip" id="703"/>
+														</LabelDecoration>
+														<LabelDecoration name="ПерейтиНаСайтКриптоПро4" id="612">
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>ООО "КРИПТО-ПРО"</v8:content>
+																</v8:item>
+															</Title>
+															<Hyperlink>true</Hyperlink>
+															<ContextMenu name="ПерейтиНаСайтКриптоПро4КонтекстноеМеню" id="613"/>
+															<ExtendedTooltip name="ПерейтиНаСайтКриптоПро4ExtendedTooltip" id="704"/>
+															<Events>
+																<Event name="Click">ПерейтиНаСайтКриптоПроНажатие</Event>
+															</Events>
+														</LabelDecoration>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаВыбораСертификатаЭПЧерезЭДО" id="614">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа выбора сертификата ЭП</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа выбора сертификата ЭП</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаВыбораСертификатаЭПЧерезЭДОExtendedTooltip" id="705"/>
+							<ChildItems>
+								<InputField name="СертификатЭПЧерезОператора1" id="615">
+									<DataPath>СертификатКриптографии</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сертификат ключа электронной подписи</v8:content>
+										</v8:item>
+									</Title>
+									<ChoiceButton>true</ChoiceButton>
+									<OpenButton>true</OpenButton>
+									<QuickChoice>true</QuickChoice>
+									<AutoMarkIncomplete>true</AutoMarkIncomplete>
+									<ChooseType>false</ChooseType>
+									<ChoiceForm>Catalog.СертификатыЭЦП.Form.ФормаВыбора</ChoiceForm>
+									<ContextMenu name="СертификатЭПЧерезОператора1КонтекстноеМеню" id="616"/>
+									<ExtendedTooltip name="СертификатЭПЧерезОператора1ExtendedTooltip" id="706"/>
+									<Events>
+										<Event name="StartChoice">СертификатЭПНачалоВыбора</Event>
+										<Event name="Opening">СертификатОткрытие</Event>
+									</Events>
+								</InputField>
+								<Button name="ОткрытьПодсказкуПоЭП1" id="617">
+									<Type>Hyperlink</Type>
+									<CommandName>Form.Command.ОткрытьПодсказкуПоЭП</CommandName>
+									<Parameter xsi:nil="true"/>
+									<ExtendedTooltip name="ОткрытьПодсказкуПоЭП1ExtendedTooltip" id="707"/>
+								</Button>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаЗаполненияИдентификатораСИПП1" id="618">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа заполнения идентификатора СИПП</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа заполнения идентификатора СИПП</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаЗаполненияИдентификатораСИПП1ExtendedTooltip" id="708"/>
+							<ChildItems>
+								<LabelDecoration name="Декорация3" id="619">
+									<Visible>false</Visible>
+									<Width>26</Width>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Идентификатор организации:</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="Декорация3КонтекстноеМеню" id="620"/>
+									<ExtendedTooltip name="Декорация3ExtendedTooltip" id="709"/>
+								</LabelDecoration>
+								<UsualGroup name="Группа9" id="621">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Идентификатор организации</v8:content>
+										</v8:item>
+									</Title>
+									<Group>Vertical</Group>
+									<Representation>StrongSeparation</Representation>
+									<ExtendedTooltip name="Группа9ExtendedTooltip" id="710"/>
+									<ChildItems>
+										<UsualGroup name="ГруппаВыбораСуществующейУчетнойЗаписи" id="622">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа выбора существующей учетной записи</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа выбора существующей учетной записи</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Horizontal</Group>
+											<Representation>NormalSeparation</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаВыбораСуществующейУчетнойЗаписиExtendedTooltip" id="711"/>
+											<ChildItems>
+												<RadioButtonField name="ТипРегистрацииСуществующаяУчетнаяЗапись" id="623">
+													<DataPath>ТипРегистрации</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<RadioButtonType>Auto</RadioButtonType>
+													<ChoiceList>
+														<xr:Item>
+															<xr:Presentation/>
+															<xr:CheckState>0</xr:CheckState>
+															<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>выбрать существующий</v8:content>
+																	</v8:item>
+																</Presentation>
+																<Value xsi:type="xs:decimal">1</Value>
+															</xr:Value>
+														</xr:Item>
+													</ChoiceList>
+													<ContextMenu name="ТипРегистрацииСуществующаяУчетнаяЗаписьКонтекстноеМеню" id="624"/>
+													<ExtendedTooltip name="ТипРегистрацииСуществующаяУчетнаяЗаписьExtendedTooltip" id="712"/>
+													<Events>
+														<Event name="OnChange">ТипРегистрацииПриИзменении</Event>
+													</Events>
+												</RadioButtonField>
+												<InputField name="ИдентификаторОрганизацииЧерез1СЭДО" id="625">
+													<DataPath>ИдентификаторОрганизацииСуществующий</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<ChoiceButton>false</ChoiceButton>
+													<AutoMarkIncomplete>true</AutoMarkIncomplete>
+													<ChooseType>false</ChooseType>
+													<TextEdit>false</TextEdit>
+													<ChoiceListButton>true</ChoiceListButton>
+													<ContextMenu name="ИдентификаторОрганизацииЧерез1СЭДОКонтекстноеМеню" id="626"/>
+													<ExtendedTooltip name="ИдентификаторОрганизацииЧерез1СЭДОExtendedTooltip" id="713"/>
+												</InputField>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаРегистрацииНовойУчетнойЗаписи" id="627">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа регистрации новой учетной записи</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа регистрации новой учетной записи</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаРегистрацииНовойУчетнойЗаписиExtendedTooltip" id="714"/>
+											<ChildItems>
+												<RadioButtonField name="ТипРегистрацииНоваяУчетнаяЗапись" id="628">
+													<DataPath>ТипРегистрации</DataPath>
+													<TitleLocation>None</TitleLocation>
+													<RadioButtonType>Auto</RadioButtonType>
+													<ChoiceList>
+														<xr:Item>
+															<xr:Presentation/>
+															<xr:CheckState>0</xr:CheckState>
+															<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																<Presentation>
+																	<v8:item>
+																		<v8:lang>ru</v8:lang>
+																		<v8:content>новый</v8:content>
+																	</v8:item>
+																</Presentation>
+																<Value xsi:type="xs:decimal">2</Value>
+															</xr:Value>
+														</xr:Item>
+													</ChoiceList>
+													<ContextMenu name="ТипРегистрацииНоваяУчетнаяЗаписьКонтекстноеМеню" id="629"/>
+													<ExtendedTooltip name="ТипРегистрацииНоваяУчетнаяЗаписьExtendedTooltip" id="715"/>
+													<Events>
+														<Event name="OnChange">ТипРегистрацииПриИзменении</Event>
+													</Events>
+												</RadioButtonField>
+												<LabelDecoration name="Декорация5" id="630">
+													<Width>10</Width>
+													<ContextMenu name="Декорация5КонтекстноеМеню" id="631"/>
+													<ExtendedTooltip name="Декорация5ExtendedTooltip" id="716"/>
+												</LabelDecoration>
+												<UsualGroup name="ГруппаРегистрацииНовойУчетнойЗаписиДанные" id="632">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа регистрации новой учетной записи данные</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа регистрации новой учетной записи данные</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Vertical</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаРегистрацииНовойУчетнойЗаписиДанныеExtendedTooltip" id="717"/>
+													<ChildItems>
+														<LabelDecoration name="НадписьИдентификаторУчастникаОбменаЭДЧерезЭДО" id="633">
+															<HorizontalStretch>true</HorizontalStretch>
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Получить уникальный идентификатор участника ЭДО</v8:content>
+																</v8:item>
+															</Title>
+															<Hyperlink>true</Hyperlink>
+															<ContextMenu name="НадписьИдентификаторУчастникаОбменаЭДЧерезЭДОКонтекстноеМеню" id="634"/>
+															<ExtendedTooltip name="НадписьИдентификаторУчастникаОбменаЭДЧерезЭДОExtendedTooltip" id="718"/>
+															<Events>
+																<Event name="Click">НадписьИдентификаторУчастникаОбменаЭДЧерез1СЭДОНажатие</Event>
+															</Events>
+														</LabelDecoration>
+														<UsualGroup name="Группа13" id="635">
+															<Group>Vertical</Group>
+															<Representation>None</Representation>
+															<ShowTitle>false</ShowTitle>
+															<ExtendedTooltip name="Группа13ExtendedTooltip" id="719"/>
+															<ChildItems>
+																<InputField name="ОператорЭДОПодключенныйК1СЭДО" id="636">
+																	<DataPath>ОператорЭДО</DataPath>
+																	<TitleLocation>Left</TitleLocation>
+																	<ListChoiceMode>true</ListChoiceMode>
+																	<AutoMarkIncomplete>true</AutoMarkIncomplete>
+																	<ContextMenu name="ОператорЭДОПодключенныйК1СЭДОКонтекстноеМеню" id="637"/>
+																	<ExtendedTooltip name="ОператорЭДОПодключенныйК1СЭДОExtendedTooltip" id="720"/>
+																	<Events>
+																		<Event name="OnChange">ОператорЭДОПодключенныйК1СЭДОПриИзменении</Event>
+																	</Events>
+																</InputField>
+																<UsualGroup name="ГруппаЧерез1СХабИнформационнаяНадписьОрганизация2" id="638">
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Уникальный код организации, как участника обмена электронными документами.</v8:content>
+																		</v8:item>
+																	</Title>
+																	<ToolTip>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Группа комментарий открыть настройки обмена электронными документами</v8:content>
+																		</v8:item>
+																	</ToolTip>
+																	<Group>Horizontal</Group>
+																	<Representation>None</Representation>
+																	<ShowTitle>false</ShowTitle>
+																	<ExtendedTooltip name="ГруппаЧерез1СХабИнформационнаяНадписьОрганизация2ExtendedTooltip" id="721"/>
+																	<ChildItems>
+																		<PictureDecoration name="Декорация57" id="639">
+																			<Width>2</Width>
+																			<Height>1</Height>
+																			<Picture>
+																				<xr:Ref>CommonPicture.Информация02</xr:Ref>
+																				<xr:LoadTransparent>false</xr:LoadTransparent>
+																			</Picture>
+																			<ContextMenu name="Декорация57КонтекстноеМеню" id="640"/>
+																			<ExtendedTooltip name="Декорация57ExtendedTooltip" id="722"/>
+																		</PictureDecoration>
+																		<LabelDecoration name="ПояснениеОрганизация2" id="641">
+																			<TextColor>style:ПоясняющийТекст</TextColor>
+																			<Title formatted="false">
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Указывается оператор электронного документооборота, где будет зарегистрирован участник ЭДО.</v8:content>
+																				</v8:item>
+																			</Title>
+																			<ContextMenu name="ПояснениеОрганизация2КонтекстноеМеню" id="642"/>
+																			<ExtendedTooltip name="ПояснениеОрганизация2ExtendedTooltip" id="723"/>
+																		</LabelDecoration>
+																	</ChildItems>
+																</UsualGroup>
+																<UsualGroup name="ГруппаКонтактнаяИнформация" id="643">
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Дополнительная информация организации</v8:content>
+																		</v8:item>
+																	</Title>
+																	<ToolTip>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Контактная информация организации</v8:content>
+																		</v8:item>
+																	</ToolTip>
+																	<Group>Vertical</Group>
+																	<Representation>StrongSeparation</Representation>
+																	<ExtendedTooltip name="ГруппаКонтактнаяИнформацияExtendedTooltip" id="724"/>
+																	<ChildItems>
+																		<InputField name="КодНалоговогоОргана" id="672">
+																			<DataPath>КодНалоговогоОргана</DataPath>
+																			<ContextMenu name="КодНалоговогоОрганаКонтекстноеМеню" id="673"/>
+																			<ExtendedTooltip name="КодНалоговогоОрганаExtendedTooltip" id="725"/>
+																		</InputField>
+																		<InputField name="АдресОрганизации" id="670">
+																			<DataPath>АдресОрганизации</DataPath>
+																			<ChoiceButton>true</ChoiceButton>
+																			<TextEdit>false</TextEdit>
+																			<ContextMenu name="АдресОрганизацииКонтекстноеМеню" id="671"/>
+																			<ExtendedTooltip name="АдресОрганизацииExtendedTooltip" id="726"/>
+																			<Events>
+																				<Event name="StartChoice">АдресНачалоВыбора</Event>
+																				<Event name="Opening">АдресОткрытие</Event>
+																			</Events>
+																		</InputField>
+																	</ChildItems>
+																</UsualGroup>
+															</ChildItems>
+														</UsualGroup>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаЗаполненияИдентификатораБезИПП1СЭДО" id="658">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа заполнения идентификатора без ИПП</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа заполнения идентификатора без ИПП</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаЗаполненияИдентификатораБезИПП1СЭДОExtendedTooltip" id="727"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаЧерез1СЭДОИнформационнаяНадписьИдентификатор" id="659">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Уникальный код организации, как участника обмена электронными документами.</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа комментарий открыть настройки обмена электронными документами</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Width>86</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаЧерез1СЭДОИнформационнаяНадписьИдентификаторExtendedTooltip" id="728"/>
+									<ChildItems>
+										<PictureDecoration name="Декорация56" id="660">
+											<Width>2</Width>
+											<Height>1</Height>
+											<Picture>
+												<xr:Ref>CommonPicture.Информация02</xr:Ref>
+												<xr:LoadTransparent>false</xr:LoadTransparent>
+											</Picture>
+											<ContextMenu name="Декорация56КонтекстноеМеню" id="661"/>
+											<ExtendedTooltip name="Декорация56ExtendedTooltip" id="729"/>
+										</PictureDecoration>
+										<LabelDecoration name="ПояснениеИдентификатора1СЭДО" id="662">
+											<HorizontalStretch>true</HorizontalStretch>
+											<TextColor>style:ПоясняющийТекст</TextColor>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>При регистрации у оператора ЭДО, организации присваивается уникальный идентификатор.</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="ПояснениеИдентификатора1СЭДОКонтекстноеМеню" id="663"/>
+											<ExtendedTooltip name="ПояснениеИдентификатора1СЭДОExtendedTooltip" id="730"/>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<LabelDecoration name="Декорация4" id="664">
+							<VerticalStretch>true</VerticalStretch>
+							<ContextMenu name="Декорация4КонтекстноеМеню" id="665"/>
+							<ExtendedTooltip name="Декорация4ExtendedTooltip" id="731"/>
+						</LabelDecoration>
+						<UsualGroup name="ГруппаПоддержка1" id="674">
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа поддержка</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаПоддержка1ExtendedTooltip" id="732"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаКонтактовПоддержки1" id="675">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа контактов поддержки</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа контактов поддержки</v8:content>
+										</v8:item>
+									</ToolTip>
+									<HorizontalStretch>false</HorizontalStretch>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ChildItemsWidth>LeftWidest</ChildItemsWidth>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаКонтактовПоддержки1ExtendedTooltip" id="733"/>
+									<ChildItems>
+										<InputField name="ТелефонСлужбыПоддержки1" id="676">
+											<DataPath>ТелефонСлужбыПоддержки</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<SkipOnInput>true</SkipOnInput>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Служба поддержки</v8:content>
+												</v8:item>
+											</Title>
+											<HorizontalAlign>Right</HorizontalAlign>
+											<Width>12</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<TextColor>#373737</TextColor>
+											<BackColor>style:FormBackColor</BackColor>
+											<BorderColor>style:FormBackColor</BorderColor>
+											<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<ContextMenu name="ТелефонСлужбыПоддержки1КонтекстноеМеню" id="677"/>
+											<ExtendedTooltip name="ТелефонСлужбыПоддержки1ExtendedTooltip" id="734"/>
+										</InputField>
+										<InputField name="АдресЭлектроннойПочтыСлужбыПоддержки1" id="678">
+											<DataPath>АдресЭлектроннойПочтыСлужбыПоддержки</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<SkipOnInput>true</SkipOnInput>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Поддержка пользователей ЭДО</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>None</TitleLocation>
+											<HorizontalAlign>Left</HorizontalAlign>
+											<Width>8</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<TextColor>#373737</TextColor>
+											<BackColor>style:FormBackColor</BackColor>
+											<BorderColor>style:FormBackColor</BorderColor>
+											<Font ref="sys:DefaultGUIFont" bold="true" kind="WindowsFont"/>
+											<ContextMenu name="АдресЭлектроннойПочтыСлужбыПоддержки1КонтекстноеМеню" id="679"/>
+											<ExtendedTooltip name="АдресЭлектроннойПочтыСлужбыПоддержки1ExtendedTooltip" id="735"/>
+										</InputField>
+										<Button name="Кнопка1СБухфон1" id="680">
+											<Type>Hyperlink</Type>
+											<CommandName>Form.Command.ОткрытьСсылкуНаСтатьюПо1СБухфон</CommandName>
+											<Parameter xsi:nil="true"/>
+											<ExtendedTooltip name="Кнопка1СБухфон1ExtendedTooltip" id="736"/>
+										</Button>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаПодключенияК1СТакском" id="381">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Помощник подключения к сервису 1С-Такском</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Помощник подключения к сервису 1С-Такском</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаПодключенияК1СТакскомExtendedTooltip" id="737"/>
+					<ChildItems>
+						<InputField name="ОрганизацияПодключенияК1СТакском" id="383">
+							<DataPath>Организация</DataPath>
+							<TitleLocation>Left</TitleLocation>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="ОрганизацияПодключенияК1СТакскомКонтекстноеМеню" id="384"/>
+							<ExtendedTooltip name="ОрганизацияПодключенияК1СТакскомExtendedTooltip" id="738"/>
+							<Events>
+								<Event name="OnChange">ОрганизацияПриИзменении</Event>
+							</Events>
+						</InputField>
+						<UsualGroup name="ГруппаЧерезОператораИнформационнаяНадписьОрганизация" id="430">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Уникальный код организации, как участника обмена электронными документами.</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа комментарий открыть настройки обмена электронными документами</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаЧерезОператораИнформационнаяНадписьОрганизацияExtendedTooltip" id="739"/>
+							<ChildItems>
+								<PictureDecoration name="Декорация48" id="431">
+									<Width>2</Width>
+									<Height>1</Height>
+									<Picture>
+										<xr:Ref>CommonPicture.Информация02</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</Picture>
+									<ContextMenu name="Декорация48КонтекстноеМеню" id="432"/>
+									<ExtendedTooltip name="Декорация48ExtendedTooltip" id="740"/>
+								</PictureDecoration>
+								<LabelDecoration name="ПояснениеОрганизация" id="433">
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Организация - участник обмена электронными документами.</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ПояснениеОрганизацияКонтекстноеМеню" id="434"/>
+									<ExtendedTooltip name="ПояснениеОрганизацияExtendedTooltip" id="741"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="ПровайдерЭПЧерезОператора" id="426">
+							<DataPath>ПрограммаЗащитыИнформации</DataPath>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Программа защиты информации</v8:content>
+								</v8:item>
+							</Title>
+							<Width>50</Width>
+							<ListChoiceMode>true</ListChoiceMode>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ChoiceList>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>VipNet CSP</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:string">1</Value>
+									</xr:Value>
+								</xr:Item>
+								<xr:Item>
+									<xr:Presentation/>
+									<xr:CheckState>0</xr:CheckState>
+									<xr:Value xsi:type="FormChoiceListDesTimeValue">
+										<Presentation>
+											<v8:item>
+												<v8:lang>ru</v8:lang>
+												<v8:content>CryptoPro CSP</v8:content>
+											</v8:item>
+										</Presentation>
+										<Value xsi:type="xs:string">2</Value>
+									</xr:Value>
+								</xr:Item>
+							</ChoiceList>
+							<ContextMenu name="ПровайдерЭПЧерезОператораКонтекстноеМеню" id="427"/>
+							<ExtendedTooltip name="ПровайдерЭПЧерезОператораExtendedTooltip" id="742"/>
+							<Events>
+								<Event name="ChoiceProcessing">ПровайдерЭЦПОбработкаВыбора</Event>
+							</Events>
+						</InputField>
+						<UsualGroup name="ГруппаЧерезОператораИнформационнаяНадписьПрограммаЗащитыИнформации" id="435">
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа комментарий открыть настройки обмена электронными документами</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаЧерезОператораИнформационнаяНадписьПрограммаЗащитыИнформацииExtendedTooltip" id="743"/>
+							<ChildItems>
+								<PictureDecoration name="Декорация49" id="436">
+									<Width>2</Width>
+									<Height>1</Height>
+									<Picture>
+										<xr:Ref>CommonPicture.Информация02</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</Picture>
+									<ContextMenu name="Декорация49КонтекстноеМеню" id="437"/>
+									<ExtendedTooltip name="Декорация49ExtendedTooltip" id="744"/>
+								</PictureDecoration>
+								<UsualGroup name="Группа1" id="440">
+									<Group>Vertical</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="Группа1ExtendedTooltip" id="745"/>
+									<ChildItems>
+										<LabelDecoration name="ПояснениеПрограммызащитыИнформации" id="438">
+											<TextColor>style:ПоясняющийТекст</TextColor>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Для работы обмена электронными документами необходимо выбрать программу для защиты информации:
+</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="ПояснениеПрограммызащитыИнформацииКонтекстноеМеню" id="439"/>
+											<ExtendedTooltip name="ПояснениеПрограммызащитыИнформацииExtendedTooltip" id="746"/>
+										</LabelDecoration>
+										<UsualGroup name="Группа2" id="443">
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="Группа2ExtendedTooltip" id="747"/>
+											<ChildItems>
+												<LabelDecoration name="ПояснениеVipNet" id="441">
+													<TextColor>style:ПоясняющийТекст</TextColor>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>- VipNet CSP;</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="ПояснениеVipNetКонтекстноеМеню" id="442"/>
+													<ExtendedTooltip name="ПояснениеVipNetExtendedTooltip" id="748"/>
+												</LabelDecoration>
+												<UsualGroup name="ГруппаПодсказкаНетCSP" id="446">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа подсказка по VipNet</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа подсказка1 вариант</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Horizontal</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаПодсказкаНетCSPExtendedTooltip" id="749"/>
+													<ChildItems>
+														<LabelDecoration name="ПодсказкаНетCSP3" id="447">
+															<TextColor>style:ПоясняющийТекст</TextColor>
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>   Подробнее о программе - на сайте компании</v8:content>
+																</v8:item>
+															</Title>
+															<ContextMenu name="ПодсказкаНетCSP3КонтекстноеМеню" id="448"/>
+															<ExtendedTooltip name="ПодсказкаНетCSP3ExtendedTooltip" id="750"/>
+														</LabelDecoration>
+														<LabelDecoration name="ПерейтиНаСайтИнфотекс" id="449">
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>ОАО «ИнфотеКС»</v8:content>
+																</v8:item>
+															</Title>
+															<Hyperlink>true</Hyperlink>
+															<ContextMenu name="ПерейтиНаСайтИнфотексКонтекстноеМеню" id="450"/>
+															<ExtendedTooltip name="ПерейтиНаСайтИнфотексExtendedTooltip" id="751"/>
+															<Events>
+																<Event name="Click">ПерейтиНаСайтИнфотексНажатие</Event>
+															</Events>
+														</LabelDecoration>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+										<UsualGroup name="ГруппаCryptoPro" id="451">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа crypto pro</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Группа crypto pro</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Horizontal</Group>
+											<Representation>None</Representation>
+											<ShowTitle>false</ShowTitle>
+											<ExtendedTooltip name="ГруппаCryptoProExtendedTooltip" id="752"/>
+											<ChildItems>
+												<LabelDecoration name="ПояснениеОрганизация4" id="452">
+													<TextColor>style:ПоясняющийТекст</TextColor>
+													<Title formatted="false">
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>- CryptoPro CSP;</v8:content>
+														</v8:item>
+													</Title>
+													<ContextMenu name="ПояснениеОрганизация4КонтекстноеМеню" id="453"/>
+													<ExtendedTooltip name="ПояснениеОрганизация4ExtendedTooltip" id="753"/>
+												</LabelDecoration>
+												<UsualGroup name="ГруппаПодсказкаНетCSP1" id="454">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа подсказка по VipNet</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа подсказка по vip net</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Horizontal</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаПодсказкаНетCSP1ExtendedTooltip" id="754"/>
+													<ChildItems>
+														<LabelDecoration name="ПодсказкаНетCSP5" id="455">
+															<TextColor>style:ПоясняющийТекст</TextColor>
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Подробнее о программе и условиях ее приобритения - на сайте компании</v8:content>
+																</v8:item>
+															</Title>
+															<ContextMenu name="ПодсказкаНетCSP5КонтекстноеМеню" id="456"/>
+															<ExtendedTooltip name="ПодсказкаНетCSP5ExtendedTooltip" id="755"/>
+														</LabelDecoration>
+														<LabelDecoration name="ПерейтиНаСайтКриптоПро" id="457">
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>ООО "КРИПТО-ПРО"</v8:content>
+																</v8:item>
+															</Title>
+															<Hyperlink>true</Hyperlink>
+															<ContextMenu name="ПерейтиНаСайтКриптоПроКонтекстноеМеню" id="458"/>
+															<ExtendedTooltip name="ПерейтиНаСайтКриптоПроExtendedTooltip" id="756"/>
+															<Events>
+																<Event name="Click">ПерейтиНаСайтКриптоПроНажатие</Event>
+															</Events>
+														</LabelDecoration>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаВыбораСертификатаЭП" id="463">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа выбора сертификата ЭП</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа выбора сертификата ЭП</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаВыбораСертификатаЭПExtendedTooltip" id="757"/>
+							<ChildItems>
+								<InputField name="СертификатЭПЧерезОператора" id="428">
+									<DataPath>СертификатКриптографии</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Сертификат ключа электронной подписи</v8:content>
+										</v8:item>
+									</Title>
+									<ChoiceButton>true</ChoiceButton>
+									<OpenButton>true</OpenButton>
+									<QuickChoice>true</QuickChoice>
+									<AutoMarkIncomplete>true</AutoMarkIncomplete>
+									<ChooseType>false</ChooseType>
+									<ChoiceForm>Catalog.СертификатыЭЦП.Form.ФормаВыбора</ChoiceForm>
+									<ContextMenu name="СертификатЭПЧерезОператораКонтекстноеМеню" id="429"/>
+									<ExtendedTooltip name="СертификатЭПЧерезОператораExtendedTooltip" id="758"/>
+									<Events>
+										<Event name="StartChoice">СертификатЭПНачалоВыбора</Event>
+										<Event name="Opening">СертификатОткрытие</Event>
+									</Events>
+								</InputField>
+								<Button name="ОткрытьПодсказкуПоЭП" id="459">
+									<Type>Hyperlink</Type>
+									<CommandName>Form.Command.ОткрытьПодсказкуПоЭП</CommandName>
+									<Parameter xsi:nil="true"/>
+									<ExtendedTooltip name="ОткрытьПодсказкуПоЭПExtendedTooltip" id="759"/>
+								</Button>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаЗаполненияИдентификатораСИПП" id="471">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа заполнения идентификатора СИПП</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа заполнения идентификатора СИПП</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаЗаполненияИдентификатораСИППExtendedTooltip" id="760"/>
+							<ChildItems>
+								<LabelDecoration name="Декорация1" id="467">
+									<Width>26</Width>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Идентификатор организации:</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="Декорация1КонтекстноеМеню" id="468"/>
+									<ExtendedTooltip name="Декорация1ExtendedTooltip" id="761"/>
+								</LabelDecoration>
+								<LabelDecoration name="НадписьИдентификаторУчастникаОбменаЭД" id="127">
+									<HorizontalStretch>true</HorizontalStretch>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Получить уникальный идентификатор участника обмена ЭД</v8:content>
+										</v8:item>
+									</Title>
+									<Hyperlink>true</Hyperlink>
+									<ContextMenu name="НадписьИдентификаторУчастникаОбменаЭДКонтекстноеМеню" id="128"/>
+									<ExtendedTooltip name="НадписьИдентификаторУчастникаОбменаЭДExtendedTooltip" id="762"/>
+									<Events>
+										<Event name="Click">НадписьИдентификаторУчастникаОбменаЭДНажатие</Event>
+									</Events>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<UsualGroup name="ГруппаЗаполненияИдентификатораБезИПП" id="470">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа заполнения идентификатора без ИПП</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа заполнения идентификатора без ИПП</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Vertical</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаЗаполненияИдентификатораБезИППExtendedTooltip" id="763"/>
+							<ChildItems>
+								<InputField name="ИдентификаторОрганизацииЧерезОператора" id="123">
+									<DataPath>ИдентификаторОрганизации</DataPath>
+									<AutoMarkIncomplete>true</AutoMarkIncomplete>
+									<ContextMenu name="ИдентификаторОрганизацииЧерезОператораКонтекстноеМеню" id="124"/>
+									<ExtendedTooltip name="ИдентификаторОрганизацииЧерезОператораExtendedTooltip" id="764"/>
+								</InputField>
+								<UsualGroup name="ГруппаЧерезОператораИнформационнаяНадписьИдентификатор" id="423">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Уникальный код организации, как участника обмена электронными документами.</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа комментарий открыть настройки обмена электронными документами</v8:content>
+										</v8:item>
+									</ToolTip>
+									<Width>86</Width>
+									<HorizontalStretch>false</HorizontalStretch>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаЧерезОператораИнформационнаяНадписьИдентификаторExtendedTooltip" id="765"/>
+									<ChildItems>
+										<PictureDecoration name="Декорация47" id="424">
+											<Width>2</Width>
+											<Height>1</Height>
+											<Picture>
+												<xr:Ref>CommonPicture.Информация02</xr:Ref>
+												<xr:LoadTransparent>false</xr:LoadTransparent>
+											</Picture>
+											<ContextMenu name="Декорация47КонтекстноеМеню" id="425"/>
+											<ExtendedTooltip name="Декорация47ExtendedTooltip" id="766"/>
+										</PictureDecoration>
+										<LabelDecoration name="ПояснениеИдентификатора" id="421">
+											<HorizontalStretch>true</HorizontalStretch>
+											<TextColor>style:ПоясняющийТекст</TextColor>
+											<Title formatted="false">
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>При регистрации в сервисе оператора ЭДО, организации присваивается уникальный идентификатор. 
+Получить его можно в настройках личного кабинета сервиса оператора ЭДО. Идентификатор должен состоять из 46 символов.</v8:content>
+												</v8:item>
+											</Title>
+											<ContextMenu name="ПояснениеИдентификатораКонтекстноеМеню" id="422"/>
+											<ExtendedTooltip name="ПояснениеИдентификатораExtendedTooltip" id="767"/>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						<LabelDecoration name="Декорация2" id="572">
+							<VerticalStretch>true</VerticalStretch>
+							<ContextMenu name="Декорация2КонтекстноеМеню" id="573"/>
+							<ExtendedTooltip name="Декорация2ExtendedTooltip" id="768"/>
+						</LabelDecoration>
+						<UsualGroup name="ГруппаПоддержка" id="561">
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа поддержка</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаПоддержкаExtendedTooltip" id="769"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаКонтактовПоддержки" id="576">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа контактов поддержки</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа контактов поддержки</v8:content>
+										</v8:item>
+									</ToolTip>
+									<HorizontalStretch>false</HorizontalStretch>
+									<Group>Horizontal</Group>
+									<Representation>None</Representation>
+									<ChildItemsWidth>LeftWidest</ChildItemsWidth>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаКонтактовПоддержкиExtendedTooltip" id="770"/>
+									<ChildItems>
+										<InputField name="ТелефонСлужбыПоддержки" id="577">
+											<DataPath>ТелефонСлужбыПоддержки</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<SkipOnInput>true</SkipOnInput>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Служба поддержки</v8:content>
+												</v8:item>
+											</Title>
+											<HorizontalAlign>Right</HorizontalAlign>
+											<Width>12</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<TextColor>#373737</TextColor>
+											<BackColor>style:FormBackColor</BackColor>
+											<BorderColor>style:FormBackColor</BorderColor>
+											<Font ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+											<ContextMenu name="ТелефонСлужбыПоддержкиКонтекстноеМеню" id="578"/>
+											<ExtendedTooltip name="ТелефонСлужбыПоддержкиExtendedTooltip" id="771"/>
+										</InputField>
+										<InputField name="АдресЭлектроннойПочтыСлужбыПоддержки" id="579">
+											<DataPath>АдресЭлектроннойПочтыСлужбыПоддержки</DataPath>
+											<ReadOnly>true</ReadOnly>
+											<SkipOnInput>true</SkipOnInput>
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Поддержка пользователей ЭДО</v8:content>
+												</v8:item>
+											</Title>
+											<TitleLocation>None</TitleLocation>
+											<HorizontalAlign>Left</HorizontalAlign>
+											<Width>8</Width>
+											<HorizontalStretch>false</HorizontalStretch>
+											<TextColor>#373737</TextColor>
+											<BackColor>style:FormBackColor</BackColor>
+											<BorderColor>style:FormBackColor</BorderColor>
+											<Font ref="sys:DefaultGUIFont" bold="true" kind="WindowsFont"/>
+											<ContextMenu name="АдресЭлектроннойПочтыСлужбыПоддержкиКонтекстноеМеню" id="580"/>
+											<ExtendedTooltip name="АдресЭлектроннойПочтыСлужбыПоддержкиExtendedTooltip" id="772"/>
+										</InputField>
+										<Button name="Кнопка1СБухфон" id="581">
+											<Type>Hyperlink</Type>
+											<CommandName>Form.Command.ОткрытьСсылкуНаСтатьюПо1СБухфон</CommandName>
+											<Parameter xsi:nil="true"/>
+											<ExtendedTooltip name="Кнопка1СБухфонExtendedTooltip" id="773"/>
+										</Button>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+					</ChildItems>
+				</Page>
+				<Page name="СтраницаНастройкиПрямогоОбмена" id="382">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Помощник настройки прямого обмена с контрагентами</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Помощник настройки прямого обмена с контрагентами</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаНастройкиПрямогоОбменаExtendedTooltip" id="774"/>
+					<ChildItems>
+						<InputField name="ОрганизацияПрямойОбмен" id="177">
+							<DataPath>Организация</DataPath>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="ОрганизацияПрямойОбменКонтекстноеМеню" id="178"/>
+							<ExtendedTooltip name="ОрганизацияПрямойОбменExtendedTooltip" id="775"/>
+							<Events>
+								<Event name="OnChange">ОрганизацияПриИзменении</Event>
+							</Events>
+						</InputField>
+						<UsualGroup name="ГруппаПрямойОбменИнформационнаяНадписьОрганизация" id="498">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Уникальный код организации, как участника обмена электронными документами.</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа комментарий открыть настройки обмена электронными документами</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаПрямойОбменИнформационнаяНадписьОрганизацияExtendedTooltip" id="776"/>
+							<ChildItems>
+								<PictureDecoration name="Декорация51" id="499">
+									<Width>2</Width>
+									<Height>1</Height>
+									<Picture>
+										<xr:Ref>CommonPicture.Информация02</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</Picture>
+									<ContextMenu name="Декорация51КонтекстноеМеню" id="500"/>
+									<ExtendedTooltip name="Декорация51ExtendedTooltip" id="777"/>
+								</PictureDecoration>
+								<LabelDecoration name="ОрганизацияПрямойОбменПояснение" id="501">
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Организация - участник обмена электронными документами.</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ОрганизацияПрямойОбменПояснениеКонтекстноеМеню" id="502"/>
+									<ExtendedTooltip name="ОрганизацияПрямойОбменПояснениеExtendedTooltip" id="778"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="ИдентификаторОрганизацииПрямойОбмен" id="387">
+							<DataPath>ИдентификаторОрганизации</DataPath>
+							<AutoMarkIncomplete>true</AutoMarkIncomplete>
+							<ContextMenu name="ИдентификаторОрганизацииПрямойОбменКонтекстноеМеню" id="388"/>
+							<ExtendedTooltip name="ИдентификаторОрганизацииПрямойОбменExtendedTooltip" id="779"/>
+						</InputField>
+						<UsualGroup name="ГруппаПрямойОбменИнформационнаяНадписьИдентификатор" id="393">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Уникальный код организации, как участника обмена электронными документами.</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа комментарий открыть настройки обмена электронными документами</v8:content>
+								</v8:item>
+							</ToolTip>
+							<Width>86</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<Group>Horizontal</Group>
+							<Representation>None</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаПрямойОбменИнформационнаяНадписьИдентификаторExtendedTooltip" id="780"/>
+							<ChildItems>
+								<PictureDecoration name="Декорация44" id="394">
+									<Width>2</Width>
+									<Height>1</Height>
+									<Picture>
+										<xr:Ref>CommonPicture.Информация02</xr:Ref>
+										<xr:LoadTransparent>false</xr:LoadTransparent>
+									</Picture>
+									<ContextMenu name="Декорация44КонтекстноеМеню" id="395"/>
+									<ExtendedTooltip name="Декорация44ExtendedTooltip" id="781"/>
+								</PictureDecoration>
+								<LabelDecoration name="ПрямойОбменИнформационнаяНадписьИдентификатор" id="396">
+									<Height>2</Height>
+									<TextColor>style:ПоясняющийТекст</TextColor>
+									<Title formatted="false">
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Каждый участник обмена электронными документами имеет свой уникальный идентификатор. По умолчанию параметр заполняется значением &lt;ИНН_КПП&gt; организации и может быть изменен вручную.</v8:content>
+										</v8:item>
+									</Title>
+									<ContextMenu name="ПрямойОбменИнформационнаяНадписьИдентификаторКонтекстноеМеню" id="397"/>
+									<ExtendedTooltip name="ПрямойОбменИнформационнаяНадписьИдентификаторExtendedTooltip" id="782"/>
+								</LabelDecoration>
+							</ChildItems>
+						</UsualGroup>
+						<InputField name="СпособОбменаЭД" id="249">
+							<DataPath>СпособОбменаЭД</DataPath>
+							<ListChoiceMode>true</ListChoiceMode>
+							<BackColor>style:ФонУправляющегоПоля</BackColor>
+							<ContextMenu name="СпособОбменаЭДКонтекстноеМеню" id="250"/>
+							<ExtendedTooltip name="СпособОбменаЭДExtendedTooltip" id="783"/>
+							<Events>
+								<Event name="OnChange">СпособОбменаЭДПриИзменении</Event>
+							</Events>
+						</InputField>
+						<Pages name="ГруппаНастройкиУчастника" id="251">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа настройки участника</v8:content>
+								</v8:item>
+							</Title>
+							<ToolTip>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Группа настройки участника</v8:content>
+								</v8:item>
+							</ToolTip>
+							<PagesRepresentation>None</PagesRepresentation>
+							<ExtendedTooltip name="ГруппаНастройкиУчастникаExtendedTooltip" id="784"/>
+							<ChildItems>
+								<Page name="ГруппаНастроекУчастникаЧерезЭлектроннуюПочту" id="288">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа настроек участника через электронную почту</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа настроек участника через оператора ЭДО</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ГруппаНастроекУчастникаЧерезЭлектроннуюПочтуExtendedTooltip" id="785"/>
+									<ChildItems>
+										<UsualGroup name="ГруппаЧерезЭлектроннуюПочтуИнформация" id="289">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Параметры способа обмена</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Данные об участнике</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Vertical</Group>
+											<Representation>StrongSeparation</Representation>
+											<ExtendedTooltip name="ГруппаЧерезЭлектроннуюПочтуИнформацияExtendedTooltip" id="786"/>
+											<ChildItems>
+												<UsualGroup name="ГруппаВыбораЭлектроннойУчетнойЗаписи" id="351">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа выбора электронной учетной записи</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа выбора электронной учетной записи</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Horizontal</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаВыбораЭлектроннойУчетнойЗаписиExtendedTooltip" id="787"/>
+													<ChildItems>
+														<InputField name="ЭлектроннаяПочтаОрганизации" id="297">
+															<DataPath>ЭлектроннаяПочтаОрганизации</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Учетная запись эл. почты организации</v8:content>
+																</v8:item>
+															</Title>
+															<ContextMenu name="ЭлектроннаяПочтаОрганизацииКонтекстноеМеню" id="298"/>
+															<ExtendedTooltip name="ЭлектроннаяПочтаОрганизацииExtendedTooltip" id="788"/>
+														</InputField>
+														<LabelDecoration name="ДекорацияСоздатьУчетнуюЗапись" id="352">
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Создать учетную запись</v8:content>
+																</v8:item>
+															</Title>
+															<Hyperlink>true</Hyperlink>
+															<ContextMenu name="ДекорацияСоздатьУчетнуюЗаписьКонтекстноеМеню" id="353"/>
+															<ExtendedTooltip name="ДекорацияСоздатьУчетнуюЗаписьExtendedTooltip" id="789"/>
+															<Events>
+																<Event name="Click">ДекорацияСоздатьУчетнуюЗаписьНажатие</Event>
+															</Events>
+														</LabelDecoration>
+													</ChildItems>
+												</UsualGroup>
+												<UsualGroup name="ГруппаЧерезЭлектроннуюПочтуИнформационнаяНадпись" id="292">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа через электронную почту информационная надпись</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа комментарий открыть настройки обмена электронными документами</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Width>86</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<Group>Horizontal</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаЧерезЭлектроннуюПочтуИнформационнаяНадписьExtendedTooltip" id="790"/>
+													<ChildItems>
+														<PictureDecoration name="Декорация32" id="293">
+															<Width>2</Width>
+															<Height>1</Height>
+															<Picture>
+																<xr:Ref>CommonPicture.Информация02</xr:Ref>
+																<xr:LoadTransparent>false</xr:LoadTransparent>
+															</Picture>
+															<ContextMenu name="Декорация32КонтекстноеМеню" id="294"/>
+															<ExtendedTooltip name="Декорация32ExtendedTooltip" id="791"/>
+														</PictureDecoration>
+														<LabelDecoration name="КомментарийОткрытьНастройкиОбменаЭлектроннымиДокументами3" id="295">
+															<Height>3</Height>
+															<TextColor>style:ПоясняющийТекст</TextColor>
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Указывается учетная запись электронной почты организации, с которого будет осуществляться отправка электронных документов, и на который будут поступать входящие документы. Настоятельно рекомендуется использовать отдельную, специально выделенную для обмена,  учетную запись электронной почты.</v8:content>
+																</v8:item>
+															</Title>
+															<ContextMenu name="КомментарийОткрытьНастройкиОбменаЭлектроннымиДокументами3КонтекстноеМеню" id="296"/>
+															<ExtendedTooltip name="КомментарийОткрытьНастройкиОбменаЭлектроннымиДокументами3ExtendedTooltip" id="792"/>
+														</LabelDecoration>
+													</ChildItems>
+												</UsualGroup>
+												<UsualGroup name="ГруппаЧерезЭлектроннуюПочтуНастройкаКриптографии" id="365">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа через электронную почту настройка криптографии</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа через электронную почту настройка криптографии</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Vertical</Group>
+													<Representation>NormalSeparation</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаЧерезЭлектроннуюПочтуНастройкаКриптографииExtendedTooltip" id="793"/>
+													<ChildItems>
+														<CheckBoxField name="ИспользоватьЭПЧерезЭлектроннуюПочту" id="340">
+															<DataPath>ИспользоватьЭП</DataPath>
+															<TitleLocation>Right</TitleLocation>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="ИспользоватьЭПЧерезЭлектроннуюПочтуКонтекстноеМеню" id="341"/>
+															<ExtendedTooltip name="ИспользоватьЭПЧерезЭлектроннуюПочтуExtendedTooltip" id="794"/>
+															<Events>
+																<Event name="OnChange">ИспользоватьЭЦППриИзменении</Event>
+															</Events>
+														</CheckBoxField>
+														<UsualGroup name="ГруппаЧерезЭлектроннуюПочтуНастройкаКриптографииИнформационнаяНадпись" id="403">
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Группа обмен через каталог информационная надпись</v8:content>
+																</v8:item>
+															</Title>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Группа обмен через каталог информационная надпись</v8:content>
+																</v8:item>
+															</ToolTip>
+															<Width>86</Width>
+															<HorizontalStretch>false</HorizontalStretch>
+															<Group>Horizontal</Group>
+															<Representation>None</Representation>
+															<ShowTitle>false</ShowTitle>
+															<ExtendedTooltip name="ГруппаЧерезЭлектроннуюПочтуНастройкаКриптографииИнформационнаяНадписьExtendedTooltip" id="795"/>
+															<ChildItems>
+																<PictureDecoration name="Декорация45" id="404">
+																	<Width>2</Width>
+																	<Height>1</Height>
+																	<Picture>
+																		<xr:Ref>CommonPicture.Информация02</xr:Ref>
+																		<xr:LoadTransparent>false</xr:LoadTransparent>
+																	</Picture>
+																	<ContextMenu name="Декорация45КонтекстноеМеню" id="405"/>
+																	<ExtendedTooltip name="Декорация45ExtendedTooltip" id="796"/>
+																</PictureDecoration>
+																<LabelDecoration name="Комментарий45" id="406">
+																	<Height>2</Height>
+																	<TextColor>style:ПоясняющийТекст</TextColor>
+																	<Title formatted="false">
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Для обеспечения юридической значимости электронные документы, участвующие в обмене, должны подписываться электронной подписью.</v8:content>
+																		</v8:item>
+																	</Title>
+																	<ContextMenu name="Комментарий45КонтекстноеМеню" id="407"/>
+																	<ExtendedTooltip name="Комментарий45ExtendedTooltip" id="797"/>
+																</LabelDecoration>
+															</ChildItems>
+														</UsualGroup>
+														<InputField name="ПровайдерЭПЧерезЭлектроннуюПочту" id="555">
+															<DataPath>ПрограммаЗащитыИнформации</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Программа защиты информации</v8:content>
+																</v8:item>
+															</Title>
+															<Width>50</Width>
+															<ListChoiceMode>true</ListChoiceMode>
+															<AutoMarkIncomplete>true</AutoMarkIncomplete>
+															<ChoiceList>
+																<xr:Item>
+																	<xr:Presentation/>
+																	<xr:CheckState>0</xr:CheckState>
+																	<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																		<Presentation>
+																			<v8:item>
+																				<v8:lang>ru</v8:lang>
+																				<v8:content>VipNet CSP</v8:content>
+																			</v8:item>
+																		</Presentation>
+																		<Value xsi:type="xs:string">1</Value>
+																	</xr:Value>
+																</xr:Item>
+																<xr:Item>
+																	<xr:Presentation/>
+																	<xr:CheckState>0</xr:CheckState>
+																	<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																		<Presentation>
+																			<v8:item>
+																				<v8:lang>ru</v8:lang>
+																				<v8:content>CryptoPro CSP</v8:content>
+																			</v8:item>
+																		</Presentation>
+																		<Value xsi:type="xs:string">2</Value>
+																	</xr:Value>
+																</xr:Item>
+															</ChoiceList>
+															<ContextMenu name="ПровайдерЭПЧерезЭлектроннуюПочтуКонтекстноеМеню" id="556"/>
+															<ExtendedTooltip name="ПровайдерЭПЧерезЭлектроннуюПочтуExtendedTooltip" id="798"/>
+															<Events>
+																<Event name="ChoiceProcessing">ПровайдерЭЦПОбработкаВыбора</Event>
+															</Events>
+														</InputField>
+														<UsualGroup name="ГруппаЧерезЭлектроннуюПочтуПрограммаЗащитыИнформации" id="503">
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Группа через FTPПрограмма защиты информации</v8:content>
+																</v8:item>
+															</Title>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Группа комментарий открыть настройки обмена электронными документами</v8:content>
+																</v8:item>
+															</ToolTip>
+															<Group>Horizontal</Group>
+															<Representation>None</Representation>
+															<ShowTitle>false</ShowTitle>
+															<ExtendedTooltip name="ГруппаЧерезЭлектроннуюПочтуПрограммаЗащитыИнформацииExtendedTooltip" id="799"/>
+															<ChildItems>
+																<PictureDecoration name="Декорация52" id="504">
+																	<Width>2</Width>
+																	<Height>1</Height>
+																	<Picture>
+																		<xr:Ref>CommonPicture.Информация02</xr:Ref>
+																		<xr:LoadTransparent>false</xr:LoadTransparent>
+																	</Picture>
+																	<ContextMenu name="Декорация52КонтекстноеМеню" id="505"/>
+																	<ExtendedTooltip name="Декорация52ExtendedTooltip" id="800"/>
+																</PictureDecoration>
+																<UsualGroup name="ГруппаГруппаЧерезFTPПрограммаЗащитыИнформационнаяНадпись1" id="506">
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Группа группа через FTPПрограмма защиты информационная надпись</v8:content>
+																		</v8:item>
+																	</Title>
+																	<ToolTip>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Группа группа через FTPПрограмма защиты информационная надпись</v8:content>
+																		</v8:item>
+																	</ToolTip>
+																	<Group>Vertical</Group>
+																	<Representation>None</Representation>
+																	<ShowTitle>false</ShowTitle>
+																	<ExtendedTooltip name="ГруппаГруппаЧерезFTPПрограммаЗащитыИнформационнаяНадпись1ExtendedTooltip" id="801"/>
+																	<ChildItems>
+																		<LabelDecoration name="ПояснениеПрограммыЗащитыИнформации2" id="507">
+																			<TextColor>style:ПоясняющийТекст</TextColor>
+																			<Title formatted="false">
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Для работы обмена электронными документами необходимо выбрать программу для защиты информации:
+</v8:content>
+																				</v8:item>
+																			</Title>
+																			<ContextMenu name="ПояснениеПрограммыЗащитыИнформации2КонтекстноеМеню" id="508"/>
+																			<ExtendedTooltip name="ПояснениеПрограммыЗащитыИнформации2ExtendedTooltip" id="802"/>
+																		</LabelDecoration>
+																		<UsualGroup name="ГруппаЧерезFTPVipNet1" id="509">
+																			<Title>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Группа через FTPVip net</v8:content>
+																				</v8:item>
+																			</Title>
+																			<ToolTip>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Группа через FTPVip net</v8:content>
+																				</v8:item>
+																			</ToolTip>
+																			<Group>Horizontal</Group>
+																			<Representation>None</Representation>
+																			<ShowTitle>false</ShowTitle>
+																			<ExtendedTooltip name="ГруппаЧерезFTPVipNet1ExtendedTooltip" id="803"/>
+																			<ChildItems>
+																				<LabelDecoration name="ПояснениеVipNet2" id="510">
+																					<TextColor>style:ПоясняющийТекст</TextColor>
+																					<Title formatted="false">
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>- VipNet CSP;</v8:content>
+																						</v8:item>
+																					</Title>
+																					<ContextMenu name="ПояснениеVipNet2КонтекстноеМеню" id="511"/>
+																					<ExtendedTooltip name="ПояснениеVipNet2ExtendedTooltip" id="804"/>
+																				</LabelDecoration>
+																				<UsualGroup name="ГруппаПодсказкаНетCSP4" id="512">
+																					<Title>
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>Группа подсказка по VipNet</v8:content>
+																						</v8:item>
+																					</Title>
+																					<ToolTip>
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>Группа подсказка1 вариант</v8:content>
+																						</v8:item>
+																					</ToolTip>
+																					<Group>Horizontal</Group>
+																					<Representation>None</Representation>
+																					<ShowTitle>false</ShowTitle>
+																					<ExtendedTooltip name="ГруппаПодсказкаНетCSP4ExtendedTooltip" id="805"/>
+																					<ChildItems>
+																						<LabelDecoration name="ПодсказкаНетCSP7" id="513">
+																							<TextColor>style:ПоясняющийТекст</TextColor>
+																							<Title formatted="false">
+																								<v8:item>
+																									<v8:lang>ru</v8:lang>
+																									<v8:content>   Подробнее о программе - на сайте компании</v8:content>
+																								</v8:item>
+																							</Title>
+																							<ContextMenu name="ПодсказкаНетCSP7КонтекстноеМеню" id="514"/>
+																							<ExtendedTooltip name="ПодсказкаНетCSP7ExtendedTooltip" id="806"/>
+																						</LabelDecoration>
+																						<LabelDecoration name="ПерейтиНаСайтИнфотекс2" id="515">
+																							<Title formatted="false">
+																								<v8:item>
+																									<v8:lang>ru</v8:lang>
+																									<v8:content>ОАО «ИнфотеКС»</v8:content>
+																								</v8:item>
+																							</Title>
+																							<Hyperlink>true</Hyperlink>
+																							<ContextMenu name="ПерейтиНаСайтИнфотекс2КонтекстноеМеню" id="516"/>
+																							<ExtendedTooltip name="ПерейтиНаСайтИнфотекс2ExtendedTooltip" id="807"/>
+																							<Events>
+																								<Event name="Click">ПерейтиНаСайтИнфотексНажатие</Event>
+																							</Events>
+																						</LabelDecoration>
+																					</ChildItems>
+																				</UsualGroup>
+																			</ChildItems>
+																		</UsualGroup>
+																		<UsualGroup name="ГруппаЧерезFTPCryptoPro1" id="517">
+																			<Title>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Группа crypto pro</v8:content>
+																				</v8:item>
+																			</Title>
+																			<ToolTip>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Группа crypto pro</v8:content>
+																				</v8:item>
+																			</ToolTip>
+																			<Group>Horizontal</Group>
+																			<Representation>None</Representation>
+																			<ShowTitle>false</ShowTitle>
+																			<ExtendedTooltip name="ГруппаЧерезFTPCryptoPro1ExtendedTooltip" id="808"/>
+																			<ChildItems>
+																				<LabelDecoration name="ПояснениеОрганизация6" id="518">
+																					<TextColor>style:ПоясняющийТекст</TextColor>
+																					<Title formatted="false">
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>- CryptoPro CSP;</v8:content>
+																						</v8:item>
+																					</Title>
+																					<ContextMenu name="ПояснениеОрганизация6КонтекстноеМеню" id="519"/>
+																					<ExtendedTooltip name="ПояснениеОрганизация6ExtendedTooltip" id="809"/>
+																				</LabelDecoration>
+																				<UsualGroup name="ГруппаПодсказкаНетCSP5" id="520">
+																					<Title>
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>Группа подсказка по VipNet</v8:content>
+																						</v8:item>
+																					</Title>
+																					<ToolTip>
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>Группа подсказка по vip net</v8:content>
+																						</v8:item>
+																					</ToolTip>
+																					<Group>Horizontal</Group>
+																					<Representation>None</Representation>
+																					<ShowTitle>false</ShowTitle>
+																					<ExtendedTooltip name="ГруппаПодсказкаНетCSP5ExtendedTooltip" id="810"/>
+																					<ChildItems>
+																						<LabelDecoration name="ПодсказкаНетCSP8" id="521">
+																							<TextColor>style:ПоясняющийТекст</TextColor>
+																							<Title formatted="false">
+																								<v8:item>
+																									<v8:lang>ru</v8:lang>
+																									<v8:content>Подробнее о программе и условиях ее приобритения - на сайте компании</v8:content>
+																								</v8:item>
+																							</Title>
+																							<ContextMenu name="ПодсказкаНетCSP8КонтекстноеМеню" id="522"/>
+																							<ExtendedTooltip name="ПодсказкаНетCSP8ExtendedTooltip" id="811"/>
+																						</LabelDecoration>
+																						<LabelDecoration name="ПерейтиНаСайтКриптоПро2" id="523">
+																							<Title formatted="false">
+																								<v8:item>
+																									<v8:lang>ru</v8:lang>
+																									<v8:content>ООО "КРИПТО-ПРО"</v8:content>
+																								</v8:item>
+																							</Title>
+																							<Hyperlink>true</Hyperlink>
+																							<ContextMenu name="ПерейтиНаСайтКриптоПро2КонтекстноеМеню" id="524"/>
+																							<ExtendedTooltip name="ПерейтиНаСайтКриптоПро2ExtendedTooltip" id="812"/>
+																							<Events>
+																								<Event name="Click">ПерейтиНаСайтКриптоПроНажатие</Event>
+																							</Events>
+																						</LabelDecoration>
+																					</ChildItems>
+																				</UsualGroup>
+																			</ChildItems>
+																		</UsualGroup>
+																	</ChildItems>
+																</UsualGroup>
+															</ChildItems>
+														</UsualGroup>
+														<UsualGroup name="ГруппаЧерезЭлектроннуюПочтуВыбораСертификатаЭП" id="525">
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Группа выбора сертификата ЭП</v8:content>
+																</v8:item>
+															</Title>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Группа выбора сертификата ЭП</v8:content>
+																</v8:item>
+															</ToolTip>
+															<Group>Horizontal</Group>
+															<Representation>None</Representation>
+															<ShowTitle>false</ShowTitle>
+															<ExtendedTooltip name="ГруппаЧерезЭлектроннуюПочтуВыбораСертификатаЭПExtendedTooltip" id="813"/>
+															<ChildItems>
+																<InputField name="СертификатЭПЧерезЭлектроннуюПочту" id="410">
+																	<DataPath>СертификатКриптографии</DataPath>
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Сертификат ключа электронной подписи</v8:content>
+																		</v8:item>
+																	</Title>
+																	<OpenButton>true</OpenButton>
+																	<QuickChoice>true</QuickChoice>
+																	<AutoMarkIncomplete>true</AutoMarkIncomplete>
+																	<ChoiceForm>Catalog.СертификатыЭЦП.Form.ФормаВыбора</ChoiceForm>
+																	<ContextMenu name="СертификатЭПЧерезЭлектроннуюПочтуКонтекстноеМеню" id="411"/>
+																	<ExtendedTooltip name="СертификатЭПЧерезЭлектроннуюПочтуExtendedTooltip" id="814"/>
+																	<Events>
+																		<Event name="StartChoice">СертификатЭПНачалоВыбора</Event>
+																		<Event name="Opening">СертификатОткрытие</Event>
+																	</Events>
+																</InputField>
+																<Button name="ОткрытьПодсказкуПоЭЦП4" id="528">
+																	<Type>Hyperlink</Type>
+																	<CommandName>Form.Command.ОткрытьПодсказкуПоЭП</CommandName>
+																	<Parameter xsi:nil="true"/>
+																	<ExtendedTooltip name="ОткрытьПодсказкуПоЭЦП4ExtendedTooltip" id="815"/>
+																</Button>
+															</ChildItems>
+														</UsualGroup>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</Page>
+								<Page name="ГруппаНастроекУчастникаЧерезКаталог" id="279">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа настроек участника через каталог</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа настроек участника через оператора ЭДО</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ГруппаНастроекУчастникаЧерезКаталогExtendedTooltip" id="816"/>
+									<ChildItems>
+										<UsualGroup name="ГруппаЧерезКаталог" id="280">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Параметры способа обмена</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Данные об участнике</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Vertical</Group>
+											<Representation>StrongSeparation</Representation>
+											<ExtendedTooltip name="ГруппаЧерезКаталогExtendedTooltip" id="817"/>
+											<ChildItems>
+												<InputField name="КаталогВходящихДокументов" id="286">
+													<DataPath>КаталогВходящихДокументов</DataPath>
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Общий каталог для обмена ЭД</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Общий каталог, в котором будут созданы каталог входящих документов, с которого будут приниматься входящие электронные документы, и каталог исходящих документов,  с которого будут отправляться исходящие электронные документы.</v8:content>
+														</v8:item>
+													</ToolTip>
+													<ChoiceButton>true</ChoiceButton>
+													<ContextMenu name="КаталогВходящихДокументовКонтекстноеМеню" id="287"/>
+													<ExtendedTooltip name="КаталогВходящихДокументовExtendedTooltip" id="818"/>
+													<Events>
+														<Event name="StartChoice">КаталогВходящихДокументовНачалоВыбора</Event>
+													</Events>
+												</InputField>
+												<UsualGroup name="ГруппаЧерезКаталогИнформационнаяНадпись" id="281">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа через каталог информационная надпись</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа через каталог информационная надпись</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Width>86</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<Group>Horizontal</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаЧерезКаталогИнформационнаяНадписьExtendedTooltip" id="819"/>
+													<ChildItems>
+														<PictureDecoration name="Декорация31" id="282">
+															<Width>2</Width>
+															<Height>1</Height>
+															<Picture>
+																<xr:Ref>CommonPicture.Информация02</xr:Ref>
+																<xr:LoadTransparent>false</xr:LoadTransparent>
+															</Picture>
+															<ContextMenu name="Декорация31КонтекстноеМеню" id="283"/>
+															<ExtendedTooltip name="Декорация31ExtendedTooltip" id="820"/>
+														</PictureDecoration>
+														<LabelDecoration name="КомментарийОткрытьНастройкиОбменаЭлектроннымиДокументами2" id="284">
+															<Height>1</Height>
+															<TextColor>style:ПоясняющийТекст</TextColor>
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Задается сетевой каталог, в котором будут созданы каталоги для входящих и исходящих электронных документов.</v8:content>
+																</v8:item>
+															</Title>
+															<ContextMenu name="КомментарийОткрытьНастройкиОбменаЭлектроннымиДокументами2КонтекстноеМеню" id="285"/>
+															<ExtendedTooltip name="КомментарийОткрытьНастройкиОбменаЭлектроннымиДокументами2ExtendedTooltip" id="821"/>
+														</LabelDecoration>
+													</ChildItems>
+												</UsualGroup>
+												<UsualGroup name="ГруппаЧерезКаталогНастройкаКриптографии" id="364">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа через каталог настройка криптографии</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа через каталог настройка криптографии</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Vertical</Group>
+													<Representation>NormalSeparation</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаЧерезКаталогНастройкаКриптографииExtendedTooltip" id="822"/>
+													<ChildItems>
+														<CheckBoxField name="ИспользоватьЭПЧерезКаталог" id="330">
+															<DataPath>ИспользоватьЭП</DataPath>
+															<TitleLocation>Right</TitleLocation>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="ИспользоватьЭПЧерезКаталогКонтекстноеМеню" id="331"/>
+															<ExtendedTooltip name="ИспользоватьЭПЧерезКаталогExtendedTooltip" id="823"/>
+															<Events>
+																<Event name="OnChange">ИспользоватьЭЦППриИзменении</Event>
+															</Events>
+														</CheckBoxField>
+														<UsualGroup name="ГруппаЧерезКаталогНастройкаКриптографииИнформационнаяНадпись" id="398">
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Группа обмен через каталог информационная надпись</v8:content>
+																</v8:item>
+															</Title>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Группа обмен через каталог информационная надпись</v8:content>
+																</v8:item>
+															</ToolTip>
+															<Width>86</Width>
+															<HorizontalStretch>false</HorizontalStretch>
+															<Group>Horizontal</Group>
+															<Representation>None</Representation>
+															<ShowTitle>false</ShowTitle>
+															<ExtendedTooltip name="ГруппаЧерезКаталогНастройкаКриптографииИнформационнаяНадписьExtendedTooltip" id="824"/>
+															<ChildItems>
+																<PictureDecoration name="Декорация43" id="399">
+																	<Width>2</Width>
+																	<Height>1</Height>
+																	<Picture>
+																		<xr:Ref>CommonPicture.Информация02</xr:Ref>
+																		<xr:LoadTransparent>false</xr:LoadTransparent>
+																	</Picture>
+																	<ContextMenu name="Декорация43КонтекстноеМеню" id="400"/>
+																	<ExtendedTooltip name="Декорация43ExtendedTooltip" id="825"/>
+																</PictureDecoration>
+																<LabelDecoration name="Комментарий43" id="401">
+																	<Height>2</Height>
+																	<TextColor>style:ПоясняющийТекст</TextColor>
+																	<Title formatted="false">
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Для обеспечения юридической значимости электронные документы, участвующие в обмене, должны подписываться электронной подписью.</v8:content>
+																		</v8:item>
+																	</Title>
+																	<ContextMenu name="Комментарий43КонтекстноеМеню" id="402"/>
+																	<ExtendedTooltip name="Комментарий43ExtendedTooltip" id="826"/>
+																</LabelDecoration>
+															</ChildItems>
+														</UsualGroup>
+														<InputField name="ПровайдерЭПЧерезКаталог" id="559">
+															<DataPath>ПрограммаЗащитыИнформации</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Программа защиты информации</v8:content>
+																</v8:item>
+															</Title>
+															<Width>50</Width>
+															<ListChoiceMode>true</ListChoiceMode>
+															<AutoMarkIncomplete>true</AutoMarkIncomplete>
+															<ChoiceList>
+																<xr:Item>
+																	<xr:Presentation/>
+																	<xr:CheckState>0</xr:CheckState>
+																	<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																		<Presentation>
+																			<v8:item>
+																				<v8:lang>ru</v8:lang>
+																				<v8:content>VipNet CSP</v8:content>
+																			</v8:item>
+																		</Presentation>
+																		<Value xsi:type="xs:string">1</Value>
+																	</xr:Value>
+																</xr:Item>
+																<xr:Item>
+																	<xr:Presentation/>
+																	<xr:CheckState>0</xr:CheckState>
+																	<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																		<Presentation>
+																			<v8:item>
+																				<v8:lang>ru</v8:lang>
+																				<v8:content>CryptoPro CSP</v8:content>
+																			</v8:item>
+																		</Presentation>
+																		<Value xsi:type="xs:string">2</Value>
+																	</xr:Value>
+																</xr:Item>
+															</ChoiceList>
+															<ContextMenu name="ПровайдерЭПЧерезКаталогКонтекстноеМеню" id="560"/>
+															<ExtendedTooltip name="ПровайдерЭПЧерезКаталогExtendedTooltip" id="827"/>
+															<Events>
+																<Event name="ChoiceProcessing">ПровайдерЭЦПОбработкаВыбора</Event>
+															</Events>
+														</InputField>
+														<UsualGroup name="ГруппаЧерезЭлектроннуюПочтуПрограммаЗащитыИнформации1" id="533">
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Группа через FTPПрограмма защиты информации</v8:content>
+																</v8:item>
+															</Title>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Группа комментарий открыть настройки обмена электронными документами</v8:content>
+																</v8:item>
+															</ToolTip>
+															<Group>Horizontal</Group>
+															<Representation>None</Representation>
+															<ShowTitle>false</ShowTitle>
+															<ExtendedTooltip name="ГруппаЧерезЭлектроннуюПочтуПрограммаЗащитыИнформации1ExtendedTooltip" id="828"/>
+															<ChildItems>
+																<PictureDecoration name="Декорация53" id="534">
+																	<Width>2</Width>
+																	<Height>1</Height>
+																	<Picture>
+																		<xr:Ref>CommonPicture.Информация02</xr:Ref>
+																		<xr:LoadTransparent>false</xr:LoadTransparent>
+																	</Picture>
+																	<ContextMenu name="Декорация53КонтекстноеМеню" id="535"/>
+																	<ExtendedTooltip name="Декорация53ExtendedTooltip" id="829"/>
+																</PictureDecoration>
+																<UsualGroup name="ГруппаГруппаЧерезFTPПрограммаЗащитыИнформационнаяНадпись2" id="536">
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Группа группа через FTPПрограмма защиты информационная надпись</v8:content>
+																		</v8:item>
+																	</Title>
+																	<ToolTip>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Группа группа через FTPПрограмма защиты информационная надпись</v8:content>
+																		</v8:item>
+																	</ToolTip>
+																	<Group>Vertical</Group>
+																	<Representation>None</Representation>
+																	<ShowTitle>false</ShowTitle>
+																	<ExtendedTooltip name="ГруппаГруппаЧерезFTPПрограммаЗащитыИнформационнаяНадпись2ExtendedTooltip" id="830"/>
+																	<ChildItems>
+																		<LabelDecoration name="ПояснениеПрограммыЗащитыИнформации3" id="537">
+																			<TextColor>style:ПоясняющийТекст</TextColor>
+																			<Title formatted="false">
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Для работы обмена электронными документами необходимо выбрать программу для защиты информации:
+</v8:content>
+																				</v8:item>
+																			</Title>
+																			<ContextMenu name="ПояснениеПрограммыЗащитыИнформации3КонтекстноеМеню" id="538"/>
+																			<ExtendedTooltip name="ПояснениеПрограммыЗащитыИнформации3ExtendedTooltip" id="831"/>
+																		</LabelDecoration>
+																		<UsualGroup name="ГруппаЧерезFTPVipNet2" id="539">
+																			<Title>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Группа через FTPVip net</v8:content>
+																				</v8:item>
+																			</Title>
+																			<ToolTip>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Группа через FTPVip net</v8:content>
+																				</v8:item>
+																			</ToolTip>
+																			<Group>Horizontal</Group>
+																			<Representation>None</Representation>
+																			<ShowTitle>false</ShowTitle>
+																			<ExtendedTooltip name="ГруппаЧерезFTPVipNet2ExtendedTooltip" id="832"/>
+																			<ChildItems>
+																				<LabelDecoration name="ПояснениеVipNet3" id="540">
+																					<TextColor>style:ПоясняющийТекст</TextColor>
+																					<Title formatted="false">
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>- VipNet CSP;</v8:content>
+																						</v8:item>
+																					</Title>
+																					<ContextMenu name="ПояснениеVipNet3КонтекстноеМеню" id="541"/>
+																					<ExtendedTooltip name="ПояснениеVipNet3ExtendedTooltip" id="833"/>
+																				</LabelDecoration>
+																				<UsualGroup name="ГруппаПодсказкаНетCSP6" id="542">
+																					<Title>
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>Группа подсказка по VipNet</v8:content>
+																						</v8:item>
+																					</Title>
+																					<ToolTip>
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>Группа подсказка1 вариант</v8:content>
+																						</v8:item>
+																					</ToolTip>
+																					<Group>Horizontal</Group>
+																					<Representation>None</Representation>
+																					<ShowTitle>false</ShowTitle>
+																					<ExtendedTooltip name="ГруппаПодсказкаНетCSP6ExtendedTooltip" id="834"/>
+																					<ChildItems>
+																						<LabelDecoration name="ПодсказкаНетCSP9" id="543">
+																							<TextColor>style:ПоясняющийТекст</TextColor>
+																							<Title formatted="false">
+																								<v8:item>
+																									<v8:lang>ru</v8:lang>
+																									<v8:content>   Подробнее о программе - на сайте компании</v8:content>
+																								</v8:item>
+																							</Title>
+																							<ContextMenu name="ПодсказкаНетCSP9КонтекстноеМеню" id="544"/>
+																							<ExtendedTooltip name="ПодсказкаНетCSP9ExtendedTooltip" id="835"/>
+																						</LabelDecoration>
+																						<LabelDecoration name="ПерейтиНаСайтИнфотекс3" id="545">
+																							<Title formatted="false">
+																								<v8:item>
+																									<v8:lang>ru</v8:lang>
+																									<v8:content>ОАО «ИнфотеКС»</v8:content>
+																								</v8:item>
+																							</Title>
+																							<Hyperlink>true</Hyperlink>
+																							<ContextMenu name="ПерейтиНаСайтИнфотекс3КонтекстноеМеню" id="546"/>
+																							<ExtendedTooltip name="ПерейтиНаСайтИнфотекс3ExtendedTooltip" id="836"/>
+																							<Events>
+																								<Event name="Click">ПерейтиНаСайтИнфотексНажатие</Event>
+																							</Events>
+																						</LabelDecoration>
+																					</ChildItems>
+																				</UsualGroup>
+																			</ChildItems>
+																		</UsualGroup>
+																		<UsualGroup name="ГруппаЧерезFTPCryptoPro2" id="547">
+																			<Title>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Группа crypto pro</v8:content>
+																				</v8:item>
+																			</Title>
+																			<ToolTip>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Группа crypto pro</v8:content>
+																				</v8:item>
+																			</ToolTip>
+																			<Group>Horizontal</Group>
+																			<Representation>None</Representation>
+																			<ShowTitle>false</ShowTitle>
+																			<ExtendedTooltip name="ГруппаЧерезFTPCryptoPro2ExtendedTooltip" id="837"/>
+																			<ChildItems>
+																				<LabelDecoration name="ПояснениеОрганизация7" id="548">
+																					<TextColor>style:ПоясняющийТекст</TextColor>
+																					<Title formatted="false">
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>- CryptoPro CSP;</v8:content>
+																						</v8:item>
+																					</Title>
+																					<ContextMenu name="ПояснениеОрганизация7КонтекстноеМеню" id="549"/>
+																					<ExtendedTooltip name="ПояснениеОрганизация7ExtendedTooltip" id="838"/>
+																				</LabelDecoration>
+																				<UsualGroup name="ГруппаПодсказкаНетCSP7" id="550">
+																					<Title>
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>Группа подсказка по VipNet</v8:content>
+																						</v8:item>
+																					</Title>
+																					<ToolTip>
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>Группа подсказка по vip net</v8:content>
+																						</v8:item>
+																					</ToolTip>
+																					<Group>Horizontal</Group>
+																					<Representation>None</Representation>
+																					<ShowTitle>false</ShowTitle>
+																					<ExtendedTooltip name="ГруппаПодсказкаНетCSP7ExtendedTooltip" id="839"/>
+																					<ChildItems>
+																						<LabelDecoration name="ПодсказкаНетCSP10" id="551">
+																							<TextColor>style:ПоясняющийТекст</TextColor>
+																							<Title formatted="false">
+																								<v8:item>
+																									<v8:lang>ru</v8:lang>
+																									<v8:content>Подробнее о программе и условиях ее приобритения - на сайте компании</v8:content>
+																								</v8:item>
+																							</Title>
+																							<ContextMenu name="ПодсказкаНетCSP10КонтекстноеМеню" id="552"/>
+																							<ExtendedTooltip name="ПодсказкаНетCSP10ExtendedTooltip" id="840"/>
+																						</LabelDecoration>
+																						<LabelDecoration name="ПерейтиНаСайтКриптоПро3" id="553">
+																							<Title formatted="false">
+																								<v8:item>
+																									<v8:lang>ru</v8:lang>
+																									<v8:content>ООО "КРИПТО-ПРО"</v8:content>
+																								</v8:item>
+																							</Title>
+																							<Hyperlink>true</Hyperlink>
+																							<ContextMenu name="ПерейтиНаСайтКриптоПро3КонтекстноеМеню" id="554"/>
+																							<ExtendedTooltip name="ПерейтиНаСайтКриптоПро3ExtendedTooltip" id="841"/>
+																							<Events>
+																								<Event name="Click">ПерейтиНаСайтКриптоПроНажатие</Event>
+																							</Events>
+																						</LabelDecoration>
+																					</ChildItems>
+																				</UsualGroup>
+																			</ChildItems>
+																		</UsualGroup>
+																	</ChildItems>
+																</UsualGroup>
+															</ChildItems>
+														</UsualGroup>
+														<UsualGroup name="ГруппаЧерезЭлектроннуюПочтуВыбораСертификатаЭП1" id="529">
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Группа выбора сертификата ЭП</v8:content>
+																</v8:item>
+															</Title>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Группа выбора сертификата ЭП</v8:content>
+																</v8:item>
+															</ToolTip>
+															<Group>Horizontal</Group>
+															<Representation>None</Representation>
+															<ShowTitle>false</ShowTitle>
+															<ExtendedTooltip name="ГруппаЧерезЭлектроннуюПочтуВыбораСертификатаЭП1ExtendedTooltip" id="842"/>
+															<ChildItems>
+																<InputField name="СертификатЭПЧерезКаталог" id="185">
+																	<DataPath>СертификатКриптографии</DataPath>
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Сертификат ключа электронной подписи</v8:content>
+																		</v8:item>
+																	</Title>
+																	<ChoiceButton>true</ChoiceButton>
+																	<OpenButton>true</OpenButton>
+																	<QuickChoice>true</QuickChoice>
+																	<AutoMarkIncomplete>true</AutoMarkIncomplete>
+																	<ChooseType>false</ChooseType>
+																	<ChoiceForm>Catalog.СертификатыЭЦП.Form.ФормаВыбора</ChoiceForm>
+																	<ChoiceParameterLinks>
+																		<xr:Link>
+																			<xr:Name>Отбор.Организация</xr:Name>
+																			<xr:DataPath xsi:type="xs:string">Организация</xr:DataPath>
+																			<xr:ValueChange>Clear</xr:ValueChange>
+																		</xr:Link>
+																	</ChoiceParameterLinks>
+																	<ChoiceParameters>
+																		<app:item name="Отбор.Отозван">
+																			<app:value xsi:type="FormChoiceListDesTimeValue">
+																				<Presentation/>
+																				<Value xsi:type="xs:boolean">false</Value>
+																			</app:value>
+																		</app:item>
+																		<app:item name="Отбор.ПометкаУдаления">
+																			<app:value xsi:type="FormChoiceListDesTimeValue">
+																				<Presentation/>
+																				<Value xsi:type="xs:boolean">false</Value>
+																			</app:value>
+																		</app:item>
+																	</ChoiceParameters>
+																	<ContextMenu name="СертификатЭПЧерезКаталогКонтекстноеМеню" id="186"/>
+																	<ExtendedTooltip name="СертификатЭПЧерезКаталогExtendedTooltip" id="843"/>
+																	<Events>
+																		<Event name="StartChoice">СертификатЭПНачалоВыбора</Event>
+																		<Event name="Opening">СертификатОткрытие</Event>
+																	</Events>
+																</InputField>
+																<Button name="ОткрытьПодсказкуПоЭЦП5" id="532">
+																	<Type>Hyperlink</Type>
+																	<CommandName>Form.Command.ОткрытьПодсказкуПоЭП</CommandName>
+																	<Parameter xsi:nil="true"/>
+																	<ExtendedTooltip name="ОткрытьПодсказкуПоЭЦП5ExtendedTooltip" id="844"/>
+																</Button>
+															</ChildItems>
+														</UsualGroup>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</Page>
+								<Page name="ГруппаНастроекУчастникаЧерезFTP" id="299">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа настроек участника через FTP</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Группа настроек участника через оператора ЭДО</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ExtendedTooltip name="ГруппаНастроекУчастникаЧерезFTPExtendedTooltip" id="845"/>
+									<ChildItems>
+										<UsualGroup name="ГруппаЧерезFTPИнформация" id="300">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Параметры способа обмена</v8:content>
+												</v8:item>
+											</Title>
+											<ToolTip>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Данные об участнике</v8:content>
+												</v8:item>
+											</ToolTip>
+											<Group>Vertical</Group>
+											<Representation>StrongSeparation</Representation>
+											<ExtendedTooltip name="ГруппаЧерезFTPИнформацияExtendedTooltip" id="846"/>
+											<ChildItems>
+												<UsualGroup name="ГруппаНастройкаПодключенияКСерверуFTP" id="308">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа настройка подключения к серверу FTP</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа настройка подключения к серверу FTP</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Vertical</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаНастройкаПодключенияКСерверуFTPExtendedTooltip" id="847"/>
+													<ChildItems>
+														<UsualGroup name="ГруппаГоризонтальнаяFTP" id="309">
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Группа горизонтальная FTP</v8:content>
+																</v8:item>
+															</Title>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Группа горизонтальная FTP</v8:content>
+																</v8:item>
+															</ToolTip>
+															<Group>Horizontal</Group>
+															<Representation>None</Representation>
+															<ShowTitle>false</ShowTitle>
+															<ExtendedTooltip name="ГруппаГоризонтальнаяFTPExtendedTooltip" id="848"/>
+															<ChildItems>
+																<UsualGroup name="ГруппаЛеваяFTP" id="310">
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Группа левая FTP</v8:content>
+																		</v8:item>
+																	</Title>
+																	<ToolTip>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Группа левая FTP</v8:content>
+																		</v8:item>
+																	</ToolTip>
+																	<Group>Vertical</Group>
+																	<Representation>None</Representation>
+																	<ShowTitle>false</ShowTitle>
+																	<ExtendedTooltip name="ГруппаЛеваяFTPExtendedTooltip" id="849"/>
+																	<ChildItems>
+																		<InputField name="АдресFTP" id="311">
+																			<DataPath>АдресСервераFTP</DataPath>
+																			<Title>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Адрес сервера (без ftp://)</v8:content>
+																				</v8:item>
+																			</Title>
+																			<AutoMarkIncomplete>true</AutoMarkIncomplete>
+																			<ContextMenu name="АдресFTPКонтекстноеМеню" id="312"/>
+																			<ExtendedTooltip name="АдресFTPExtendedTooltip" id="850"/>
+																		</InputField>
+																		<InputField name="ПользовательFTP" id="313">
+																			<DataPath>ПользовательFTP</DataPath>
+																			<Title>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Пользователь</v8:content>
+																				</v8:item>
+																			</Title>
+																			<PasswordMode>false</PasswordMode>
+																			<ContextMenu name="ПользовательFTPКонтекстноеМеню" id="314"/>
+																			<ExtendedTooltip name="ПользовательFTPExtendedTooltip" id="851"/>
+																		</InputField>
+																	</ChildItems>
+																</UsualGroup>
+																<UsualGroup name="ГруппаПраваяFTP" id="315">
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Группа правая FTP</v8:content>
+																		</v8:item>
+																	</Title>
+																	<ToolTip>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Группа правая FTP</v8:content>
+																		</v8:item>
+																	</ToolTip>
+																	<Group>Vertical</Group>
+																	<Representation>None</Representation>
+																	<ShowTitle>false</ShowTitle>
+																	<ExtendedTooltip name="ГруппаПраваяFTPExtendedTooltip" id="852"/>
+																	<ChildItems>
+																		<UsualGroup name="ГруппаПортПассивноеСоединение" id="316">
+																			<Title>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Группа порт пассивное соединение</v8:content>
+																				</v8:item>
+																			</Title>
+																			<ToolTip>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Группа порт пассивное соединение</v8:content>
+																				</v8:item>
+																			</ToolTip>
+																			<Group>Horizontal</Group>
+																			<Representation>None</Representation>
+																			<ShowTitle>false</ShowTitle>
+																			<ExtendedTooltip name="ГруппаПортПассивноеСоединениеExtendedTooltip" id="853"/>
+																			<ChildItems>
+																				<InputField name="ПортFTP" id="317">
+																					<DataPath>ПортFTP</DataPath>
+																					<ContextMenu name="ПортFTPКонтекстноеМеню" id="318"/>
+																					<ExtendedTooltip name="ПортFTPExtendedTooltip" id="854"/>
+																				</InputField>
+																				<CheckBoxField name="ПассивноеСоединениеFTP" id="319">
+																					<DataPath>ПассивноеСоединениеFTP</DataPath>
+																					<TitleLocation>Right</TitleLocation>
+																					<CheckBoxType>Auto</CheckBoxType>
+																					<ContextMenu name="ПассивноеСоединениеFTPКонтекстноеМеню" id="320"/>
+																					<ExtendedTooltip name="ПассивноеСоединениеFTPExtendedTooltip" id="855"/>
+																				</CheckBoxField>
+																			</ChildItems>
+																		</UsualGroup>
+																		<InputField name="ПарольFTP" id="321">
+																			<DataPath>ПарольFTP</DataPath>
+																			<Title>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Пароль</v8:content>
+																				</v8:item>
+																			</Title>
+																			<PasswordMode>true</PasswordMode>
+																			<ContextMenu name="ПарольFTPКонтекстноеМеню" id="322"/>
+																			<ExtendedTooltip name="ПарольFTPExtendedTooltip" id="856"/>
+																		</InputField>
+																	</ChildItems>
+																</UsualGroup>
+															</ChildItems>
+														</UsualGroup>
+														<UsualGroup name="ГруппаРесурсыFTP" id="323">
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Группа ресурсы FTP</v8:content>
+																</v8:item>
+															</Title>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Группа ресурсы FTP</v8:content>
+																</v8:item>
+															</ToolTip>
+															<Group>Vertical</Group>
+															<Representation>None</Representation>
+															<ShowTitle>false</ShowTitle>
+															<ExtendedTooltip name="ГруппаРесурсыFTPExtendedTooltip" id="857"/>
+															<ChildItems>
+																<InputField name="FTPКаталогВходящихДокументов" id="324">
+																	<DataPath>FTPКаталогВходящихДокументов</DataPath>
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Общий каталог для обмена ЭД</v8:content>
+																		</v8:item>
+																	</Title>
+																	<ToolTip>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Общий каталог, в котором будут созданы каталог входящих документов, с которого будут приниматься входящие электронные документы, и каталог исходящих документов,  с которого будут отправляться исходящие электронные документы.</v8:content>
+																		</v8:item>
+																	</ToolTip>
+																	<ContextMenu name="FTPКаталогВходящихДокументовКонтекстноеМеню" id="325"/>
+																	<ExtendedTooltip name="FTPКаталогВходящихДокументовExtendedTooltip" id="858"/>
+																	<Events>
+																		<Event name="StartChoice">FTPКаталогВходящихДокументовНачалоВыбора</Event>
+																	</Events>
+																</InputField>
+															</ChildItems>
+														</UsualGroup>
+													</ChildItems>
+												</UsualGroup>
+												<UsualGroup name="ГруппаЧерезFTPИнформационнаяНадпись" id="303">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа комментарий открыть настройки обмена электронными документами</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа комментарий открыть настройки обмена электронными документами</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Width>86</Width>
+													<HorizontalStretch>false</HorizontalStretch>
+													<Group>Horizontal</Group>
+													<Representation>None</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаЧерезFTPИнформационнаяНадписьExtendedTooltip" id="859"/>
+													<ChildItems>
+														<PictureDecoration name="Декорация33" id="304">
+															<Width>2</Width>
+															<Height>1</Height>
+															<Picture>
+																<xr:Ref>CommonPicture.Информация02</xr:Ref>
+																<xr:LoadTransparent>false</xr:LoadTransparent>
+															</Picture>
+															<ContextMenu name="Декорация33КонтекстноеМеню" id="305"/>
+															<ExtendedTooltip name="Декорация33ExtendedTooltip" id="860"/>
+														</PictureDecoration>
+														<LabelDecoration name="КомментарийОткрытьНастройкиОбменаЭлектроннымиДокументами4" id="306">
+															<Height>2</Height>
+															<TextColor>style:ПоясняющийТекст</TextColor>
+															<Title formatted="false">
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Задаются типовые параметры FTP-сервера для авторизации на нем, а так же общий каталог, в котором будут созданы каталоги для входящих и исходящих электронных документов.</v8:content>
+																</v8:item>
+															</Title>
+															<ContextMenu name="КомментарийОткрытьНастройкиОбменаЭлектроннымиДокументами4КонтекстноеМеню" id="307"/>
+															<ExtendedTooltip name="КомментарийОткрытьНастройкиОбменаЭлектроннымиДокументами4ExtendedTooltip" id="861"/>
+														</LabelDecoration>
+													</ChildItems>
+												</UsualGroup>
+												<UsualGroup name="ГруппаЧерезFTPНастройкаКриптографии" id="373">
+													<Title>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа через FTPНастройка криптографии</v8:content>
+														</v8:item>
+													</Title>
+													<ToolTip>
+														<v8:item>
+															<v8:lang>ru</v8:lang>
+															<v8:content>Группа через FTPНастройка криптографии</v8:content>
+														</v8:item>
+													</ToolTip>
+													<Group>Vertical</Group>
+													<Representation>NormalSeparation</Representation>
+													<ShowTitle>false</ShowTitle>
+													<ExtendedTooltip name="ГруппаЧерезFTPНастройкаКриптографииExtendedTooltip" id="862"/>
+													<ChildItems>
+														<CheckBoxField name="ИспользоватьЭПЧерезFTP" id="347">
+															<DataPath>ИспользоватьЭП</DataPath>
+															<TitleLocation>Right</TitleLocation>
+															<CheckBoxType>Auto</CheckBoxType>
+															<ContextMenu name="ИспользоватьЭПЧерезFTPКонтекстноеМеню" id="348"/>
+															<ExtendedTooltip name="ИспользоватьЭПЧерезFTPExtendedTooltip" id="863"/>
+															<Events>
+																<Event name="OnChange">ИспользоватьЭЦППриИзменении</Event>
+															</Events>
+														</CheckBoxField>
+														<UsualGroup name="ГруппаЧерезFTPНастройкаКриптографииИнформационнаяНадпись" id="412">
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Группа обмен через каталог информационная надпись</v8:content>
+																</v8:item>
+															</Title>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Группа обмен через каталог информационная надпись</v8:content>
+																</v8:item>
+															</ToolTip>
+															<Width>86</Width>
+															<HorizontalStretch>false</HorizontalStretch>
+															<Group>Horizontal</Group>
+															<Representation>None</Representation>
+															<ShowTitle>false</ShowTitle>
+															<ExtendedTooltip name="ГруппаЧерезFTPНастройкаКриптографииИнформационнаяНадписьExtendedTooltip" id="864"/>
+															<ChildItems>
+																<PictureDecoration name="Декорация46" id="413">
+																	<Width>2</Width>
+																	<Height>1</Height>
+																	<Picture>
+																		<xr:Ref>CommonPicture.Информация02</xr:Ref>
+																		<xr:LoadTransparent>false</xr:LoadTransparent>
+																	</Picture>
+																	<ContextMenu name="Декорация46КонтекстноеМеню" id="414"/>
+																	<ExtendedTooltip name="Декорация46ExtendedTooltip" id="865"/>
+																</PictureDecoration>
+																<LabelDecoration name="Комментарий44" id="415">
+																	<Height>2</Height>
+																	<TextColor>style:ПоясняющийТекст</TextColor>
+																	<Title formatted="false">
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Для обеспечения юридической значимости электронные документы, участвующие в обмене, должны подписываться электронной подписью.</v8:content>
+																		</v8:item>
+																	</Title>
+																	<ContextMenu name="Комментарий44КонтекстноеМеню" id="416"/>
+																	<ExtendedTooltip name="Комментарий44ExtendedTooltip" id="866"/>
+																</LabelDecoration>
+															</ChildItems>
+														</UsualGroup>
+														<InputField name="ПровайдерЭПЧерезFTP" id="557">
+															<DataPath>ПрограммаЗащитыИнформации</DataPath>
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Программа защиты информации</v8:content>
+																</v8:item>
+															</Title>
+															<Width>50</Width>
+															<ListChoiceMode>true</ListChoiceMode>
+															<AutoMarkIncomplete>true</AutoMarkIncomplete>
+															<ChoiceList>
+																<xr:Item>
+																	<xr:Presentation/>
+																	<xr:CheckState>0</xr:CheckState>
+																	<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																		<Presentation>
+																			<v8:item>
+																				<v8:lang>ru</v8:lang>
+																				<v8:content>VipNet CSP</v8:content>
+																			</v8:item>
+																		</Presentation>
+																		<Value xsi:type="xs:string">1</Value>
+																	</xr:Value>
+																</xr:Item>
+																<xr:Item>
+																	<xr:Presentation/>
+																	<xr:CheckState>0</xr:CheckState>
+																	<xr:Value xsi:type="FormChoiceListDesTimeValue">
+																		<Presentation>
+																			<v8:item>
+																				<v8:lang>ru</v8:lang>
+																				<v8:content>CryptoPro CSP</v8:content>
+																			</v8:item>
+																		</Presentation>
+																		<Value xsi:type="xs:string">2</Value>
+																	</xr:Value>
+																</xr:Item>
+															</ChoiceList>
+															<ContextMenu name="ПровайдерЭПЧерезFTPКонтекстноеМеню" id="558"/>
+															<ExtendedTooltip name="ПровайдерЭПЧерезFTPExtendedTooltip" id="867"/>
+															<Events>
+																<Event name="ChoiceProcessing">ПровайдерЭЦПОбработкаВыбора</Event>
+															</Events>
+														</InputField>
+														<UsualGroup name="ГруппаЧерезFTPПрограммаЗащитыИнформации" id="472">
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Группа через FTPПрограмма защиты информации</v8:content>
+																</v8:item>
+															</Title>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Группа комментарий открыть настройки обмена электронными документами</v8:content>
+																</v8:item>
+															</ToolTip>
+															<Group>Horizontal</Group>
+															<Representation>None</Representation>
+															<ShowTitle>false</ShowTitle>
+															<ExtendedTooltip name="ГруппаЧерезFTPПрограммаЗащитыИнформацииExtendedTooltip" id="868"/>
+															<ChildItems>
+																<PictureDecoration name="Декорация50" id="473">
+																	<Width>2</Width>
+																	<Height>1</Height>
+																	<Picture>
+																		<xr:Ref>CommonPicture.Информация02</xr:Ref>
+																		<xr:LoadTransparent>false</xr:LoadTransparent>
+																	</Picture>
+																	<ContextMenu name="Декорация50КонтекстноеМеню" id="474"/>
+																	<ExtendedTooltip name="Декорация50ExtendedTooltip" id="869"/>
+																</PictureDecoration>
+																<UsualGroup name="ГруппаГруппаЧерезFTPПрограммаЗащитыИнформационнаяНадпись" id="475">
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Группа группа через FTPПрограмма защиты информационная надпись</v8:content>
+																		</v8:item>
+																	</Title>
+																	<ToolTip>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Группа группа через FTPПрограмма защиты информационная надпись</v8:content>
+																		</v8:item>
+																	</ToolTip>
+																	<Group>Vertical</Group>
+																	<Representation>None</Representation>
+																	<ShowTitle>false</ShowTitle>
+																	<ExtendedTooltip name="ГруппаГруппаЧерезFTPПрограммаЗащитыИнформационнаяНадписьExtendedTooltip" id="870"/>
+																	<ChildItems>
+																		<LabelDecoration name="ПояснениеПрограммыЗащитыИнформации1" id="476">
+																			<TextColor>style:ПоясняющийТекст</TextColor>
+																			<Title formatted="false">
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Для работы обмена электронными документами необходимо выбрать программу для защиты информации:
+</v8:content>
+																				</v8:item>
+																			</Title>
+																			<ContextMenu name="ПояснениеПрограммыЗащитыИнформации1КонтекстноеМеню" id="477"/>
+																			<ExtendedTooltip name="ПояснениеПрограммыЗащитыИнформации1ExtendedTooltip" id="871"/>
+																		</LabelDecoration>
+																		<UsualGroup name="ГруппаЧерезFTPVipNet" id="478">
+																			<Title>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Группа через FTPVip net</v8:content>
+																				</v8:item>
+																			</Title>
+																			<ToolTip>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Группа через FTPVip net</v8:content>
+																				</v8:item>
+																			</ToolTip>
+																			<Group>Horizontal</Group>
+																			<Representation>None</Representation>
+																			<ShowTitle>false</ShowTitle>
+																			<ExtendedTooltip name="ГруппаЧерезFTPVipNetExtendedTooltip" id="872"/>
+																			<ChildItems>
+																				<LabelDecoration name="ПояснениеVipNet1" id="479">
+																					<TextColor>style:ПоясняющийТекст</TextColor>
+																					<Title formatted="false">
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>- VipNet CSP;</v8:content>
+																						</v8:item>
+																					</Title>
+																					<ContextMenu name="ПояснениеVipNet1КонтекстноеМеню" id="480"/>
+																					<ExtendedTooltip name="ПояснениеVipNet1ExtendedTooltip" id="873"/>
+																				</LabelDecoration>
+																				<UsualGroup name="ГруппаПодсказкаНетCSP2" id="481">
+																					<Title>
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>Группа подсказка по VipNet</v8:content>
+																						</v8:item>
+																					</Title>
+																					<ToolTip>
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>Группа подсказка1 вариант</v8:content>
+																						</v8:item>
+																					</ToolTip>
+																					<Group>Horizontal</Group>
+																					<Representation>None</Representation>
+																					<ShowTitle>false</ShowTitle>
+																					<ExtendedTooltip name="ГруппаПодсказкаНетCSP2ExtendedTooltip" id="874"/>
+																					<ChildItems>
+																						<LabelDecoration name="ПодсказкаНетCSP4" id="482">
+																							<TextColor>style:ПоясняющийТекст</TextColor>
+																							<Title formatted="false">
+																								<v8:item>
+																									<v8:lang>ru</v8:lang>
+																									<v8:content>   Подробнее о программе - на сайте компании</v8:content>
+																								</v8:item>
+																							</Title>
+																							<ContextMenu name="ПодсказкаНетCSP4КонтекстноеМеню" id="483"/>
+																							<ExtendedTooltip name="ПодсказкаНетCSP4ExtendedTooltip" id="875"/>
+																						</LabelDecoration>
+																						<LabelDecoration name="ПерейтиНаСайтИнфотекс1" id="484">
+																							<Title formatted="false">
+																								<v8:item>
+																									<v8:lang>ru</v8:lang>
+																									<v8:content>ОАО «ИнфотеКС»</v8:content>
+																								</v8:item>
+																							</Title>
+																							<Hyperlink>true</Hyperlink>
+																							<ContextMenu name="ПерейтиНаСайтИнфотекс1КонтекстноеМеню" id="485"/>
+																							<ExtendedTooltip name="ПерейтиНаСайтИнфотекс1ExtendedTooltip" id="876"/>
+																							<Events>
+																								<Event name="Click">ПерейтиНаСайтИнфотексНажатие</Event>
+																							</Events>
+																						</LabelDecoration>
+																					</ChildItems>
+																				</UsualGroup>
+																			</ChildItems>
+																		</UsualGroup>
+																		<UsualGroup name="ГруппаЧерезFTPCryptoPro" id="486">
+																			<Title>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Группа crypto pro</v8:content>
+																				</v8:item>
+																			</Title>
+																			<ToolTip>
+																				<v8:item>
+																					<v8:lang>ru</v8:lang>
+																					<v8:content>Группа crypto pro</v8:content>
+																				</v8:item>
+																			</ToolTip>
+																			<Group>Horizontal</Group>
+																			<Representation>None</Representation>
+																			<ShowTitle>false</ShowTitle>
+																			<ExtendedTooltip name="ГруппаЧерезFTPCryptoProExtendedTooltip" id="877"/>
+																			<ChildItems>
+																				<LabelDecoration name="ПояснениеОрганизация5" id="487">
+																					<TextColor>style:ПоясняющийТекст</TextColor>
+																					<Title formatted="false">
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>- CryptoPro CSP;</v8:content>
+																						</v8:item>
+																					</Title>
+																					<ContextMenu name="ПояснениеОрганизация5КонтекстноеМеню" id="488"/>
+																					<ExtendedTooltip name="ПояснениеОрганизация5ExtendedTooltip" id="878"/>
+																				</LabelDecoration>
+																				<UsualGroup name="ГруппаПодсказкаНетCSP3" id="489">
+																					<Title>
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>Группа подсказка по VipNet</v8:content>
+																						</v8:item>
+																					</Title>
+																					<ToolTip>
+																						<v8:item>
+																							<v8:lang>ru</v8:lang>
+																							<v8:content>Группа подсказка по vip net</v8:content>
+																						</v8:item>
+																					</ToolTip>
+																					<Group>Horizontal</Group>
+																					<Representation>None</Representation>
+																					<ShowTitle>false</ShowTitle>
+																					<ExtendedTooltip name="ГруппаПодсказкаНетCSP3ExtendedTooltip" id="879"/>
+																					<ChildItems>
+																						<LabelDecoration name="ПодсказкаНетCSP6" id="490">
+																							<TextColor>style:ПоясняющийТекст</TextColor>
+																							<Title formatted="false">
+																								<v8:item>
+																									<v8:lang>ru</v8:lang>
+																									<v8:content>Подробнее о программе и условиях ее приобритения - на сайте компании</v8:content>
+																								</v8:item>
+																							</Title>
+																							<ContextMenu name="ПодсказкаНетCSP6КонтекстноеМеню" id="491"/>
+																							<ExtendedTooltip name="ПодсказкаНетCSP6ExtendedTooltip" id="880"/>
+																						</LabelDecoration>
+																						<LabelDecoration name="ПерейтиНаСайтКриптоПро1" id="492">
+																							<Title formatted="false">
+																								<v8:item>
+																									<v8:lang>ru</v8:lang>
+																									<v8:content>ООО "КРИПТО-ПРО"</v8:content>
+																								</v8:item>
+																							</Title>
+																							<Hyperlink>true</Hyperlink>
+																							<ContextMenu name="ПерейтиНаСайтКриптоПро1КонтекстноеМеню" id="493"/>
+																							<ExtendedTooltip name="ПерейтиНаСайтКриптоПро1ExtendedTooltip" id="881"/>
+																							<Events>
+																								<Event name="Click">ПерейтиНаСайтКриптоПроНажатие</Event>
+																							</Events>
+																						</LabelDecoration>
+																					</ChildItems>
+																				</UsualGroup>
+																			</ChildItems>
+																		</UsualGroup>
+																	</ChildItems>
+																</UsualGroup>
+															</ChildItems>
+														</UsualGroup>
+														<UsualGroup name="ГруппаЧерезFTPВыбораСертификатаЭП" id="494">
+															<Title>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Группа выбора сертификата ЭП</v8:content>
+																</v8:item>
+															</Title>
+															<ToolTip>
+																<v8:item>
+																	<v8:lang>ru</v8:lang>
+																	<v8:content>Группа выбора сертификата ЭП</v8:content>
+																</v8:item>
+															</ToolTip>
+															<Group>Horizontal</Group>
+															<Representation>None</Representation>
+															<ShowTitle>false</ShowTitle>
+															<ExtendedTooltip name="ГруппаЧерезFTPВыбораСертификатаЭПExtendedTooltip" id="882"/>
+															<ChildItems>
+																<InputField name="СертификатЭПЧерезFTP" id="419">
+																	<DataPath>СертификатКриптографии</DataPath>
+																	<Title>
+																		<v8:item>
+																			<v8:lang>ru</v8:lang>
+																			<v8:content>Сертификат ключа электронной подписи</v8:content>
+																		</v8:item>
+																	</Title>
+																	<ChoiceButton>true</ChoiceButton>
+																	<OpenButton>true</OpenButton>
+																	<QuickChoice>true</QuickChoice>
+																	<AutoMarkIncomplete>true</AutoMarkIncomplete>
+																	<ChooseType>false</ChooseType>
+																	<ChoiceForm>Catalog.СертификатыЭЦП.Form.ФормаВыбора</ChoiceForm>
+																	<ChoiceParameterLinks>
+																		<xr:Link>
+																			<xr:Name>Отбор.Организация</xr:Name>
+																			<xr:DataPath xsi:type="xs:string">Организация</xr:DataPath>
+																			<xr:ValueChange>Clear</xr:ValueChange>
+																		</xr:Link>
+																	</ChoiceParameterLinks>
+																	<ChoiceParameters>
+																		<app:item name="Отбор.Отозван">
+																			<app:value xsi:type="FormChoiceListDesTimeValue">
+																				<Presentation/>
+																				<Value xsi:type="xs:boolean">false</Value>
+																			</app:value>
+																		</app:item>
+																		<app:item name="Отбор.ПометкаУдаления">
+																			<app:value xsi:type="FormChoiceListDesTimeValue">
+																				<Presentation/>
+																				<Value xsi:type="xs:boolean">false</Value>
+																			</app:value>
+																		</app:item>
+																	</ChoiceParameters>
+																	<ContextMenu name="СертификатЭПЧерезFTPКонтекстноеМеню" id="420"/>
+																	<ExtendedTooltip name="СертификатЭПЧерезFTPExtendedTooltip" id="883"/>
+																	<Events>
+																		<Event name="StartChoice">СертификатЭПНачалоВыбора</Event>
+																		<Event name="Opening">СертификатОткрытие</Event>
+																	</Events>
+																</InputField>
+																<Button name="ОткрытьПодсказкуПоЭЦП3" id="497">
+																	<Type>Hyperlink</Type>
+																	<CommandName>Form.Command.ОткрытьПодсказкуПоЭП</CommandName>
+																	<Parameter xsi:nil="true"/>
+																	<ExtendedTooltip name="ОткрытьПодсказкуПоЭЦП3ExtendedTooltip" id="884"/>
+																</Button>
+															</ChildItems>
+														</UsualGroup>
+													</ChildItems>
+												</UsualGroup>
+											</ChildItems>
+										</UsualGroup>
+									</ChildItems>
+								</Page>
+							</ChildItems>
+						</Pages>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="ПровайдерЭЦП" id="1">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТипПровайдераЭЦП" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип провайдера ЭЦП</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="АлгоритмПодписи" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Алгоритм подписи</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="АлгоритмХеширования" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Алгоритм хеширования</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="АлгоритмШифрования" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Алгоритм шифрования</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="СпискиАлгоритмовУспешноЗаполнены" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Списки алгоритмов успешно заполнены</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПредставлениеСертификата" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Представление сертификата</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СсылкаНаСертификат" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ссылка на сертификат</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ОграничитьДоступКСертификату" id="13">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ограничить доступ к сертификату</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Пользователь" id="14">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пользователь</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Пользователи</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НаименованиеСертификата" id="15">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наименование сертификата</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЗапомнитьПарольКСертификату" id="16">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Запомнить пароль к сертификату</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПарольПользователя" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пароль пользователя</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НазначениеСертификата" id="18">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Назначение сертификата</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ВидыДокументов" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Виды документов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="ИспользоватьДляПодписи" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Использовать для подписи</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ВидДокумента" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вид документа</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.ВидыЭД</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+		<Attribute name="Организация" id="21">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИдентификаторОрганизации" id="25">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Идентификатор организации</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>46</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НаименованиеСоглашения" id="26">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Наименование соглашения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СертификатКриптографии" id="38">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сертификат криптографии</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.СертификатыЭЦП</v8:Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Отпечаток" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отпечаток</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СсылкаНаПрофильНастроек" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ссылка на профиль настроек</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.ПрофилиНастроекЭДО</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="НовыйСертификатСсылка" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Новый сертификат ссылка</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.СертификатыЭЦП</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="КонтекстКриптографии" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контекст криптографии</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.КонтекстыРаботыСЭД</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="КонтекстАвторизации" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контекст авторизации</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.КонтекстыРаботыСЭД</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ДатаОкончания" id="22">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата окончания</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Фамилия" id="23">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Фамилия</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="Имя" id="24">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Имя</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="Отчество" id="27">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отчество</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДолжностьПоСертификату" id="28">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Должность по сертификату</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="СпособОбменаЭД" id="30">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Способ обмена ЭД</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:EnumRef.СпособыОбменаЭД</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="FTPКаталогВходящихДокументов" id="32">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>FTPКаталог входящих документов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КаталогВходящихДокументов" id="33">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Каталог входящих документов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ЭлектроннаяПочтаОрганизации" id="34">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Электронная почта организации</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.УчетныеЗаписиЭлектроннойПочты</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="АдресСервераFTP" id="35">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес сервера FTP</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПарольFTP" id="36">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пароль FTP</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПассивноеСоединениеFTP" id="39">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пассивное соединение FTP</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПользовательFTP" id="40">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пользователь FTP</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПортFTP" id="41">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Порт FTP</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИспользоватьЭП" id="43">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подписывать электронные документы</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<FunctionalOptions>
+				<Item>FunctionalOption.ИспользоватьЭлектронныеЦифровыеПодписи</Item>
+			</FunctionalOptions>
+		</Attribute>
+		<Attribute name="СертификатДобавленИзХранилища" id="29">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сертификат добавлен из хранилища</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ПрограммаЗащитыИнформации" id="31">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Программа защиты информации</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="АдресЭлектроннойПочтыСлужбыПоддержки" id="37">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>20</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТелефонСлужбыПоддержки" id="42">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Телефон службы поддержки</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>20</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТипРегистрации" id="44">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип регистрации</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>1</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="УникальныйИдентификаторЗаявки1СЭДО" id="45">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Уникальный идентификатор заявки1С ЭДО</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>36</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ОператорЭДО" id="46">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оператор ЭДО</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Город" id="47">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Город</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Дом" id="48">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дом</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Индекс" id="49">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Индекс</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Квартира" id="50">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Квартира</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Корпус" id="51">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Корпус</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КодРегиона" id="52">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Код региона</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>2</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НаселенныйПункт" id="53">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Нас. пункт</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Район" id="54">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Район</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Регион" id="55">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регион</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Улица" id="56">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Улица</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="АдресОрганизации" id="57">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Юридический адрес</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="КодНалоговогоОргана" id="58">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Код налогового органа</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<FillCheck>ShowError</FillCheck>
+		</Attribute>
+		<Attribute name="ОператорЭДОИНН" id="59">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оператор ЭДОИНН</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ОператорЭДОКПП" id="60">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оператор ЭДОКПП</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ОператорЭДОСертификат" id="61">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оператор ЭДОСертификат</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ОператорЭДОИд" id="62">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оператор ЭДОИд</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ОператорЭДООГРН" id="63">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оператор ЭДООГРН</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ДатаНачалаДействияСертификата" id="64">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата начала действия сертификата</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ИдентификаторОрганизацииСуществующий" id="65">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Идентификатор организации</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>46</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<ConditionalAppearance>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>НадписьИдентификаторУчастникаОбменаЭД</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>НадписьЛичныйКабинетУчастникаОбменаЭД</dcsset:field>
+					</dcsset:item>
+					<dcsset:item>
+						<dcsset:field>ГруппаВыбораСертификата</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">Организация</dcsset:left>
+						<dcsset:comparisonType>NotFilled</dcsset:comparisonType>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Enabled</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+			<dcsset:item>
+				<dcsset:selection>
+					<dcsset:item>
+						<dcsset:field>НадписьЛичныйКабинетУчастникаОбменаЭД</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:filter>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ИдентификаторОрганизации</dcsset:left>
+						<dcsset:comparisonType>Equal</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:string"/>
+					</dcsset:item>
+				</dcsset:filter>
+				<dcsset:appearance>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>Enabled</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcsset:appearance>
+			</dcsset:item>
+		</ConditionalAppearance>
+	</Attributes>
+	<Commands>
+		<Command name="Отмена" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отмена</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Отмена</Action>
+		</Command>
+		<Command name="Готово" id="17">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Готово</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Готово</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Готово</Action>
+		</Command>
+		<Command name="ОткрытьПодсказкуПоЭП" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Что такое "ключ электронной подписи"?</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть подсказку по ЭП</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОткрытьПодсказкуПоЭП</Action>
+		</Command>
+		<Command name="ОткрытьСсылкуНаСтатьюПо1СБухфон" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>1С-Бухфон</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Открыть статью на ИТС по сервису 1С-Бухфон</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ОткрытьСсылкуНаСтатьюПо1СБухфон</Action>
+		</Command>
+	</Commands>
+</Form>

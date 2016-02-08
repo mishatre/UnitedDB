@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0">
+	<DocumentJournal uuid="e05c9074-a6bc-465f-9899-7303791263cc">
+		<InternalInfo>
+			<xr:GeneratedType name="DocumentJournalSelection.ЭлектронныеДокументыТоварыИсходящие" category="Selection">
+				<xr:TypeId>82e6270a-fa96-48e4-9070-4fdc377ff3b2</xr:TypeId>
+				<xr:ValueId>0abcdaee-91d4-4c50-b649-592c11c8fbce</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="DocumentJournalList.ЭлектронныеДокументыТоварыИсходящие" category="List">
+				<xr:TypeId>972811a0-589a-4e75-b694-693b58090360</xr:TypeId>
+				<xr:ValueId>3f12c49b-5b52-4404-9bab-1f82dee14bed</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="DocumentJournalManager.ЭлектронныеДокументыТоварыИсходящие" category="Manager">
+				<xr:TypeId>7cca9cdb-a22e-4dec-b30b-010973aa74d7</xr:TypeId>
+				<xr:ValueId>7992b482-a82d-476d-9350-b50bb3899794</xr:ValueId>
+			</xr:GeneratedType>
+		</InternalInfo>
+		<Properties>
+			<Name>ЭлектронныеДокументыТоварыИсходящие</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Электронные документы товары исходящие</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment/>
+			<DefaultForm/>
+			<AuxiliaryForm/>
+			<UseStandardCommands>false</UseStandardCommands>
+			<RegisteredDocuments>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ИсходящийЗапросКаталога</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ИсходящийКаталогТоваров</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ИсходящийТоварКРаботе</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ИсходящийЗапросПрайсЛиста</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ИсходящийПрайсЛист</xr:Item>
+			</RegisteredDocuments>
+			<IncludeHelpInContents>false</IncludeHelpInContents>
+			<ListPresentation/>
+			<ExtendedListPresentation/>
+			<Explanation/>
+		</Properties>
+		<ChildObjects>
+			<Column uuid="7c23f3ab-11db-45f1-8225-23d42472f52a">
+				<Properties>
+					<Name>ДатаОтправки</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата отправки</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИсходящийЗапросКаталога.Attribute.ДатаОтправки</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИсходящийКаталогТоваров.Attribute.ДатаОтправки</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИсходящийТоварКРаботе.Attribute.ДатаОтправки</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИсходящийПрайсЛист.Attribute.ДатаОтправки</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИсходящийЗапросПрайсЛиста.Attribute.ДатаОтправки</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="b0f0b1a4-9346-4bee-ad00-018617d016e1">
+				<Properties>
+					<Name>ОбработанОтправлен</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Обработан/отправлен</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИсходящийЗапросКаталога.Attribute.Отправлен</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИсходящийТоварКРаботе.Attribute.Отправлен</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИсходящийПрайсЛист.Attribute.Отправлен</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИсходящийЗапросПрайсЛиста.Attribute.Отправлен</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИсходящийКаталогТоваров.Attribute.Отправлен</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="f76be577-6b97-4810-ae51-a4bed15c8f29">
+				<Properties>
+					<Name>Организация</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИсходящийЗапросКаталога.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИсходящийТоварКРаботе.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИсходящийПрайсЛист.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИсходящийЗапросПрайсЛиста.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИсходящийКаталогТоваров.Attribute.Организация</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="3f6ac862-e66a-4638-a910-9bb590f2205f">
+				<Properties>
+					<Name>Контрагент</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Контрагент</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИсходящийЗапросКаталога.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИсходящийТоварКРаботе.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИсходящийПрайсЛист.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИсходящийЗапросПрайсЛиста.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ИсходящийКаталогТоваров.Attribute.Контрагент</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+		</ChildObjects>
+	</DocumentJournal>
+</MetaDataObject>

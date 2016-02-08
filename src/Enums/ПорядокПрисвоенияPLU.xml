@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0">
+	<Enum uuid="6c1e16f1-3484-4dfd-a700-943857f2e899">
+		<InternalInfo>
+			<xr:GeneratedType name="EnumRef.ПорядокПрисвоенияPLU" category="Ref">
+				<xr:TypeId>66ff53ea-0622-419a-89e6-edd3e0afc028</xr:TypeId>
+				<xr:ValueId>8142a8c7-26f6-482c-ad78-b621dc3eea47</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="EnumManager.ПорядокПрисвоенияPLU" category="Manager">
+				<xr:TypeId>0c06b06e-8187-418d-b15e-03888936b368</xr:TypeId>
+				<xr:ValueId>abccc047-6d29-42e0-938e-343cec8565ab</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="EnumList.ПорядокПрисвоенияPLU" category="List">
+				<xr:TypeId>1da133d3-d0d9-42d2-8618-5e5c61e43864</xr:TypeId>
+				<xr:ValueId>b5fb3cf5-8769-46c5-8174-dd8c38933bae</xr:ValueId>
+			</xr:GeneratedType>
+		</InternalInfo>
+		<Properties>
+			<Name>ПорядокПрисвоенияPLU</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Порядок присвоения PLU</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment>Значения перечисления соответствуют способам назначения PLU новым товарным позициям, подлежащим выгрузке в ККМ Offline</Comment>
+			<UseStandardCommands>false</UseStandardCommands>
+			<Characteristics/>
+			<QuickChoice>true</QuickChoice>
+			<ChoiceMode>BothWays</ChoiceMode>
+			<DefaultListForm/>
+			<DefaultChoiceForm/>
+			<AuxiliaryListForm/>
+			<AuxiliaryChoiceForm/>
+			<ListPresentation/>
+			<ExtendedListPresentation/>
+			<Explanation/>
+			<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+		</Properties>
+		<ChildObjects>
+			<EnumValue uuid="f2034099-f59a-4f44-a8bb-cbdebd42dbdd">
+				<Properties>
+					<Name>ПоПорядку</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>По порядку</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Новой позиции назначается код, превосходящий максимальное заданное значение на 1</Comment>
+				</Properties>
+			</EnumValue>
+			<EnumValue uuid="60320b6a-7f69-42c0-8fa4-b36b16e5e057">
+				<Properties>
+					<Name>ПоКодуНоменклатуры</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>По коду номенклатуры</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment>Новой позиции назначается код, совпадающий с кодом номенклатуры в соответствующей позиции</Comment>
+				</Properties>
+			</EnumValue>
+		</ChildObjects>
+	</Enum>
+</MetaDataObject>

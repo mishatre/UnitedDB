@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0">
+	<Customizable>false</Customizable>
+	<CommandBarLocation>None</CommandBarLocation>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Table name="ОтработанныеПакеты" id="15">
+			<Representation>List</Representation>
+			<ChangeRowSet>false</ChangeRowSet>
+			<ChangeRowOrder>false</ChangeRowOrder>
+			<AutoInsertNewRow>true</AutoInsertNewRow>
+			<EnableStartDrag>true</EnableStartDrag>
+			<EnableDrag>true</EnableDrag>
+			<DataPath>ОтработанныеПакеты</DataPath>
+			<RowPictureDataPath>ОтработанныеПакеты.Выбран</RowPictureDataPath>
+			<CommandSet>
+				<ExcludedCommand>Copy</ExcludedCommand>
+				<ExcludedCommand>SortListAsc</ExcludedCommand>
+				<ExcludedCommand>MoveUp</ExcludedCommand>
+				<ExcludedCommand>SelectAll</ExcludedCommand>
+				<ExcludedCommand>SortListDesc</ExcludedCommand>
+				<ExcludedCommand>CopyToClipboard</ExcludedCommand>
+				<ExcludedCommand>Delete</ExcludedCommand>
+				<ExcludedCommand>EndEdit</ExcludedCommand>
+				<ExcludedCommand>Add</ExcludedCommand>
+				<ExcludedCommand>Change</ExcludedCommand>
+				<ExcludedCommand>MoveDown</ExcludedCommand>
+			</CommandSet>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<RowFilter xsi:nil="true"/>
+			<ContextMenu name="ОтработанныеПакетыКонтекстноеМеню" id="16"/>
+			<AutoCommandBar name="ОтработанныеПакетыКоманднаяПанель" id="17">
+				<ChildItems>
+					<Button name="ПометитьНаУдалениеОтмеченныеПЭД" id="54">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ПометитьНаУдалениеОтмеченныеПЭД</CommandName>
+						<Parameter xsi:nil="true"/>
+						<ExtendedTooltip name="ПометитьНаУдалениеОтмеченныеПЭДExtendedTooltip" id="97"/>
+					</Button>
+					<Button name="ВыделитьВсеПЭД" id="50">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ВыделитьВсе</CommandName>
+						<Parameter xsi:nil="true"/>
+						<ExtendedTooltip name="ВыделитьВсеПЭДExtendedTooltip" id="98"/>
+					</Button>
+					<Button name="СнятьВсеПЭД" id="51">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.СнятьВсе</CommandName>
+						<Parameter xsi:nil="true"/>
+						<ExtendedTooltip name="СнятьВсеПЭДExtendedTooltip" id="99"/>
+					</Button>
+					<Button name="ОбновитьТаблицыПЭД" id="55">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Command.ОбновитьТаблицы</CommandName>
+						<Parameter xsi:nil="true"/>
+						<Picture>
+							<xr:Ref>StdPicture.Refresh</xr:Ref>
+							<xr:LoadTransparent>true</xr:LoadTransparent>
+						</Picture>
+						<ExtendedTooltip name="ОбновитьТаблицыПЭДExtendedTooltip" id="100"/>
+					</Button>
+					<Button name="ОтработанныеПакетыНайти" id="92">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.ОтработанныеПакеты.StandardCommand.Find</CommandName>
+						<Parameter xsi:nil="true"/>
+						<ExtendedTooltip name="ОтработанныеПакетыНайтиExtendedTooltip" id="101"/>
+					</Button>
+					<Button name="ОтработанныеПакетыОтменитьПоиск" id="93">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.Item.ОтработанныеПакеты.StandardCommand.CancelSearch</CommandName>
+						<Parameter xsi:nil="true"/>
+						<ExtendedTooltip name="ОтработанныеПакетыОтменитьПоискExtendedTooltip" id="102"/>
+					</Button>
+					<Button name="ОтработанныеПакетыОбработкаУдалениеПомеченныхОбъектовОткрыть" id="94">
+						<Type>CommandBarButton</Type>
+						<OnlyInAllActions>false</OnlyInAllActions>
+						<CommandName>0:7dca913d-e37a-4740-8e3d-677d379605ee</CommandName>
+						<Parameter xsi:nil="true"/>
+						<ExtendedTooltip name="ОтработанныеПакетыОбработкаУдалениеПомеченныхОбъектовОткрытьExtendedTooltip" id="103"/>
+					</Button>
+					<ButtonGroup name="ГруппаКомандыФормы" id="95">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа команды формы</v8:content>
+							</v8:item>
+						</Title>
+						<ToolTip>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Группа команды формы</v8:content>
+							</v8:item>
+						</ToolTip>
+						<CommandSource>Form</CommandSource>
+						<ExtendedTooltip name="ГруппаКомандыФормыExtendedTooltip" id="104"/>
+					</ButtonGroup>
+					<Button name="ОтработанныеПакетыСправка" id="96">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.StandardCommand.Help</CommandName>
+						<Parameter xsi:nil="true"/>
+						<ExtendedTooltip name="ОтработанныеПакетыСправкаExtendedTooltip" id="105"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="ОтработанныеПакетыExtendedTooltip" id="106"/>
+			<SearchStringAddition name="ОтработанныеПакетыSearchString" id="107">
+				<Source>
+					<lf:elementId>15</lf:elementId>
+					<lf:additionId>0</lf:additionId>
+				</Source>
+				<ContextMenu name="ОтработанныеПакетыSearchStringContextMenu" id="108"/>
+				<ExtendedTooltip name="ОтработанныеПакетыSearchStringExtendedTooltip" id="109"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="ОтработанныеПакетыViewStatus" id="110">
+				<Source>
+					<lf:elementId>15</lf:elementId>
+					<lf:additionId>1</lf:additionId>
+				</Source>
+				<ContextMenu name="ОтработанныеПакетыViewStatusContextMenu" id="111"/>
+				<ExtendedTooltip name="ОтработанныеПакетыViewStatusExtendedTooltip" id="112"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="ОтработанныеПакетыSearchControl" id="113">
+				<Source>
+					<lf:elementId>15</lf:elementId>
+					<lf:additionId>2</lf:additionId>
+				</Source>
+				<ContextMenu name="ОтработанныеПакетыSearchControlContextMenu" id="114"/>
+				<ExtendedTooltip name="ОтработанныеПакетыSearchControlExtendedTooltip" id="115"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">ОтработанныеПакетыВыбор</Event>
+			</Events>
+			<ChildItems>
+				<CheckBoxField name="ОтработанныеПакетыВыбран" id="78">
+					<DataPath>ОтработанныеПакеты.Выбран</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ShowInHeader>false</ShowInHeader>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ОтработанныеПакетыВыбранКонтекстноеМеню" id="79"/>
+					<ExtendedTooltip name="ОтработанныеПакетыВыбранExtendedTooltip" id="116"/>
+				</CheckBoxField>
+				<InputField name="ОтработанныеПакетыКонтрагент" id="80">
+					<DataPath>ОтработанныеПакеты.Контрагент</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОтработанныеПакетыКонтрагентКонтекстноеМеню" id="81"/>
+					<ExtendedTooltip name="ОтработанныеПакетыКонтрагентExtendedTooltip" id="117"/>
+				</InputField>
+				<InputField name="ОтработанныеПакетыСтатус" id="76">
+					<DataPath>ОтработанныеПакеты.Статус</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОтработанныеПакетыСтатусКонтекстноеМеню" id="77"/>
+					<ExtendedTooltip name="ОтработанныеПакетыСтатусExtendedTooltip" id="118"/>
+				</InputField>
+				<InputField name="ОтработанныеПакетыНаправление" id="90">
+					<DataPath>ОтработанныеПакеты.Направление</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОтработанныеПакетыНаправлениеКонтекстноеМеню" id="91"/>
+					<ExtendedTooltip name="ОтработанныеПакетыНаправлениеExtendedTooltip" id="119"/>
+				</InputField>
+				<InputField name="ОтработанныеПакетыДатаПолучения" id="84">
+					<DataPath>ОтработанныеПакеты.ДатаПолучения</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОтработанныеПакетыДатаПолученияКонтекстноеМеню" id="85"/>
+					<ExtendedTooltip name="ОтработанныеПакетыДатаПолученияExtendedTooltip" id="120"/>
+				</InputField>
+				<InputField name="ОтработанныеПакетыОрганизация" id="82">
+					<DataPath>ОтработанныеПакеты.Организация</DataPath>
+					<ReadOnly>true</ReadOnly>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ОтработанныеПакетыОрганизацияКонтекстноеМеню" id="83"/>
+					<ExtendedTooltip name="ОтработанныеПакетыОрганизацияExtendedTooltip" id="121"/>
+				</InputField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:DataProcessorObject.УдалениеФайловОтработанныхПакетовЭД</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+		<Attribute name="ОтработанныеПакеты" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отработанные пакеты электронных документов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<Columns>
+				<Column name="Статус" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статус</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.СтатусыПакетовЭД</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Выбран" id="3">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Выбран</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:boolean</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Контрагент" id="4">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Контрагент</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Организация" id="5">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ДатаПолучения" id="6">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата отправки/получения</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:dateTime</v8:Type>
+						<v8:DateQualifiers>
+							<v8:DateFractions>DateTime</v8:DateFractions>
+						</v8:DateQualifiers>
+					</Type>
+				</Column>
+				<Column name="Направление" id="7">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Направление</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:EnumRef.НаправленияЭД</v8:Type>
+					</Type>
+				</Column>
+				<Column name="Документ" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Документ</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>cfg:CatalogRef.ЭДПрисоединенныеФайлы</v8:Type>
+					</Type>
+				</Column>
+			</Columns>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ПометитьНаУдалениеОтмеченныеПЭД" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пометить на удаление отмеченные</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пометить на удаление отмеченные файлы пакетов электронных документов</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.MarkToDelete</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ПометитьНаУдалениеОтмеченныеПЭД</Action>
+			<Representation>TextPicture</Representation>
+		</Command>
+		<Command name="ОбновитьТаблицы" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить таблицы</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить таблицы</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Shortcut>F5</Shortcut>
+			<Action>ОбновитьДанныеПоТаблицам</Action>
+		</Command>
+		<Command name="ВыделитьВсе" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выделить все</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выделить все</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.CheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ВыделитьВсе</Action>
+		</Command>
+		<Command name="СнятьВсе" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять все</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Снять все</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.UncheckAll</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СнятьВсе</Action>
+		</Command>
+	</Commands>
+</Form>

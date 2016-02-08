@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0">
+	<DocumentJournal uuid="ca50bed9-b726-4600-83ac-0bab1496073f">
+		<InternalInfo>
+			<xr:GeneratedType name="DocumentJournalSelection.ЭлектронныеДокументыНакладныеВходящие" category="Selection">
+				<xr:TypeId>f3d5a722-087a-475a-85c9-849a942412c4</xr:TypeId>
+				<xr:ValueId>0d474045-70d9-4d98-aa5c-54d55a6e4c5b</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="DocumentJournalList.ЭлектронныеДокументыНакладныеВходящие" category="List">
+				<xr:TypeId>ff12bade-6907-4e95-9211-c5c8ed7913ad</xr:TypeId>
+				<xr:ValueId>cb89be58-b56a-408e-bb76-4cddcdf6600b</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="DocumentJournalManager.ЭлектронныеДокументыНакладныеВходящие" category="Manager">
+				<xr:TypeId>1a4b3f61-ca81-449f-aa15-7bb05ae31f31</xr:TypeId>
+				<xr:ValueId>aff68f72-8627-4e39-8367-edc4b5d20285</xr:ValueId>
+			</xr:GeneratedType>
+		</InternalInfo>
+		<Properties>
+			<Name>ЭлектронныеДокументыНакладныеВходящие</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Электронные документы накладные входящие</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment/>
+			<DefaultForm/>
+			<AuxiliaryForm/>
+			<UseStandardCommands>false</UseStandardCommands>
+			<RegisteredDocuments>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящаяЭлектроннаяНакладная</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийАкцептНакладной</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийРеджектНакладной</xr:Item>
+			</RegisteredDocuments>
+			<IncludeHelpInContents>false</IncludeHelpInContents>
+			<ListPresentation/>
+			<ExtendedListPresentation/>
+			<Explanation/>
+		</Properties>
+		<ChildObjects>
+			<Column uuid="51a614cf-a483-4555-ac6a-89b45fe7c7e0">
+				<Properties>
+					<Name>ДатаОтправки</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата отправки</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящаяЭлектроннаяНакладная.Attribute.ДатаВходящегоДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийРеджектНакладной.Attribute.ДатаВходящегоДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийАкцептНакладной.Attribute.ДатаВходящегоДокумента</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="43575d1d-25f3-4d1e-87bc-119cf4bf2fe3">
+				<Properties>
+					<Name>ОбработанОтправлен</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Обработан/отправлен</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящаяЭлектроннаяНакладная.Attribute.Обработан</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийРеджектНакладной.Attribute.Обработан</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийАкцептНакладной.Attribute.Обработан</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="1b660baa-136e-4bd3-a3b3-49407e417f55">
+				<Properties>
+					<Name>Организация</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящаяЭлектроннаяНакладная.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийРеджектНакладной.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийАкцептНакладной.Attribute.Организация</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="9d4fdc7a-f9c9-47e1-9409-7cc6cfe13025">
+				<Properties>
+					<Name>Контрагент</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Контрагент</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящаяЭлектроннаяНакладная.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийРеджектНакладной.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийАкцептНакладной.Attribute.Контрагент</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+		</ChildObjects>
+	</DocumentJournal>
+</MetaDataObject>

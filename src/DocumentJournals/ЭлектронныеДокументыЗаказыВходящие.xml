@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0">
+	<DocumentJournal uuid="0efd994a-de22-4bcb-a630-30dc0394487a">
+		<InternalInfo>
+			<xr:GeneratedType name="DocumentJournalSelection.ЭлектронныеДокументыЗаказыВходящие" category="Selection">
+				<xr:TypeId>c489a9ad-a6a2-4d91-a806-fe04f105b822</xr:TypeId>
+				<xr:ValueId>1525c207-8767-4a07-b1b4-11182594d696</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="DocumentJournalList.ЭлектронныеДокументыЗаказыВходящие" category="List">
+				<xr:TypeId>d3a1542c-26e6-4ccf-bb85-689cb82e0580</xr:TypeId>
+				<xr:ValueId>9feb4354-c657-47f5-a7ed-bcf9b1d7e969</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="DocumentJournalManager.ЭлектронныеДокументыЗаказыВходящие" category="Manager">
+				<xr:TypeId>1820a4dc-9fe9-4e2c-841b-83f013907b5d</xr:TypeId>
+				<xr:ValueId>9fe5a501-b34e-4796-992c-cddd07f38d87</xr:ValueId>
+			</xr:GeneratedType>
+		</InternalInfo>
+		<Properties>
+			<Name>ЭлектронныеДокументыЗаказыВходящие</Name>
+			<Synonym>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Электронные документы заказы входящие</v8:content>
+				</v8:item>
+			</Synonym>
+			<Comment/>
+			<DefaultForm/>
+			<AuxiliaryForm/>
+			<UseStandardCommands>false</UseStandardCommands>
+			<RegisteredDocuments>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийЗаказ</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийРеджектЗаказа</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийАкцептЗаказа</xr:Item>
+			</RegisteredDocuments>
+			<IncludeHelpInContents>false</IncludeHelpInContents>
+			<ListPresentation/>
+			<ExtendedListPresentation/>
+			<Explanation/>
+		</Properties>
+		<ChildObjects>
+			<Column uuid="cf24a53c-4a01-4e94-b31a-529bbbc70834">
+				<Properties>
+					<Name>ДатаОтправки</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата отправки</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийЗаказ.Attribute.ДатаВходящегоДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийРеджектЗаказа.Attribute.ДатаВходящегоДокумента</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийАкцептЗаказа.Attribute.ДатаВходящегоДокумента</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="ffe9d29e-0058-4d6c-9773-2f0abf333ed5">
+				<Properties>
+					<Name>ОбработанОтправлен</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Обработан/отправлен</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийЗаказ.Attribute.Обработан</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийРеджектЗаказа.Attribute.Обработан</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийАкцептЗаказа.Attribute.Обработан</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="23a7ab90-6659-43cf-844d-bbd272877121">
+				<Properties>
+					<Name>Организация</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Организация</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийЗаказ.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийРеджектЗаказа.Attribute.Организация</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийАкцептЗаказа.Attribute.Организация</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+			<Column uuid="9c2c9266-b56d-48af-8598-2ee219447004">
+				<Properties>
+					<Name>Контрагент</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Контрагент</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Indexing>DontIndex</Indexing>
+					<References>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийЗаказ.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийРеджектЗаказа.Attribute.Контрагент</xr:Item>
+						<xr:Item xsi:type="xr:MDObjectRef">Document.ВходящийАкцептЗаказа.Attribute.Контрагент</xr:Item>
+					</References>
+				</Properties>
+			</Column>
+		</ChildObjects>
+	</DocumentJournal>
+</MetaDataObject>

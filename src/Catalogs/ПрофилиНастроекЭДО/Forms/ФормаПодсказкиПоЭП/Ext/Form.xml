@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0">
+	<Title>
+		<v8:item>
+			<v8:lang>ru</v8:lang>
+			<v8:content>Что такое "ключ электронной подписи" ?</v8:content>
+		</v8:item>
+	</Title>
+	<Width>44</Width>
+	<Height>6</Height>
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<AutoTitle>false</AutoTitle>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+	</AutoCommandBar>
+	<ChildItems>
+		<LabelDecoration name="ДекорацияПояснениеОТомЧтоТакоеКлючЭЦП" id="1">
+			<Height>4</Height>
+			<HorizontalStretch>true</HorizontalStretch>
+			<VerticalStretch>false</VerticalStretch>
+			<Font ref="sys:DefaultGUIFont" kind="WindowsFont"/>
+			<Title formatted="false">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ключ электронной подписи – это секретная информация, которая сохраняется на компьютер, USB-флеш-накопитель, дискету или другие носители информации и используется при подписании электронных документов.</v8:content>
+				</v8:item>
+			</Title>
+			<VerticalAlign>Top</VerticalAlign>
+			<ContextMenu name="ДекорацияПояснениеОТомЧтоТакоеКлючЭЦПКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="ДекорацияПояснениеОТомЧтоТакоеКлючЭЦПExtendedTooltip" id="7"/>
+		</LabelDecoration>
+		<CommandBar name="ПанельКнопкиОК" id="6">
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Панель кнопки ОК</v8:content>
+				</v8:item>
+			</ToolTip>
+			<HorizontalLocation>Center</HorizontalLocation>
+			<ExtendedTooltip name="ПанельКнопкиОКExtendedTooltip" id="8"/>
+			<ChildItems>
+				<Button name="ФормаЗакрыть" id="5">
+					<Type>CommandBarButton</Type>
+					<DefaultButton>true</DefaultButton>
+					<CommandName>Form.Command.ЗакрытьФорму</CommandName>
+					<Parameter xsi:nil="true"/>
+					<ExtendedTooltip name="ФормаЗакрытьExtendedTooltip" id="9"/>
+				</Button>
+			</ChildItems>
+		</CommandBar>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="ЗакрытьФорму" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>    ОК     </v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Закрыть форму</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>ЗакрытьФорму</Action>
+		</Command>
+	</Commands>
+</Form>

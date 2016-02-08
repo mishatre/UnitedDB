@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<CommandSet>
+		<ExcludedCommand>No</ExcludedCommand>
+		<ExcludedCommand>SaveValues</ExcludedCommand>
+		<ExcludedCommand>WriteAndClose</ExcludedCommand>
+		<ExcludedCommand>Abort</ExcludedCommand>
+		<ExcludedCommand>Retry</ExcludedCommand>
+		<ExcludedCommand>Yes</ExcludedCommand>
+		<ExcludedCommand>Cancel</ExcludedCommand>
+		<ExcludedCommand>Copy</ExcludedCommand>
+		<ExcludedCommand>RestoreValues</ExcludedCommand>
+		<ExcludedCommand>Delete</ExcludedCommand>
+		<ExcludedCommand>Ignore</ExcludedCommand>
+		<ExcludedCommand>OK</ExcludedCommand>
+		<ExcludedCommand>Write</ExcludedCommand>
+	</CommandSet>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<Autofill>false</Autofill>
+		<ChildItems>
+			<Button name="ФормаКнопкаЗакрыть" id="13">
+				<Type>CommandBarButton</Type>
+				<Representation>PictureAndText</Representation>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<Parameter xsi:nil="true"/>
+				<ExtendedTooltip name="ФормаКнопкаЗакрытьExtendedTooltip" id="17"/>
+			</Button>
+			<Button name="ФормаКнопкаПеречитать" id="14">
+				<Type>CommandBarButton</Type>
+				<OnlyInAllActions>false</OnlyInAllActions>
+				<CommandName>Form.StandardCommand.Reread</CommandName>
+				<Parameter xsi:nil="true"/>
+				<ExtendedTooltip name="ФормаКнопкаПеречитатьExtendedTooltip" id="18"/>
+			</Button>
+			<Button name="ФормаКнопкаИзменитьФорму" id="16">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+				<Parameter xsi:nil="true"/>
+				<ExtendedTooltip name="ФормаКнопкаИзменитьФормуExtendedTooltip" id="19"/>
+			</Button>
+			<Button name="ФормаКнопкаСправка" id="15">
+				<Type>CommandBarButton</Type>
+				<CommandName>Form.StandardCommand.Help</CommandName>
+				<Parameter xsi:nil="true"/>
+				<ExtendedTooltip name="ФормаКнопкаСправкаExtendedTooltip" id="20"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<InputField name="Период" id="1">
+			<DataPath>Запись.Period</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<ContextMenu name="ПериодКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="ПериодExtendedTooltip" id="21"/>
+		</InputField>
+		<InputField name="СоглашениеЭД" id="3">
+			<DataPath>Запись.СоглашениеЭД</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<ContextMenu name="СоглашениеЭДКонтекстноеМеню" id="4"/>
+			<ExtendedTooltip name="СоглашениеЭДExtendedTooltip" id="22"/>
+		</InputField>
+		<InputField name="ИдентификаторСобытия" id="5">
+			<DataPath>Запись.ИдентификаторСобытия</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<ContextMenu name="ИдентификаторСобытияКонтекстноеМеню" id="6"/>
+			<ExtendedTooltip name="ИдентификаторСобытияExtendedTooltip" id="23"/>
+		</InputField>
+		<InputField name="Пользователь" id="7">
+			<DataPath>Запись.Пользователь</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<ContextMenu name="ПользовательКонтекстноеМеню" id="8"/>
+			<ExtendedTooltip name="ПользовательExtendedTooltip" id="24"/>
+		</InputField>
+		<InputField name="Описание" id="9">
+			<DataPath>Запись.Описание</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<ContextMenu name="ОписаниеКонтекстноеМеню" id="10"/>
+			<ExtendedTooltip name="ОписаниеExtendedTooltip" id="25"/>
+		</InputField>
+		<InputField name="ТекстСообщения" id="11">
+			<DataPath>ТекстСообщения</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<Height>8</Height>
+			<MultiLine>true</MultiLine>
+			<ContextMenu name="ТекстСообщенияКонтекстноеМеню" id="12"/>
+			<ExtendedTooltip name="ТекстСообщенияExtendedTooltip" id="26"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Запись" id="1">
+			<Type>
+				<v8:Type>cfg:InformationRegisterRecordManager.ЖурналАудитаСбербанк</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="ТекстСообщения" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текст сообщения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+	</Attributes>
+</Form>

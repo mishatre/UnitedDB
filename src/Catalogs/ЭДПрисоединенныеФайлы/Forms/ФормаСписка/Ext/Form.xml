@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0">
+	<CommandBarLocation>None</CommandBarLocation>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ChildItems>
+		<Table name="Список" id="1">
+			<UseAlternationRowColor>true</UseAlternationRowColor>
+			<EnableStartDrag>true</EnableStartDrag>
+			<DataPath>Список</DataPath>
+			<RowPictureDataPath>Список.DefaultPicture</RowPictureDataPath>
+			<CommandSet>
+				<ExcludedCommand>Copy</ExcludedCommand>
+				<ExcludedCommand>Create</ExcludedCommand>
+			</CommandSet>
+			<SearchStringLocation>None</SearchStringLocation>
+			<ViewStatusLocation>None</ViewStatusLocation>
+			<SearchControlLocation>None</SearchControlLocation>
+			<AutoRefresh>false</AutoRefresh>
+			<AutoRefreshPeriod>60</AutoRefreshPeriod>
+			<Period>
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</Period>
+			<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+			<RestoreCurrentRow>false</RestoreCurrentRow>
+			<TopLevelParent xsi:nil="true"/>
+			<ShowRoot>true</ShowRoot>
+			<AllowRootChoice>false</AllowRootChoice>
+			<UpdateOnDataChange>Auto</UpdateOnDataChange>
+			<ContextMenu name="СписокКонтекстноеМеню" id="2"/>
+			<AutoCommandBar name="СписокКоманднаяПанель" id="3">
+				<ChildItems>
+					<Button name="КнопкаИзменитьФорму" id="90">
+						<Type>CommandBarButton</Type>
+						<CommandName>Form.StandardCommand.CustomizeForm</CommandName>
+						<Parameter xsi:nil="true"/>
+						<ExtendedTooltip name="КнопкаИзменитьФормуExtendedTooltip" id="129"/>
+					</Button>
+				</ChildItems>
+			</AutoCommandBar>
+			<ExtendedTooltip name="СписокExtendedTooltip" id="130"/>
+			<SearchStringAddition name="СписокSearchString" id="131">
+				<Source>
+					<lf:elementId>1</lf:elementId>
+					<lf:additionId>0</lf:additionId>
+				</Source>
+				<ContextMenu name="СписокSearchStringContextMenu" id="132"/>
+				<ExtendedTooltip name="СписокSearchStringExtendedTooltip" id="133"/>
+			</SearchStringAddition>
+			<ViewStatusAddition name="СписокViewStatus" id="134">
+				<Source>
+					<lf:elementId>1</lf:elementId>
+					<lf:additionId>1</lf:additionId>
+				</Source>
+				<ContextMenu name="СписокViewStatusContextMenu" id="135"/>
+				<ExtendedTooltip name="СписокViewStatusExtendedTooltip" id="136"/>
+			</ViewStatusAddition>
+			<SearchControlAddition name="СписокSearchControl" id="137">
+				<Source>
+					<lf:elementId>1</lf:elementId>
+					<lf:additionId>2</lf:additionId>
+				</Source>
+				<ContextMenu name="СписокSearchControlContextMenu" id="138"/>
+				<ExtendedTooltip name="СписокSearchControlExtendedTooltip" id="139"/>
+			</SearchControlAddition>
+			<Events>
+				<Event name="Selection">СписокВыбор</Event>
+				<Event name="BeforeRowChange">СписокПередНачаломИзменения</Event>
+			</Events>
+			<ChildItems>
+				<LabelField name="ДатаСоздания" id="12">
+					<DataPath>Список.ДатаСоздания</DataPath>
+					<ContextMenu name="ДатаСозданияКонтекстноеМеню" id="13"/>
+					<ExtendedTooltip name="ДатаСозданияExtendedTooltip" id="140"/>
+				</LabelField>
+				<LabelField name="Организация" id="70">
+					<DataPath>Список.Организация</DataPath>
+					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="71"/>
+					<ExtendedTooltip name="ОрганизацияExtendedTooltip" id="141"/>
+				</LabelField>
+				<LabelField name="Контрагент" id="72">
+					<DataPath>Список.Контрагент</DataPath>
+					<ContextMenu name="КонтрагентКонтекстноеМеню" id="73"/>
+					<ExtendedTooltip name="КонтрагентExtendedTooltip" id="142"/>
+				</LabelField>
+				<LabelField name="ВидЭД" id="91">
+					<DataPath>Список.ВидЭД</DataPath>
+					<ContextMenu name="ВидЭДКонтекстноеМеню" id="92"/>
+					<ExtendedTooltip name="ВидЭДExtendedTooltip" id="143"/>
+				</LabelField>
+				<LabelField name="ТипЭлементаВерсииЭД" id="95">
+					<DataPath>Список.ТипЭлементаВерсииЭД</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="ТипЭлементаВерсииЭДКонтекстноеМеню" id="96"/>
+					<ExtendedTooltip name="ТипЭлементаВерсииЭДExtendedTooltip" id="144"/>
+				</LabelField>
+				<LabelField name="ПрофильНастроекЭДО" id="97">
+					<DataPath>Список.ПрофильНастроекЭДО</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="ПрофильНастроекЭДОКонтекстноеМеню" id="98"/>
+					<ExtendedTooltip name="ПрофильНастроекЭДОExtendedTooltip" id="145"/>
+				</LabelField>
+				<LabelField name="СоглашениеЭД" id="99">
+					<DataPath>Список.СоглашениеЭД</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="СоглашениеЭДКонтекстноеМеню" id="100"/>
+					<ExtendedTooltip name="СоглашениеЭДExtendedTooltip" id="146"/>
+				</LabelField>
+				<LabelField name="НаправлениеЭД" id="101">
+					<DataPath>Список.НаправлениеЭД</DataPath>
+					<ContextMenu name="НаправлениеЭДКонтекстноеМеню" id="102"/>
+					<ExtendedTooltip name="НаправлениеЭДExtendedTooltip" id="147"/>
+				</LabelField>
+				<LabelField name="Наименование" id="103">
+					<DataPath>Список.Description</DataPath>
+					<ContextMenu name="НаименованиеКонтекстноеМеню" id="104"/>
+					<ExtendedTooltip name="НаименованиеExtendedTooltip" id="148"/>
+				</LabelField>
+				<LabelField name="ВладелецФайла" id="105">
+					<DataPath>Список.ВладелецФайла</DataPath>
+					<ContextMenu name="ВладелецФайлаКонтекстноеМеню" id="106"/>
+					<ExtendedTooltip name="ВладелецФайлаExtendedTooltip" id="149"/>
+				</LabelField>
+				<LabelField name="ЭлектронныйДокументВладелец" id="107">
+					<DataPath>Список.ЭлектронныйДокументВладелец</DataPath>
+					<ContextMenu name="ЭлектронныйДокументВладелецКонтекстноеМеню" id="108"/>
+					<ExtendedTooltip name="ЭлектронныйДокументВладелецExtendedTooltip" id="150"/>
+				</LabelField>
+				<CheckBoxField name="ПодписанЭЦП" id="109">
+					<DataPath>Список.ПодписанЭЦП</DataPath>
+					<CheckBoxType>Auto</CheckBoxType>
+					<ContextMenu name="ПодписанЭЦПКонтекстноеМеню" id="110"/>
+					<ExtendedTooltip name="ПодписанЭЦПExtendedTooltip" id="151"/>
+				</CheckBoxField>
+				<LabelField name="СтатусЭД" id="127">
+					<DataPath>Список.СтатусЭД</DataPath>
+					<ContextMenu name="СтатусЭДКонтекстноеМеню" id="128"/>
+					<ExtendedTooltip name="СтатусЭДExtendedTooltip" id="152"/>
+				</LabelField>
+				<LabelField name="ДатаИзмененияСтатусаЭД" id="111">
+					<DataPath>Список.ДатаИзмененияСтатусаЭД</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="ДатаИзмененияСтатусаЭДКонтекстноеМеню" id="112"/>
+					<ExtendedTooltip name="ДатаИзмененияСтатусаЭДExtendedTooltip" id="153"/>
+				</LabelField>
+				<LabelField name="НомерЭД" id="113">
+					<DataPath>Список.НомерЭД</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="НомерЭДКонтекстноеМеню" id="114"/>
+					<ExtendedTooltip name="НомерЭДExtendedTooltip" id="154"/>
+				</LabelField>
+				<LabelField name="УникальныйИД" id="115">
+					<DataPath>Список.УникальныйИД</DataPath>
+					<ContextMenu name="УникальныйИДКонтекстноеМеню" id="116"/>
+					<ExtendedTooltip name="УникальныйИДExtendedTooltip" id="155"/>
+				</LabelField>
+				<LabelField name="Расширение" id="117">
+					<DataPath>Список.Расширение</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="РасширениеКонтекстноеМеню" id="118"/>
+					<ExtendedTooltip name="РасширениеExtendedTooltip" id="156"/>
+				</LabelField>
+				<LabelField name="Размер" id="119">
+					<DataPath>Список.Размер</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="РазмерКонтекстноеМеню" id="120"/>
+					<ExtendedTooltip name="РазмерExtendedTooltip" id="157"/>
+				</LabelField>
+				<LabelField name="ВерсияРегламентаЭДО" id="121">
+					<DataPath>Список.ВерсияРегламентаЭДО</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="ВерсияРегламентаЭДОКонтекстноеМеню" id="122"/>
+					<ExtendedTooltip name="ВерсияРегламентаЭДОExtendedTooltip" id="158"/>
+				</LabelField>
+				<LabelField name="Ответственный" id="123">
+					<DataPath>Список.Ответственный</DataPath>
+					<ContextMenu name="ОтветственныйКонтекстноеМеню" id="124"/>
+					<ExtendedTooltip name="ОтветственныйExtendedTooltip" id="159"/>
+				</LabelField>
+				<LabelField name="Ссылка" id="125">
+					<DataPath>Список.Ref</DataPath>
+					<UserVisible>
+						<xr:Common>false</xr:Common>
+					</UserVisible>
+					<ContextMenu name="СсылкаКонтекстноеМеню" id="126"/>
+					<ExtendedTooltip name="СсылкаExtendedTooltip" id="160"/>
+				</LabelField>
+			</ChildItems>
+		</Table>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Список" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Список</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:DynamicList</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<Settings xsi:type="DynamicList">
+				<ManualQuery>false</ManualQuery>
+				<DynamicDataRead>true</DynamicDataRead>
+				<MainTable>Catalog.ЭДПрисоединенныеФайлы</MainTable>
+				<ListSettings>
+					<dcsset:filter>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>dfcece9d-5077-440b-b6b3-45a5cb4538eb</dcsset:userSettingID>
+					</dcsset:filter>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>ДатаСоздания</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>88619765-ccb3-46c6-ac52-38e9c992ebd4</dcsset:userSettingID>
+					</dcsset:order>
+					<dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:userSettingID>b75fecce-942b-4aed-abc9-e6a02e460fb3</dcsset:userSettingID>
+					</dcsset:conditionalAppearance>
+				</ListSettings>
+			</Settings>
+		</Attribute>
+	</Attributes>
+</Form>

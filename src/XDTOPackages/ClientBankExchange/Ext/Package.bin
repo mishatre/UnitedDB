@@ -1,0 +1,241 @@
+﻿<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="urn:1C.ru:ClientBankExchange">
+	<property xmlns:d2p1="urn:1C.ru:ClientBankExchange" name="ClientBankExchange" type="d2p1:ClientBankExchange"/>
+	<valueType name="ВерсияСхемы" base="xs:string" variety="Atomic">
+		<enumeration>1.05</enumeration>
+		<enumeration>1.06</enumeration>
+		<enumeration>1.07</enumeration>
+	</valueType>
+	<valueType name="ВидДокумента" base="xs:string" variety="Atomic" maxLength="30"/>
+	<valueType name="ДатаТипФНС" base="xs:string" variety="Atomic">
+		<pattern>(((0[1-9]{1}|[1-2]{1}[0-9]{1})\.(0[1-9]{1}|1[0-2]{1}))|((30)\.(01|0[3-9]{1}|1[0-2]{1}))|((31)\.(01|03|05|07|08|10|12)))\.(18[0-9]{2}|19[0-9]{2}|20[0-9]{2})</pattern>
+	</valueType>
+	<valueType name="ИдПлатежаТип" base="xs:string" variety="Atomic" maxLength="64"/>
+	<valueType name="НомерСчетаТип" base="xs:string" variety="Atomic" length="20">
+		<pattern>[0-9]{20}</pattern>
+	</valueType>
+	<valueType name="ПеречислениеТипНоль" base="xs:string" variety="Atomic">
+		<enumeration>0</enumeration>
+	</valueType>
+	<valueType name="СуммаТип" base="xs:decimal" variety="Atomic" totalDigits="18" fractionDigits="2"/>
+	<objectType name="ClientBankExchange">
+		<property xmlns:d3p1="urn:1C.ru:ClientBankExchange" name="ВерсияФормата" type="d3p1:ВерсияСхемы"/>
+		<property name="Отправитель">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="160"/>
+		</property>
+		<property name="Получатель">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="160"/>
+		</property>
+		<property name="ДатаСоздания" type="xs:date" lowerBound="0"/>
+		<property name="ВремяСоздания" type="xs:time" lowerBound="0"/>
+		<property xmlns:d3p1="urn:1C.ru:ClientBankExchange" name="УсловияОтбора" type="d3p1:УсловияОтбора" lowerBound="0"/>
+		<property xmlns:d3p1="urn:1C.ru:ClientBankExchange" name="СекцияРасчСчет" type="d3p1:СекцияРасчСчет" lowerBound="0"/>
+		<property xmlns:d3p1="urn:1C.ru:ClientBankExchange" name="СекцияПлатежногоДокумента" type="d3p1:ПлатежныйДокумент" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ДополнительныеРеквизиты">
+		<property name="СрокАкцепта" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:decimal" variety="Atomic" totalDigits="3"/>
+		</property>
+		<property name="ВидАккредитива" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+		</property>
+		<property name="СрокПлатежа" type="xs:date" lowerBound="0"/>
+		<property name="УсловиеОплаты" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="260"/>
+		</property>
+		<property name="ПлатежПоПредст" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="170"/>
+		</property>
+		<property name="ДополнУсловия" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="170"/>
+		</property>
+		<property xmlns:d3p1="urn:1C.ru:ClientBankExchange" name="НомерСчетаПоставщика" type="d3p1:НомерСчетаТип" lowerBound="0"/>
+		<property name="ДатаОтсылкиДок" type="xs:date" lowerBound="0"/>
+	</objectType>
+	<objectType name="Квитанция">
+		<property name="КвитанцияДата" type="xs:date" lowerBound="0"/>
+		<property name="КвитанцияВремя" type="xs:time" lowerBound="0"/>
+		<property name="КвитанцияСодержание" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="3000"/>
+		</property>
+	</objectType>
+	<objectType name="ПлатежиВБюджет">
+		<property name="СтатусСоставителя">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="2"/>
+		</property>
+		<property name="ПоказательКБК">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="20"/>
+		</property>
+		<property name="ОКАТО">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="11"/>
+		</property>
+		<property name="ПоказательОснования">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="2"/>
+		</property>
+		<property name="ПоказательПериода">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="10"/>
+		</property>
+		<property name="ПоказательНомера">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="15"/>
+		</property>
+		<property name="ПоказательДаты">
+			<typeDef xmlns:d4p1="urn:1C.ru:ClientBankExchange" xsi:type="ValueType" variety="Union" memberTypes="d4p1:ДатаТипФНС d4p1:ПеречислениеТипНоль"/>
+		</property>
+		<property name="ПоказательТипа">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="2"/>
+		</property>
+	</objectType>
+	<objectType name="ПлатежныйДокумент">
+		<property name="ИдДокумента" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic">
+				<pattern>[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}</pattern>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="urn:1C.ru:ClientBankExchange" name="СекцияДокумент" type="d3p1:ВидДокумента"/>
+		<property name="Номер">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="6"/>
+		</property>
+		<property name="Дата" type="xs:date"/>
+		<property xmlns:d3p1="urn:1C.ru:ClientBankExchange" name="Сумма" type="d3p1:СуммаТип"/>
+		<property xmlns:d3p1="urn:1C.ru:ClientBankExchange" name="Квитанция" type="d3p1:Квитанция" lowerBound="0"/>
+		<property xmlns:d3p1="urn:1C.ru:ClientBankExchange" name="РеквизитыПлательщика" type="d3p1:РеквизитыПлательщика"/>
+		<property xmlns:d3p1="urn:1C.ru:ClientBankExchange" name="РеквизитыПолучателя" type="d3p1:РеквизитыПолучателя"/>
+		<property xmlns:d3p1="urn:1C.ru:ClientBankExchange" name="РеквизитыПлатежа" type="d3p1:РеквизитыПлатежа" lowerBound="0"/>
+		<property xmlns:d3p1="urn:1C.ru:ClientBankExchange" name="ПлатежиВБюджет" type="d3p1:ПлатежиВБюджет" lowerBound="0"/>
+		<property xmlns:d3p1="urn:1C.ru:ClientBankExchange" name="ДополнительныеРеквизиты" type="d3p1:ДополнительныеРеквизиты" lowerBound="0"/>
+	</objectType>
+	<objectType name="РасчСчетаПередачиОстатков">
+		<property xmlns:d3p1="urn:1C.ru:ClientBankExchange" name="РасчСчет" type="d3p1:НомерСчетаТип"/>
+		<property xmlns:d3p1="urn:1C.ru:ClientBankExchange" name="НачальныйОстаток" type="d3p1:СуммаТип"/>
+		<property xmlns:d3p1="urn:1C.ru:ClientBankExchange" name="ВсегоПоступило" type="d3p1:СуммаТип" lowerBound="0"/>
+		<property xmlns:d3p1="urn:1C.ru:ClientBankExchange" name="ВсегоСписано" type="d3p1:СуммаТип" lowerBound="0"/>
+		<property xmlns:d3p1="urn:1C.ru:ClientBankExchange" name="КонечныйОстаток" type="d3p1:СуммаТип" lowerBound="0"/>
+	</objectType>
+	<objectType name="РеквизитыПлатежа">
+		<property name="ВидПлатежа" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="15"/>
+		</property>
+		<property name="ВидОплаты" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="2"/>
+		</property>
+		<property name="Очередность" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1"/>
+		</property>
+		<property name="Код" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="25"/>
+		</property>
+		<property name="НазначениеПлатежа" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="210"/>
+		</property>
+		<property name="НазначениеПлатежа1" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="35"/>
+		</property>
+		<property name="НазначениеПлатежа2" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="35"/>
+		</property>
+		<property name="НазначениеПлатежа3" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="35"/>
+		</property>
+		<property name="НазначениеПлатежа4" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="35"/>
+		</property>
+		<property name="НазначениеПлатежа5" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="35"/>
+		</property>
+		<property name="НазначениеПлатежа6" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="35"/>
+		</property>
+	</objectType>
+	<objectType name="РеквизитыПлательщика">
+		<property xmlns:d3p1="urn:1C.ru:ClientBankExchange" name="ПлательщикСчет" type="d3p1:НомерСчетаТип"/>
+		<property name="ДатаСписано" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property xmlns:d5p1="urn:1C.ru:ClientBankExchange" name="ИдПлатежа" type="d5p1:ИдПлатежаТип" lowerBound="0" form="Attribute"/>
+				<property name="__content" type="xs:date" form="Text"/>
+			</typeDef>
+		</property>
+		<property name="Плательщик" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="160"/>
+		</property>
+		<property name="ПлательщикИНН" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="12"/>
+		</property>
+		<property name="ПлательщикКПП" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="9"/>
+		</property>
+		<property name="Плательщик1" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="160"/>
+		</property>
+		<property xmlns:d3p1="urn:1C.ru:ClientBankExchange" name="Плательщик2" type="d3p1:НомерСчетаТип" lowerBound="0"/>
+		<property name="Плательщик3" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="160"/>
+		</property>
+		<property name="Плательщик4" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="30"/>
+		</property>
+		<property xmlns:d3p1="urn:1C.ru:ClientBankExchange" name="ПлательщикРасчСчет" type="d3p1:НомерСчетаТип" lowerBound="0"/>
+		<property name="ПлательщикБанк1" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="160"/>
+		</property>
+		<property name="ПлательщикБанк2" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="30"/>
+		</property>
+		<property name="ПлательщикБИК" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="9">
+				<pattern>[0-9]{9}</pattern>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="urn:1C.ru:ClientBankExchange" name="ПлательщикКорсчет" type="d3p1:НомерСчетаТип" lowerBound="0"/>
+	</objectType>
+	<objectType name="РеквизитыПолучателя">
+		<property xmlns:d3p1="urn:1C.ru:ClientBankExchange" name="ПолучательСчет" type="d3p1:НомерСчетаТип"/>
+		<property name="ДатаПоступило" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property xmlns:d5p1="urn:1C.ru:ClientBankExchange" name="ИдПлатежа" type="d5p1:ИдПлатежаТип" lowerBound="0" form="Attribute"/>
+				<property name="__content" type="xs:date" form="Text"/>
+			</typeDef>
+		</property>
+		<property name="Получатель" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="160"/>
+		</property>
+		<property name="ПолучательИНН" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="12"/>
+		</property>
+		<property name="ПолучательКПП" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="9"/>
+		</property>
+		<property name="Получатель1" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="160"/>
+		</property>
+		<property xmlns:d3p1="urn:1C.ru:ClientBankExchange" name="Получатель2" type="d3p1:НомерСчетаТип" lowerBound="0"/>
+		<property name="Получатель3" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="160"/>
+		</property>
+		<property name="Получатель4" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="30"/>
+		</property>
+		<property xmlns:d3p1="urn:1C.ru:ClientBankExchange" name="ПолучательРасчСчет" type="d3p1:НомерСчетаТип" lowerBound="0"/>
+		<property name="ПолучательБанк1" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" maxLength="160"/>
+		</property>
+		<property name="ПолучательБанк2" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="30"/>
+		</property>
+		<property name="ПолучательБИК" lowerBound="0">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="9">
+				<pattern>[0-9]{9}</pattern>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="urn:1C.ru:ClientBankExchange" name="ПолучательКорсчет" type="d3p1:НомерСчетаТип" lowerBound="0"/>
+	</objectType>
+	<objectType name="СекцияРасчСчет">
+		<property name="ДатаНачала" type="xs:date" lowerBound="0"/>
+		<property name="ДатаКонца" type="xs:date" lowerBound="0"/>
+		<property xmlns:d3p1="urn:1C.ru:ClientBankExchange" name="РасчСчета" type="d3p1:РасчСчетаПередачиОстатков" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="УсловияОтбора">
+		<property name="ДатаНачала" type="xs:date"/>
+		<property name="ДатаКонца" type="xs:date"/>
+		<property xmlns:d3p1="urn:1C.ru:ClientBankExchange" name="РасчСчет" type="d3p1:НомерСчетаТип" upperBound="-1"/>
+		<property xmlns:d3p1="urn:1C.ru:ClientBankExchange" name="Документ" type="d3p1:ВидДокумента" lowerBound="0" upperBound="-1"/>
+	</objectType>
+</package>
